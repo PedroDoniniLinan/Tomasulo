@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "tag_1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "tag_1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "tag_2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "tag_2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "tag_write",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "write_tag_data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "write_tag_data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "read_tag_2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "write_tag[0]",
+					"strict" : false
+				},
+				{
+					"name" : "write_tag[1]",
+					"strict" : false
+				},
+				{
+					"name" : "write_tag[2]",
+					"strict" : false
+				},
+				{
+					"name" : "write_tag[3]",
+					"strict" : false
+				},
+				{
+					"name" : "write_tag[4]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
