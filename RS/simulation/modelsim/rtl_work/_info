@@ -1,0 +1,90 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/simulation/modelsim
+Ers
+Z1 w1570151185
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/rs.vhd
+Z6 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/rs.vhd
+l0
+L5
+VBRgQMB;C9EdaDWeeIlBUe0
+!s100 co<VFaVQnj>7CJSZITMkk3
+Z7 OV;C;10.5b;63
+31
+Z8 !s110 1570153220
+!i10b 1
+Z9 !s108 1570153220.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/rs.vhd|
+Z11 !s107 D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/rs.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Ars
+R2
+R3
+R4
+DEx4 work 2 rs 0 22 BRgQMB;C9EdaDWeeIlBUe0
+l47
+L40
+V?3I?k3?i=^PbfY8@D3=GE3
+!s100 YV9fc6gh<HmVYD8C=cb921
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ers_tb
+Z14 w1570153176
+R3
+R4
+R0
+Z15 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/rs_tb.vhd
+Z16 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/rs_tb.vhd
+l0
+L4
+V[j0RME?EV`<2ANz;G@nSh0
+!s100 GhK[_jiLoK3cPzcC>ILz=2
+R7
+31
+Z17 !s110 1570153221
+!i10b 1
+R9
+Z18 !s90 -reportprogress|300|-93|-work|work|D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/rs_tb.vhd|
+Z19 !s107 D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/RS/rs_tb.vhd|
+!i113 1
+R12
+R13
+Atb
+R3
+R4
+DEx4 work 5 rs_tb 0 22 [j0RME?EV`<2ANz;G@nSh0
+l70
+L13
+VGa8HH2kg2lPhMjoPG`C4D1
+!s100 :?R^kI?5i<WAEJh4Qom3R1
+R7
+31
+R17
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R12
+R13

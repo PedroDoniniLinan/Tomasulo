@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all; -- necessario para converter em integer
+
+entity rs is
+	generic(
+		wordSize: natural :=4,
+		nbOfLines: natural := 1,
+	);
+	port(
+		clock:    in 	std_logic; --! entrada de clock
+		reset:	 in 	std_logic; --! clear assíncrono
+		rs_write:     in 	std_logic; 
+		d:   		 in	std_logic_vector(wordSize-1 downto 0); 
+		q:  		 out	std_logic_vector(wordSize-1 downto 0) 
+	);
+end rs;
+
+architecture rs of rs is 
+
+end rs;

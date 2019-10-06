@@ -1,0 +1,66 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity rs_tb is
+	generic(wordSize: natural :=4);
+end rs_tb;
+
+architecture tb of rs_tb is
+
+	component rs
+	port(
+		clock:    		in 	std_logic; --! entrada de clock
+		reset:	 		in 	std_logic; --! clear assíncrono
+		ctrl:      		in 	std_logic_vector(3 downto 0); 
+		alu_op_i:   	in		std_logic_vector(3 downto 0); 
+		v_j_i:  		 	in		std_logic_vector(wordSize-1 downto 0);
+		v_k_i:  		 	in		std_logic_vector(wordSize-1 downto 0);
+		q_j_i:  		 	in		std_logic_vector(1 downto 0);
+		q_k_i:  		 	in		std_logic_vector(1 downto 0);
+		alu_op_o:   	out	std_logic_vector(3 downto 0); 
+		v_j_o:  		 	out	std_logic_vector(wordSize-1 downto 0);
+		v_k_o:  		 	out	std_logic_vector(wordSize-1 downto 0)
+	);
+	end component;
+
+	signal clock:    	std_logic := '0'; --! entrada de clock
+	signal reset:	 	std_logic := '0'; --! clear assíncrono
+	signal ctrl:      std_logic_vector(3 downto 0) := (others => '0'); 
+	signal alu_op_i:  std_logic_vector(3 downto 0) := (others => '0'); 
+	signal v_j_i:  	std_logic_vector(wordSize-1 downto 0) := (others => '0');
+	signal v_k_i:     std_logic_vector(wordSize-1 downto 0) := (others => '0');
+	signal q_j_i:  	std_logic_vector(1 downto 0) := (others => '0');
+	signal q_k_i:  	std_logic_vector(1 downto 0) := (others => '0');
+	
+	signal alu_op_o:	std_logic_vector(3 downto 0); := (others => '0');
+	signal v_j_o:  	std_logic_vector(wordSize-1 downto 0) := (others => '0');
+	signal v_k_o:  	std_logic_vector(wordSize-1 downto 0) := (others => '0');
+	
+	constant clk_per : time := 1us;
+	
+begin
+	
+	u1: rs port map(
+		clock=>clock ,
+		reset=>reset ,
+		ctrl=>ctrl ,
+		alu_op_i=>alu_op_i ,
+		v_j_i=>v_j_i ,
+		v_k_i=>v_k_i ,
+		q_j_i=>q_j_i ,
+		q_k_i=>q_k_i,
+		alu_op_o=>alu_op_o ,
+		v_j_o=>v_j_o ,
+		v_k_o=>v_k_o 
+	);
+	
+	rs_process: process
+	begin
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;
+	end process;
+	
+	
+end tb;
