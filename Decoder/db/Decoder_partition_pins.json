@@ -1,0 +1,285 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "busy",
+					"strict" : false
+				},
+				{
+					"name" : "rjMapFile[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rjMapFile[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rjMapFile[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rjMapFile[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rjMapFile[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rkMapFile[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rkMapFile[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rkMapFile[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rkMapFile[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rkMapFile[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rjRegFile[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rjRegFile[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rjRegFile[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rjRegFile[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rjRegFile[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rkRegFile[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rkRegFile[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rkRegFile[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rkRegFile[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rkRegFile[4]",
+					"strict" : false
+				},
+				{
+					"name" : "opCode[0]",
+					"strict" : false
+				},
+				{
+					"name" : "opCode[1]",
+					"strict" : false
+				},
+				{
+					"name" : "writeLine[0]",
+					"strict" : false
+				},
+				{
+					"name" : "writeLine[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RSLineOneHot[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RSLineOneHot[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RSLineOneHot[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RSLineOneHot[3]",
+					"strict" : false
+				},
+				{
+					"name" : "writeRS",
+					"strict" : false
+				},
+				{
+					"name" : "writeAddr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "writeAddr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "writeAddr[2]",
+					"strict" : false
+				},
+				{
+					"name" : "writeAddr[3]",
+					"strict" : false
+				},
+				{
+					"name" : "writeAddr[4]",
+					"strict" : false
+				},
+				{
+					"name" : "writeData[0]",
+					"strict" : false
+				},
+				{
+					"name" : "writeData[1]",
+					"strict" : false
+				},
+				{
+					"name" : "busyRs[0]",
+					"strict" : false
+				},
+				{
+					"name" : "busyRs[3]",
+					"strict" : false
+				},
+				{
+					"name" : "busyRs[1]",
+					"strict" : false
+				},
+				{
+					"name" : "busyRs[2]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "load",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[5]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[26]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[21]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[22]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[23]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[24]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[25]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[27]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[28]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[29]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[30]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[31]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[6]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[7]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[8]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[9]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[16]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[17]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[18]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[19]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[20]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[0]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[2]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[3]",
+					"strict" : false
+				},
+				{
+					"name" : "instruction[4]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

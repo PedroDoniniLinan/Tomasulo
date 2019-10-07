@@ -1,0 +1,848 @@
+$comment
+	File created using the following command:
+		vcd file Decoder.msim.vcd -direction
+$end
+$date
+	Mon Oct 07 11:31:31 2019
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module decoder_vhd_vec_tst $end
+$var wire 1 ! busy $end
+$var wire 1 " busyRs [3] $end
+$var wire 1 # busyRs [2] $end
+$var wire 1 $ busyRs [1] $end
+$var wire 1 % busyRs [0] $end
+$var wire 1 & clock $end
+$var wire 1 ' fuCode [1] $end
+$var wire 1 ( fuCode [0] $end
+$var wire 1 ) fuCodeOneHot [3] $end
+$var wire 1 * fuCodeOneHot [2] $end
+$var wire 1 + fuCodeOneHot [1] $end
+$var wire 1 , fuCodeOneHot [0] $end
+$var wire 1 - instruction [31] $end
+$var wire 1 . instruction [30] $end
+$var wire 1 / instruction [29] $end
+$var wire 1 0 instruction [28] $end
+$var wire 1 1 instruction [27] $end
+$var wire 1 2 instruction [26] $end
+$var wire 1 3 instruction [25] $end
+$var wire 1 4 instruction [24] $end
+$var wire 1 5 instruction [23] $end
+$var wire 1 6 instruction [22] $end
+$var wire 1 7 instruction [21] $end
+$var wire 1 8 instruction [20] $end
+$var wire 1 9 instruction [19] $end
+$var wire 1 : instruction [18] $end
+$var wire 1 ; instruction [17] $end
+$var wire 1 < instruction [16] $end
+$var wire 1 = instruction [15] $end
+$var wire 1 > instruction [14] $end
+$var wire 1 ? instruction [13] $end
+$var wire 1 @ instruction [12] $end
+$var wire 1 A instruction [11] $end
+$var wire 1 B instruction [10] $end
+$var wire 1 C instruction [9] $end
+$var wire 1 D instruction [8] $end
+$var wire 1 E instruction [7] $end
+$var wire 1 F instruction [6] $end
+$var wire 1 G instruction [5] $end
+$var wire 1 H instruction [4] $end
+$var wire 1 I instruction [3] $end
+$var wire 1 J instruction [2] $end
+$var wire 1 K instruction [1] $end
+$var wire 1 L instruction [0] $end
+$var wire 1 M load $end
+$var wire 1 N opCode [1] $end
+$var wire 1 O opCode [0] $end
+$var wire 1 P rjMapFile [4] $end
+$var wire 1 Q rjMapFile [3] $end
+$var wire 1 R rjMapFile [2] $end
+$var wire 1 S rjMapFile [1] $end
+$var wire 1 T rjMapFile [0] $end
+$var wire 1 U rjRegFile [4] $end
+$var wire 1 V rjRegFile [3] $end
+$var wire 1 W rjRegFile [2] $end
+$var wire 1 X rjRegFile [1] $end
+$var wire 1 Y rjRegFile [0] $end
+$var wire 1 Z rkMapFile [4] $end
+$var wire 1 [ rkMapFile [3] $end
+$var wire 1 \ rkMapFile [2] $end
+$var wire 1 ] rkMapFile [1] $end
+$var wire 1 ^ rkMapFile [0] $end
+$var wire 1 _ rkRegFile [4] $end
+$var wire 1 ` rkRegFile [3] $end
+$var wire 1 a rkRegFile [2] $end
+$var wire 1 b rkRegFile [1] $end
+$var wire 1 c rkRegFile [0] $end
+$var wire 1 d RSLineOneHot [3] $end
+$var wire 1 e RSLineOneHot [2] $end
+$var wire 1 f RSLineOneHot [1] $end
+$var wire 1 g RSLineOneHot [0] $end
+$var wire 1 h writeAddr [4] $end
+$var wire 1 i writeAddr [3] $end
+$var wire 1 j writeAddr [2] $end
+$var wire 1 k writeAddr [1] $end
+$var wire 1 l writeAddr [0] $end
+$var wire 1 m writeData [3] $end
+$var wire 1 n writeData [2] $end
+$var wire 1 o writeData [1] $end
+$var wire 1 p writeData [0] $end
+$var wire 1 q writeLine [1] $end
+$var wire 1 r writeLine [0] $end
+$var wire 1 s writeRS $end
+
+$scope module i1 $end
+$var wire 1 t gnd $end
+$var wire 1 u vcc $end
+$var wire 1 v unknown $end
+$var wire 1 w devoe $end
+$var wire 1 x devclrn $end
+$var wire 1 y devpor $end
+$var wire 1 z ww_devoe $end
+$var wire 1 { ww_devclrn $end
+$var wire 1 | ww_devpor $end
+$var wire 1 } ww_clock $end
+$var wire 1 ~ ww_load $end
+$var wire 1 !! ww_instruction [31] $end
+$var wire 1 "! ww_instruction [30] $end
+$var wire 1 #! ww_instruction [29] $end
+$var wire 1 $! ww_instruction [28] $end
+$var wire 1 %! ww_instruction [27] $end
+$var wire 1 &! ww_instruction [26] $end
+$var wire 1 '! ww_instruction [25] $end
+$var wire 1 (! ww_instruction [24] $end
+$var wire 1 )! ww_instruction [23] $end
+$var wire 1 *! ww_instruction [22] $end
+$var wire 1 +! ww_instruction [21] $end
+$var wire 1 ,! ww_instruction [20] $end
+$var wire 1 -! ww_instruction [19] $end
+$var wire 1 .! ww_instruction [18] $end
+$var wire 1 /! ww_instruction [17] $end
+$var wire 1 0! ww_instruction [16] $end
+$var wire 1 1! ww_instruction [15] $end
+$var wire 1 2! ww_instruction [14] $end
+$var wire 1 3! ww_instruction [13] $end
+$var wire 1 4! ww_instruction [12] $end
+$var wire 1 5! ww_instruction [11] $end
+$var wire 1 6! ww_instruction [10] $end
+$var wire 1 7! ww_instruction [9] $end
+$var wire 1 8! ww_instruction [8] $end
+$var wire 1 9! ww_instruction [7] $end
+$var wire 1 :! ww_instruction [6] $end
+$var wire 1 ;! ww_instruction [5] $end
+$var wire 1 <! ww_instruction [4] $end
+$var wire 1 =! ww_instruction [3] $end
+$var wire 1 >! ww_instruction [2] $end
+$var wire 1 ?! ww_instruction [1] $end
+$var wire 1 @! ww_instruction [0] $end
+$var wire 1 A! ww_busyRs [3] $end
+$var wire 1 B! ww_busyRs [2] $end
+$var wire 1 C! ww_busyRs [1] $end
+$var wire 1 D! ww_busyRs [0] $end
+$var wire 1 E! ww_busy $end
+$var wire 1 F! ww_rjMapFile [4] $end
+$var wire 1 G! ww_rjMapFile [3] $end
+$var wire 1 H! ww_rjMapFile [2] $end
+$var wire 1 I! ww_rjMapFile [1] $end
+$var wire 1 J! ww_rjMapFile [0] $end
+$var wire 1 K! ww_rkMapFile [4] $end
+$var wire 1 L! ww_rkMapFile [3] $end
+$var wire 1 M! ww_rkMapFile [2] $end
+$var wire 1 N! ww_rkMapFile [1] $end
+$var wire 1 O! ww_rkMapFile [0] $end
+$var wire 1 P! ww_rjRegFile [4] $end
+$var wire 1 Q! ww_rjRegFile [3] $end
+$var wire 1 R! ww_rjRegFile [2] $end
+$var wire 1 S! ww_rjRegFile [1] $end
+$var wire 1 T! ww_rjRegFile [0] $end
+$var wire 1 U! ww_rkRegFile [4] $end
+$var wire 1 V! ww_rkRegFile [3] $end
+$var wire 1 W! ww_rkRegFile [2] $end
+$var wire 1 X! ww_rkRegFile [1] $end
+$var wire 1 Y! ww_rkRegFile [0] $end
+$var wire 1 Z! ww_opCode [1] $end
+$var wire 1 [! ww_opCode [0] $end
+$var wire 1 \! ww_fuCode [1] $end
+$var wire 1 ]! ww_fuCode [0] $end
+$var wire 1 ^! ww_fuCodeOneHot [3] $end
+$var wire 1 _! ww_fuCodeOneHot [2] $end
+$var wire 1 `! ww_fuCodeOneHot [1] $end
+$var wire 1 a! ww_fuCodeOneHot [0] $end
+$var wire 1 b! ww_writeLine [1] $end
+$var wire 1 c! ww_writeLine [0] $end
+$var wire 1 d! ww_RSLineOneHot [3] $end
+$var wire 1 e! ww_RSLineOneHot [2] $end
+$var wire 1 f! ww_RSLineOneHot [1] $end
+$var wire 1 g! ww_RSLineOneHot [0] $end
+$var wire 1 h! ww_writeRS $end
+$var wire 1 i! ww_writeAddr [4] $end
+$var wire 1 j! ww_writeAddr [3] $end
+$var wire 1 k! ww_writeAddr [2] $end
+$var wire 1 l! ww_writeAddr [1] $end
+$var wire 1 m! ww_writeAddr [0] $end
+$var wire 1 n! ww_writeData [3] $end
+$var wire 1 o! ww_writeData [2] $end
+$var wire 1 p! ww_writeData [1] $end
+$var wire 1 q! ww_writeData [0] $end
+$var wire 1 r! \instruction[10]~input_o\ $end
+$var wire 1 s! \instruction[11]~input_o\ $end
+$var wire 1 t! \instruction[12]~input_o\ $end
+$var wire 1 u! \instruction[13]~input_o\ $end
+$var wire 1 v! \instruction[14]~input_o\ $end
+$var wire 1 w! \instruction[15]~input_o\ $end
+$var wire 1 x! \busy~output_o\ $end
+$var wire 1 y! \rjMapFile[0]~output_o\ $end
+$var wire 1 z! \rjMapFile[1]~output_o\ $end
+$var wire 1 {! \rjMapFile[2]~output_o\ $end
+$var wire 1 |! \rjMapFile[3]~output_o\ $end
+$var wire 1 }! \rjMapFile[4]~output_o\ $end
+$var wire 1 ~! \rkMapFile[0]~output_o\ $end
+$var wire 1 !" \rkMapFile[1]~output_o\ $end
+$var wire 1 "" \rkMapFile[2]~output_o\ $end
+$var wire 1 #" \rkMapFile[3]~output_o\ $end
+$var wire 1 $" \rkMapFile[4]~output_o\ $end
+$var wire 1 %" \rjRegFile[0]~output_o\ $end
+$var wire 1 &" \rjRegFile[1]~output_o\ $end
+$var wire 1 '" \rjRegFile[2]~output_o\ $end
+$var wire 1 (" \rjRegFile[3]~output_o\ $end
+$var wire 1 )" \rjRegFile[4]~output_o\ $end
+$var wire 1 *" \rkRegFile[0]~output_o\ $end
+$var wire 1 +" \rkRegFile[1]~output_o\ $end
+$var wire 1 ," \rkRegFile[2]~output_o\ $end
+$var wire 1 -" \rkRegFile[3]~output_o\ $end
+$var wire 1 ." \rkRegFile[4]~output_o\ $end
+$var wire 1 /" \opCode[0]~output_o\ $end
+$var wire 1 0" \opCode[1]~output_o\ $end
+$var wire 1 1" \fuCode[0]~output_o\ $end
+$var wire 1 2" \fuCode[1]~output_o\ $end
+$var wire 1 3" \fuCodeOneHot[0]~output_o\ $end
+$var wire 1 4" \fuCodeOneHot[1]~output_o\ $end
+$var wire 1 5" \fuCodeOneHot[2]~output_o\ $end
+$var wire 1 6" \fuCodeOneHot[3]~output_o\ $end
+$var wire 1 7" \writeLine[0]~output_o\ $end
+$var wire 1 8" \writeLine[1]~output_o\ $end
+$var wire 1 9" \RSLineOneHot[0]~output_o\ $end
+$var wire 1 :" \RSLineOneHot[1]~output_o\ $end
+$var wire 1 ;" \RSLineOneHot[2]~output_o\ $end
+$var wire 1 <" \RSLineOneHot[3]~output_o\ $end
+$var wire 1 =" \writeRS~output_o\ $end
+$var wire 1 >" \writeAddr[0]~output_o\ $end
+$var wire 1 ?" \writeAddr[1]~output_o\ $end
+$var wire 1 @" \writeAddr[2]~output_o\ $end
+$var wire 1 A" \writeAddr[3]~output_o\ $end
+$var wire 1 B" \writeAddr[4]~output_o\ $end
+$var wire 1 C" \writeData[0]~output_o\ $end
+$var wire 1 D" \writeData[1]~output_o\ $end
+$var wire 1 E" \writeData[2]~output_o\ $end
+$var wire 1 F" \writeData[3]~output_o\ $end
+$var wire 1 G" \clock~input_o\ $end
+$var wire 1 H" \busyRs[0]~input_o\ $end
+$var wire 1 I" \busyRs[3]~input_o\ $end
+$var wire 1 J" \busyRs[1]~input_o\ $end
+$var wire 1 K" \busyRs[2]~input_o\ $end
+$var wire 1 L" \WideAnd0~combout\ $end
+$var wire 1 M" \load~input_o\ $end
+$var wire 1 N" \busy~reg0_q\ $end
+$var wire 1 O" \instruction[5]~input_o\ $end
+$var wire 1 P" \instruction[26]~input_o\ $end
+$var wire 1 Q" \instruction[21]~input_o\ $end
+$var wire 1 R" \instruction[22]~input_o\ $end
+$var wire 1 S" \instruction[23]~input_o\ $end
+$var wire 1 T" \instruction[24]~input_o\ $end
+$var wire 1 U" \instruction[25]~input_o\ $end
+$var wire 1 V" \Equal0~0_combout\ $end
+$var wire 1 W" \instruction[27]~input_o\ $end
+$var wire 1 X" \instruction[28]~input_o\ $end
+$var wire 1 Y" \instruction[29]~input_o\ $end
+$var wire 1 Z" \instruction[30]~input_o\ $end
+$var wire 1 [" \instruction[31]~input_o\ $end
+$var wire 1 \" \Equal0~1_combout\ $end
+$var wire 1 ]" \rj~0_combout\ $end
+$var wire 1 ^" \rjMapFile[0]~reg0_q\ $end
+$var wire 1 _" \instruction[6]~input_o\ $end
+$var wire 1 `" \rj~1_combout\ $end
+$var wire 1 a" \rjMapFile[1]~reg0_q\ $end
+$var wire 1 b" \instruction[7]~input_o\ $end
+$var wire 1 c" \rj~2_combout\ $end
+$var wire 1 d" \rjMapFile[2]~reg0_q\ $end
+$var wire 1 e" \instruction[8]~input_o\ $end
+$var wire 1 f" \rj~3_combout\ $end
+$var wire 1 g" \rjMapFile[3]~reg0_q\ $end
+$var wire 1 h" \instruction[9]~input_o\ $end
+$var wire 1 i" \rj~4_combout\ $end
+$var wire 1 j" \rjMapFile[4]~reg0_q\ $end
+$var wire 1 k" \instruction[16]~input_o\ $end
+$var wire 1 l" \rk~0_combout\ $end
+$var wire 1 m" \rkMapFile[0]~reg0_q\ $end
+$var wire 1 n" \instruction[17]~input_o\ $end
+$var wire 1 o" \rk~1_combout\ $end
+$var wire 1 p" \rkMapFile[1]~reg0_q\ $end
+$var wire 1 q" \instruction[18]~input_o\ $end
+$var wire 1 r" \rk~2_combout\ $end
+$var wire 1 s" \rkMapFile[2]~reg0_q\ $end
+$var wire 1 t" \instruction[19]~input_o\ $end
+$var wire 1 u" \rk~3_combout\ $end
+$var wire 1 v" \rkMapFile[3]~reg0_q\ $end
+$var wire 1 w" \instruction[20]~input_o\ $end
+$var wire 1 x" \rk~4_combout\ $end
+$var wire 1 y" \rkMapFile[4]~reg0_q\ $end
+$var wire 1 z" \rjRegFile[0]~reg0_q\ $end
+$var wire 1 {" \rjRegFile[1]~reg0_q\ $end
+$var wire 1 |" \rjRegFile[2]~reg0_q\ $end
+$var wire 1 }" \rjRegFile[3]~reg0_q\ $end
+$var wire 1 ~" \rjRegFile[4]~reg0_q\ $end
+$var wire 1 !# \rkRegFile[0]~reg0_q\ $end
+$var wire 1 "# \rkRegFile[1]~reg0_q\ $end
+$var wire 1 ## \rkRegFile[2]~reg0_q\ $end
+$var wire 1 $# \rkRegFile[3]~reg0_q\ $end
+$var wire 1 %# \rkRegFile[4]~reg0_q\ $end
+$var wire 1 &# \Equal0~2_combout\ $end
+$var wire 1 '# \opCode[0]~reg0_q\ $end
+$var wire 1 (# \opCode[1]~reg0_q\ $end
+$var wire 1 )# \writeLine~0_combout\ $end
+$var wire 1 *# \writeLine[0]~reg0_q\ $end
+$var wire 1 +# \writeLine~1_combout\ $end
+$var wire 1 ,# \writeLine[1]~reg0_q\ $end
+$var wire 1 -# \lineId~1_combout\ $end
+$var wire 1 .# \lineId~0_combout\ $end
+$var wire 1 /# \Decoder0~0_combout\ $end
+$var wire 1 0# \RSLineOneHot[0]~reg0_q\ $end
+$var wire 1 1# \Decoder0~1_combout\ $end
+$var wire 1 2# \RSLineOneHot[1]~reg0_q\ $end
+$var wire 1 3# \Decoder0~2_combout\ $end
+$var wire 1 4# \RSLineOneHot[2]~reg0_q\ $end
+$var wire 1 5# \Decoder0~3_combout\ $end
+$var wire 1 6# \RSLineOneHot[3]~reg0_q\ $end
+$var wire 1 7# \writeRS~0_combout\ $end
+$var wire 1 8# \writeRS~reg0_q\ $end
+$var wire 1 9# \instruction[0]~input_o\ $end
+$var wire 1 :# \writeAddr~0_combout\ $end
+$var wire 1 ;# \writeAddr[0]~reg0_q\ $end
+$var wire 1 <# \instruction[1]~input_o\ $end
+$var wire 1 =# \writeAddr~1_combout\ $end
+$var wire 1 ># \writeAddr[1]~reg0_q\ $end
+$var wire 1 ?# \instruction[2]~input_o\ $end
+$var wire 1 @# \writeAddr~2_combout\ $end
+$var wire 1 A# \writeAddr[2]~reg0_q\ $end
+$var wire 1 B# \instruction[3]~input_o\ $end
+$var wire 1 C# \writeAddr~3_combout\ $end
+$var wire 1 D# \writeAddr[3]~reg0_q\ $end
+$var wire 1 E# \instruction[4]~input_o\ $end
+$var wire 1 F# \writeAddr~4_combout\ $end
+$var wire 1 G# \writeAddr[4]~reg0_q\ $end
+$var wire 1 H# \writeData[0]~reg0_q\ $end
+$var wire 1 I# \writeData[1]~reg0_q\ $end
+$var wire 1 J# lineId [1] $end
+$var wire 1 K# lineId [0] $end
+$var wire 1 L# ALT_INV_lineId [1] $end
+$var wire 1 M# ALT_INV_lineId [0] $end
+$var wire 1 N# \ALT_INV_Equal0~1_combout\ $end
+$var wire 1 O# \ALT_INV_Equal0~0_combout\ $end
+$var wire 1 P# \ALT_INV_WideAnd0~combout\ $end
+$var wire 1 Q# \ALT_INV_instruction[4]~input_o\ $end
+$var wire 1 R# \ALT_INV_instruction[3]~input_o\ $end
+$var wire 1 S# \ALT_INV_instruction[2]~input_o\ $end
+$var wire 1 T# \ALT_INV_instruction[1]~input_o\ $end
+$var wire 1 U# \ALT_INV_instruction[0]~input_o\ $end
+$var wire 1 V# \ALT_INV_instruction[20]~input_o\ $end
+$var wire 1 W# \ALT_INV_instruction[19]~input_o\ $end
+$var wire 1 X# \ALT_INV_instruction[18]~input_o\ $end
+$var wire 1 Y# \ALT_INV_instruction[17]~input_o\ $end
+$var wire 1 Z# \ALT_INV_instruction[16]~input_o\ $end
+$var wire 1 [# \ALT_INV_instruction[9]~input_o\ $end
+$var wire 1 \# \ALT_INV_instruction[8]~input_o\ $end
+$var wire 1 ]# \ALT_INV_instruction[7]~input_o\ $end
+$var wire 1 ^# \ALT_INV_instruction[6]~input_o\ $end
+$var wire 1 _# \ALT_INV_instruction[31]~input_o\ $end
+$var wire 1 `# \ALT_INV_instruction[30]~input_o\ $end
+$var wire 1 a# \ALT_INV_instruction[29]~input_o\ $end
+$var wire 1 b# \ALT_INV_instruction[28]~input_o\ $end
+$var wire 1 c# \ALT_INV_instruction[27]~input_o\ $end
+$var wire 1 d# \ALT_INV_instruction[25]~input_o\ $end
+$var wire 1 e# \ALT_INV_instruction[24]~input_o\ $end
+$var wire 1 f# \ALT_INV_instruction[23]~input_o\ $end
+$var wire 1 g# \ALT_INV_instruction[22]~input_o\ $end
+$var wire 1 h# \ALT_INV_instruction[21]~input_o\ $end
+$var wire 1 i# \ALT_INV_instruction[26]~input_o\ $end
+$var wire 1 j# \ALT_INV_instruction[5]~input_o\ $end
+$var wire 1 k# \ALT_INV_busyRs[2]~input_o\ $end
+$var wire 1 l# \ALT_INV_busyRs[1]~input_o\ $end
+$var wire 1 m# \ALT_INV_busyRs[3]~input_o\ $end
+$var wire 1 n# \ALT_INV_busyRs[0]~input_o\ $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0&
+1M
+0s
+0t
+1u
+xv
+1w
+1x
+1y
+1z
+1{
+1|
+0}
+1~
+0E!
+0h!
+0r!
+0s!
+0t!
+0u!
+0v!
+0w!
+0x!
+0y!
+0z!
+0{!
+0|!
+0}!
+0~!
+0!"
+0""
+0#"
+0$"
+0%"
+0&"
+0'"
+0("
+0)"
+0*"
+0+"
+0,"
+0-"
+0."
+0/"
+00"
+01"
+02"
+13"
+04"
+05"
+06"
+07"
+08"
+09"
+0:"
+0;"
+0<"
+0="
+0>"
+0?"
+0@"
+0A"
+0B"
+0C"
+0D"
+0E"
+0F"
+0G"
+1H"
+1I"
+1J"
+0K"
+0L"
+1M"
+0N"
+1O"
+0P"
+0Q"
+0R"
+0S"
+1T"
+1U"
+1V"
+1W"
+0X"
+0Y"
+0Z"
+1["
+1\"
+1]"
+0^"
+0_"
+0`"
+0a"
+1b"
+1c"
+0d"
+0e"
+0f"
+0g"
+1h"
+1i"
+0j"
+0k"
+0l"
+0m"
+1n"
+1o"
+0p"
+1q"
+1r"
+0s"
+1t"
+1u"
+0v"
+1w"
+1x"
+0y"
+0z"
+0{"
+0|"
+0}"
+0~"
+0!#
+0"#
+0##
+0$#
+0%#
+0&#
+0'#
+0(#
+1)#
+0*#
+1+#
+0,#
+1-#
+1.#
+0/#
+00#
+01#
+02#
+13#
+04#
+05#
+06#
+17#
+08#
+09#
+0:#
+0;#
+0<#
+0=#
+0>#
+1?#
+1@#
+0A#
+1B#
+1C#
+0D#
+1E#
+1F#
+0G#
+0H#
+0I#
+0N#
+0O#
+1P#
+0Q#
+0R#
+0S#
+1T#
+1U#
+0V#
+0W#
+0X#
+0Y#
+1Z#
+0[#
+1\#
+0]#
+1^#
+0_#
+1`#
+1a#
+1b#
+0c#
+0d#
+0e#
+1f#
+1g#
+1h#
+1i#
+0j#
+1k#
+0l#
+0m#
+0n#
+1"
+0#
+1$
+1%
+1-
+0.
+0/
+00
+11
+02
+13
+14
+05
+06
+07
+18
+19
+1:
+1;
+0<
+0=
+0>
+0?
+0@
+0A
+0B
+1C
+0D
+1E
+0F
+1G
+1H
+1I
+1J
+0K
+0L
+1!!
+0"!
+0#!
+0$!
+1%!
+0&!
+1'!
+1(!
+0)!
+0*!
+0+!
+1,!
+1-!
+1.!
+1/!
+00!
+01!
+02!
+03!
+04!
+05!
+06!
+17!
+08!
+19!
+0:!
+1;!
+1<!
+1=!
+1>!
+0?!
+0@!
+1A!
+0B!
+1C!
+1D!
+0F!
+0G!
+0H!
+0I!
+0J!
+0K!
+0L!
+0M!
+0N!
+0O!
+0P!
+0Q!
+0R!
+0S!
+0T!
+0U!
+0V!
+0W!
+0X!
+0Y!
+0Z!
+0[!
+0\!
+0]!
+0^!
+0_!
+0`!
+1a!
+0b!
+0c!
+0d!
+0e!
+0f!
+0g!
+0i!
+0j!
+0k!
+0l!
+0m!
+0n!
+0o!
+0p!
+0q!
+0J#
+0K#
+1L#
+1M#
+0'
+0(
+0)
+0*
+0+
+1,
+0N
+0O
+0P
+0Q
+0R
+0S
+0T
+0U
+0V
+0W
+0X
+0Y
+0Z
+0[
+0\
+0]
+0^
+0_
+0`
+0a
+0b
+0c
+0d
+0e
+0f
+0g
+0h
+0i
+0j
+0k
+0l
+0m
+0n
+0o
+0p
+0q
+0r
+$end
+#30000
+1&
+1}
+1G"
+1^"
+1d"
+1j"
+1p"
+1s"
+1v"
+1y"
+1z"
+1|"
+1~"
+1"#
+1##
+1$#
+1%#
+1*#
+1,#
+1J#
+1K#
+14#
+18#
+1A#
+1D#
+1G#
+1H#
+1I#
+0M#
+0L#
+1D"
+1C"
+1B"
+1A"
+1@"
+1="
+1;"
+18"
+17"
+1."
+1-"
+1,"
+1+"
+1)"
+1'"
+1%"
+1$"
+1#"
+1""
+1!"
+1}!
+1{!
+1y!
+1p!
+1q!
+1i!
+1j!
+1k!
+1h!
+1e!
+1b!
+1c!
+1U!
+1V!
+1W!
+1X!
+1P!
+1R!
+1T!
+1K!
+1L!
+1M!
+1N!
+1F!
+1H!
+1J!
+1p
+1o
+1j
+1i
+1h
+1s
+1e
+1r
+1q
+1b
+1a
+1`
+1_
+1Y
+1W
+1U
+1]
+1\
+1[
+1Z
+1T
+1R
+1P
+#80000
+0&
+0}
+0G"
+#1000000
