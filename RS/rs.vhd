@@ -4,15 +4,17 @@ use ieee.numeric_std.all; -- necessario para converter em integer
 
 entity rs is
 	generic(
-		wordSize: natural :=4;
-		tagSize:  natural :=3; -- tamanho da tag inteira 
+		wordSize: natural :=32;
+		tagSize:  natural :=4; -- tamanho da tag inteira 
 		FUTagSize:natural :=2; -- numero de linhas da RS
-		nbOfLines:natural :=2  -- tamanho do pedaço da tag que indica a qual FU pertence
+		nbOfLines:natural :=4;  -- tamanho do pedaço da tag que indica a qual FU pertence
+		opBits: natural	:=2
 	);
 	port(
 		clock:    		in 	 std_logic; --! entrada de clock
 		reset:	 		in 	 std_logic; --! clear assíncrono
-		load:      		in 	 std_logic; -- carrega valor em rs livre
+		load:      		in 	 std_logic_vector(nbOfLines-1 downto 0); -- carrega valor em rs
+		loadFU:			in 	 std_logic;	 	
 
 		-- indica numero da FU a qual rs esta ligada
 		-- a ideia é ter isso como entrada na arquitetura estrutural do tomasulo completo
@@ -20,7 +22,7 @@ entity rs is
 		
 		
 		-- conteudo da instrucao a ser armazenada
-		alu_op_i:   	in		 std_logic_vector(3 downto 0); 				-- Operacao da ALU
+		alu_op_i:   	in		 std_logic_vector(opBits-1 downto 0); 				-- Operacao da ALU
 		v_j_i:  		 	in		 std_logic_vector(wordSize-1 downto 0);	-- Valores
 		v_k_i:  		 	in		 std_logic_vector(wordSize-1 downto 0);
 		q_j_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);		-- Tags de operandos sendo esperados
@@ -34,10 +36,10 @@ entity rs is
 		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+4 downto 0);
 		
 		-- sinal de busy de todas linhas da rs 
-		busy:				out	 std_logic;
+		busy:				out	 std_logic_vector(nbOfLines-1 downto 0);
 		
 		-- saidas para a ALU
-		alu_op_o:   	out	 std_logic_vector(3 downto 0); 
+		alu_op_o:   	out	 std_logic_vector(opBits-1 downto 0); 
 		v_j_o:  		 	out	 std_logic_vector(wordSize-1 downto 0);
 		v_k_o:  		 	out	 std_logic_vector(wordSize-1 downto 0);
 		
@@ -56,7 +58,7 @@ constant zeros : std_logic_vector(2*tagSize-1 downto 0) := (others => '0'); -- u
 begin
 
 	process (reset, clock, list_rs) -- caso qualquer entrada sofra alguma alteracao, inicia process
-	variable temp : std_logic;
+	variable temp : std_logic_vector(nbOfLines-1 downto 0);
 	begin
 	
 		-- para testbench
@@ -70,7 +72,7 @@ begin
 				list_rs(i)(2*tagSize-1 downto 0) <= (others => '1');
 			end loop;
 			
-			busy <= '0';
+			busy <= (others => '0');
 			alu_op_o <= (others => '0');
 			v_j_o <= (others => '0');
 			v_k_o <= (others => '0');
@@ -83,15 +85,13 @@ begin
 				list_rs(to_integer(unsigned(cdb(wordSize+tagSize-FUTagSize-1 downto wordSize)))) <= (others => '0');
 			end if;
 			
-			-- carrega instrucao emitida em rs livre
-			if load = '1' then
-				for i in 0 to nbOfLines-1 loop
-					if list_rs(i)(2*wordSize+2*tagSize+4) = '0' then
-						list_rs(i) <= "1" & alu_op_i & v_j_i & v_k_i & q_j_i & q_k_i;
-						exit;
-					end if;
-				end loop;
-			end if;
+			-- carrega instrucao emitida			
+			for i in 0 to nbOfLines-1 loop
+				if load(i) = '1' and loadFU = '1' then
+					list_rs(i) <= "1" & alu_op_i & v_j_i & v_k_i & q_j_i & q_k_i;
+					exit;
+				end if;
+			end loop;
 			
 			-- checa se alguma reservation station esta esperando o valor atual no cdb
 			for i in 0 to nbOfLines-1 loop
@@ -125,9 +125,8 @@ begin
 		
 		-- checa se existe uma linha livre na reservation station
 		-- atualiza sinal de busy da rs
-		temp := '1';
 		for i in 0 to nbOfLines-1 loop
-			temp := temp and list_rs(i)(2*wordSize+2*tagSize+4);
+			temp(i) := list_rs(i)(2*wordSize+2*tagSize+4);
 			
 		end loop;
 		busy <= temp;
