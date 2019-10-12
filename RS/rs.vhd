@@ -5,10 +5,10 @@ use ieee.numeric_std.all; -- necessario para converter em integer
 entity rs is
 	generic(
 		wordSize: natural :=32;
-		tagSize:  natural :=4; -- tamanho da tag inteira 
-		FUTagSize:natural :=2; -- numero de linhas da RS
-		nbOfLines:natural :=4;  -- tamanho do pedaço da tag que indica a qual FU pertence
-		opBits: natural	:=2
+		tagSize:  natural :=3; -- tamanho da tag inteira 
+		FUTagSize:natural :=2; -- tamanho do pedaço da tag que indica a qual FU pertence
+		nbOfLines:natural :=2; -- numero de linhas da RS 
+		opBits: natural	:=4
 	);
 	port(
 		clock:    		in 	 std_logic; --! entrada de clock
@@ -32,8 +32,8 @@ entity rs is
 		cdb:				in		 std_logic_vector(wordSize+tagSize-1 downto 0); 
 		
 		-- buffer para o testbench (retirar depois)
-		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+4 downto 0);
-		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+4 downto 0);
+		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		
 		-- sinal de busy de todas linhas da rs 
 		busy:				out	 std_logic_vector(nbOfLines-1 downto 0);
@@ -50,7 +50,7 @@ end rs;
 
 architecture rs of rs is 
 
-type rs_lines is array (0 to nbOfLines-1) of std_logic_vector(2*wordSize+2*tagSize+4 downto 0);
+type rs_lines is array (0 to nbOfLines-1) of std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 signal list_rs : rs_lines; 
 
 constant zeros : std_logic_vector(2*tagSize-1 downto 0) := (others => '0'); -- usado para uma comparacao
@@ -68,7 +68,7 @@ begin
 		if reset = '1' then		 
 			
 			for i in 0 to nbOfLines-1 loop
-				list_rs(i)(2*wordSize+2*tagSize+4 downto 2*tagSize) <= (others =>'0');
+				list_rs(i)(2*wordSize+2*tagSize+opBits downto 2*tagSize) <= (others =>'0');
 				list_rs(i)(2*tagSize-1 downto 0) <= (others => '1');
 			end loop;
 			
@@ -87,7 +87,7 @@ begin
 			
 			-- carrega instrucao emitida			
 			for i in 0 to nbOfLines-1 loop
-				if load(i) = '1' and loadFU = '1' then
+				if load(i) = '1' and loadFU = '1'  and list_rs(i)(2*wordSize+2*tagSize+opBits) = '0' then
 					list_rs(i) <= "1" & alu_op_i & v_j_i & v_k_i & q_j_i & q_k_i;
 					exit;
 				end if;
@@ -111,9 +111,9 @@ begin
 		-- coloca em execucao instrucao com operandos prontos
 		for i in 0 to nbOfLines-1 loop
 			if (list_rs(i)(2*tagSize-1 downto 0) = zeros) 
-			and (list_rs(i)(2*wordSize+2*tagSize+4) = '1') 
+			and (list_rs(i)(2*wordSize+2*tagSize+opBits) = '1') 
 			then
-				alu_op_o <= list_rs(i)(2*wordSize+2*tagSize+3 downto 2*wordSize+2*tagSize);
+				alu_op_o <= list_rs(i)(2*wordSize+2*tagSize+opBits-1 downto 2*wordSize+2*tagSize);
 				v_j_o <= list_rs(i)(2*wordSize+2*tagSize-1 downto wordSize+2*tagSize);	
 				v_k_o <= list_rs(i)(wordSize+2*tagSize-1 downto 2*tagSize);
 				tag <= FU_Tag & std_logic_vector(TO_SIGNED(i, tagSize-FUtagSize));
@@ -126,7 +126,7 @@ begin
 		-- checa se existe uma linha livre na reservation station
 		-- atualiza sinal de busy da rs
 		for i in 0 to nbOfLines-1 loop
-			temp(i) := list_rs(i)(2*wordSize+2*tagSize+4);
+			temp(i) := list_rs(i)(2*wordSize+2*tagSize+opBits);
 			
 		end loop;
 		busy <= temp;

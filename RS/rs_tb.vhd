@@ -3,10 +3,11 @@ use ieee.std_logic_1164.all;
 
 entity rs_tb is
 	generic(
-		wordSize: natural :=4;
-		tagSize:  natural :=3; 
-		FUTagSize:natural :=2; 
-		nbOfLines:natural :=2  
+		wordSize: natural :=32;
+		tagSize:  natural :=3; -- tamanho da tag inteira 
+		FUTagSize:natural :=2; -- tamanho do pedaço da tag que indica a qual FU pertence
+		nbOfLines:natural :=2; -- numero de linhas da RS 
+		opBits: natural	:=4
 	);
 end rs_tb;
 
@@ -16,34 +17,45 @@ architecture tb of rs_tb is
 	port(
 		clock:    		in 	 std_logic; --! entrada de clock
 		reset:	 		in 	 std_logic; --! clear assíncrono
-		load:      		in 	 std_logic;	-- carrega valor
+		load:      		in 	 std_logic_vector(nbOfLines-1 downto 0); -- carrega valor em rs
+		loadFU:			in 	 std_logic;	 	
 
-		FU_tag:  		in	    std_logic_vector(FUTagSize-1 downto 0);
+		-- indica numero da FU a qual rs esta ligada
+		-- a ideia é ter isso como entrada na arquitetura estrutural do tomasulo completo
+		FU_tag:  		in	    std_logic_vector(FUTagSize-1 downto 0); 
 		
-		alu_op_i:   	in		 std_logic_vector(3 downto 0); 
-		v_j_i:  		 	in		 std_logic_vector(wordSize-1 downto 0);
+		
+		-- conteudo da instrucao a ser armazenada
+		alu_op_i:   	in		 std_logic_vector(opBits-1 downto 0); 				-- Operacao da ALU
+		v_j_i:  		 	in		 std_logic_vector(wordSize-1 downto 0);	-- Valores
 		v_k_i:  		 	in		 std_logic_vector(wordSize-1 downto 0);
-		q_j_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);
+		q_j_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);		-- Tags de operandos sendo esperados
 		q_k_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);
 		
-		cdb:				in		 std_logic_vector(wordSize+tagSize-1 downto 0);
+		-- entrada vinda do cdb para pegar operandos sendo esperados 
+		cdb:				in		 std_logic_vector(wordSize+tagSize-1 downto 0); 
 		
-		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+4 downto 0);
-		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+4 downto 0);
+		-- buffer para o testbench (retirar depois)
+		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		
-		busy:				out	 std_logic;
+		-- sinal de busy de todas linhas da rs 
+		busy:				out	 std_logic_vector(nbOfLines-1 downto 0);
 		
-		alu_op_o:   	out	 std_logic_vector(3 downto 0); 
+		-- saidas para a ALU
+		alu_op_o:   	out	 std_logic_vector(opBits-1 downto 0); 
 		v_j_o:  		 	out	 std_logic_vector(wordSize-1 downto 0);
 		v_k_o:  		 	out	 std_logic_vector(wordSize-1 downto 0);
 		
-		tag:  		 	buffer	 std_logic_vector(tagSize-1 downto 0)
+		-- tag da instrucao que esta sendo alimentada para a ALU e que vai para o cdb
+		tag:  		 	out	 std_logic_vector(tagSize-1 downto 0)
 	);
 	end component;
 
 	signal clock:    	std_logic := '0'; --! entrada de clock
 	signal reset:	 	std_logic := '0'; --! clear assíncrono
-	signal load:      std_logic := '0'; 
+	signal load:      std_logic_vector(nbOfLines-1 downto 0) := (others => '0'); 
+	signal loadFU:		std_logic := '0';	 	
 	signal FU_tag:  	std_logic_vector(FUTagSize-1 downto 0);
 	
 	signal alu_op_i:  std_logic_vector(3 downto 0) := (others => '0'); 
@@ -54,10 +66,10 @@ architecture tb of rs_tb is
 	
 	signal cdb:			std_logic_vector(wordSize+tagSize-1 downto 0) := (others => '0');
 		
-	signal r0 :  std_logic_vector(2*wordSize+2*tagSize+4 downto 0);
-	signal r1 :  std_logic_vector(2*wordSize+2*tagSize+4 downto 0);
+	signal r0 :  std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+	signal r1 :  std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		
-	signal busy:		std_logic;
+	signal busy:		std_logic_vector(nbOfLines-1 downto 0);
 	
 	signal alu_op_o:	std_logic_vector(3 downto 0);
 	signal v_j_o:  	std_logic_vector(wordSize-1 downto 0);
@@ -73,6 +85,7 @@ begin
 		clock=>clock ,
 		reset=>reset ,
 		load=>load ,
+		loadFU=>loadFU,
 		
 		FU_Tag=>FU_Tag,
 		
@@ -110,10 +123,11 @@ begin
 
 		-- emissao da 1a instrucao
 		
-		load <= '1';
+		load <= "01";
+		loadFU <= '1';
 		alu_op_i <= x"B";
-		v_j_i <= x"0";
-		v_k_i <= x"9";
+		v_j_i <= x"00000000";
+		v_k_i <= x"99999999";
 		q_j_i <= "001";
 		q_k_i <= "000";
 		
@@ -125,10 +139,17 @@ begin
 		-- emissao da 2a instrucao
 		
 		alu_op_i <= x"C";
-		v_j_i <= x"0";
-		v_k_i <= x"A";
+		v_j_i <= x"00000000";
+		v_k_i <= x"AAAAAAAA";
 		q_j_i <= "001";
 		q_k_i <= "000";
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		load <= "10";	
 		
 		clock <= '1';
 		wait for clk_per/2;
@@ -138,8 +159,8 @@ begin
 		-- emissao da 3a instrucao (n é carregada imediatamente - rs cheia)
 				
 		alu_op_i <= x"D";
-		v_j_i <= x"0";
-		v_k_i <= x"2";
+		v_j_i <= x"00000000";
+		v_k_i <= x"22222222";
 		q_j_i <= "001";
 		q_k_i <= "000";
 		
@@ -149,7 +170,7 @@ begin
 		-- valor esperado pelas duas linhas aparece no cdb
 		
 		cdb(wordSize+tagSize-1 downto wordSize) <= "001";
-		cdb(wordSize-1 downto 0) <= x"F";
+		cdb(wordSize-1 downto 0) <= x"FFFFFFFF";
 		
 		clock <= '0';
 		wait for clk_per/2;
@@ -166,7 +187,7 @@ begin
 		-- execucao da 1a instrucao termina e valor é colocado no cdb
 		
 		cdb(wordSize+tagSize-1 downto wordSize) <= "110";
-		cdb(wordSize-1 downto 0) <= x"F";		
+		cdb(wordSize-1 downto 0) <= x"FFFFFFFF";		
 
 		clock <= '0';
 		wait for clk_per/2;
