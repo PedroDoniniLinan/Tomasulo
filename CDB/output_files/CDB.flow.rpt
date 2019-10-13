@@ -1,5 +1,5 @@
 Flow report for CDB
-Thu Oct 10 15:17:03 2019
+Sun Oct 13 13:56:23 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Flow Summary                                                              ;
 +-----------------------------+---------------------------------------------+
-; Flow Status                 ; Successful - Thu Oct 10 15:17:03 2019       ;
+; Flow Status                 ; Successful - Sun Oct 13 13:56:23 2019       ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name               ; CDB                                         ;
 ; Top-level Entity Name       ; cdb                                         ;
@@ -63,7 +63,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/10/2019 15:16:53 ;
+; Start date & time ; 10/13/2019 13:56:09 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CDB                 ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 268891677877949.157073141305576        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 1095260407224.157098576921744          ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; CDB_tb         ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; CDB_tb                                 ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --            ; --          ; eda_simulation ;
@@ -83,7 +83,7 @@ agreement for further details.
 ; EDA_TEST_BENCH_FILE                  ; CDB_tb.vhd                             ; --            ; --          ; CDB_tb         ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; CDB_tb                                 ; --            ; --          ; CDB_tb         ;
 ; EDA_TEST_BENCH_NAME                  ; CDB_tb                                 ; --            ; --          ; eda_simulation ;
-; EDA_TEST_BENCH_RUN_SIM_FOR           ; 30 us                                  ; --            ; --          ; CDB_tb         ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 100 us                                 ; --            ; --          ; CDB_tb         ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --             ;
 ; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
@@ -100,8 +100,8 @@ agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:10     ; 1.0                     ; 4825 MB             ; 00:00:24                           ;
-; Total                  ; 00:00:10     ; --                      ; --                  ; 00:00:24                           ;
+; Analysis & Elaboration ; 00:00:15     ; 1.0                     ; 4827 MB             ; 00:00:34                           ;
+; Total                  ; 00:00:15     ; --                      ; --                  ; 00:00:34                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

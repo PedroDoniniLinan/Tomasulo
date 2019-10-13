@@ -3,9 +3,10 @@ use ieee.std_logic_1164.all;
 
 entity cdb_tb is
 	generic(
-		wordSize: natural :=4;
+		wordSize: natural :=32;
 		tagSize:  natural :=3; -- tamanho da tag inteira 
 		FUTagSize:natural :=2; -- numero de linhas da RS
+		nFU: natural := 3;
 		nbOfLines:natural :=2  -- tamanho do pedaço da tag que indica a qual FU pertence
 	);
 end cdb_tb;
@@ -16,13 +17,10 @@ architecture tb of cdb_tb is
 	port(
 		clock:    		in 	 std_logic; --! entrada de clock
 		
-		load_add:		in		 std_logic;
-		add_alu:			in		 std_logic_vector(tagSize+wordSize-1 downto 0);
+		load:				in		 std_logic_vector(nFU-1 downto 0);
+		alu:				in		 std_logic_vector(nFU*(tagSize+wordSize)-1 downto 0);
 		
-		load_mult:		in		 std_logic;
-		mult_alu:		in		 std_logic_vector(tagSize+wordSize-1 downto 0);
-		
-		busy:				buffer	 std_logic;
+		busy:				out	 std_logic;
 		
 		cdb_o:			out	 std_logic_vector(tagSize+wordSize-1 downto 0)
 	);
@@ -30,13 +28,10 @@ architecture tb of cdb_tb is
 
 	signal clock:    	std_logic := '0'; --! entrada de clock
 	
-	signal load_add: 	std_logic;	
-	signal add_alu: 	std_logic_vector(tagSize+wordSize-1 downto 0);
+	signal load: 		std_logic_vector(nFU-1 downto 0) := (others => '0');	
+	signal alu: 		std_logic_vector(nFU*(tagSize+wordSize)-1 downto 0) := (others => '0');
 	
-	signal load_mult:	std_logic;	
-	signal mult_alu:	std_logic_vector(tagSize+wordSize-1 downto 0);
-	
-	signal busy:		std_logic;
+	signal busy:		std_logic := '0';
 	
 	signal cdb_o: 		std_logic_vector(tagSize+wordSize-1 downto 0);
 	
@@ -46,17 +41,17 @@ begin
 	
 	u1: cdb port map(
 		clock=>clock,
-		load_add=>load_add,
-		add_alu=>add_alu,
-		load_mult=>load_mult,
-		mult_alu=>mult_alu,
+		load=>load,
+		alu=>alu,
 		busy=>busy,
 		cdb_o=>cdb_o
 	);
 	
-	rs_process: process
+	cdb_process: process
 	begin
 		
+		alu <= "110" & x"00000FFF" & "100" & x"000000FF" & "010" & x"0000000F";
+		
 		clock <= '0';
 		wait for clk_per/2;
 		clock <= '1';
@@ -65,8 +60,7 @@ begin
 		clock <= '0';
 		wait for clk_per/2;
 		
-		load_add <= '1';
-		add_alu <= (others => '1');
+		load <= "001";
 		
 		clock <= '1';
 		wait for clk_per/2;
@@ -79,9 +73,81 @@ begin
 		clock <= '0';
 		wait for clk_per/2;
 		
-		load_mult <= '1';
-		mult_alu <= (others => '0');
+		load <= "011";
 		
+		clock <= '1';
+		wait for clk_per/2;
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;
+		
+		clock <= '0';
+		wait for clk_per/2;
+		
+		load <= "111";
+		
+		clock <= '1';
+		wait for clk_per/2;	
+	
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+	
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		clock <= '1';
+		wait for clk_per/2;	
+		
+		clock <= '0';
+		wait for clk_per/2;
 		clock <= '1';
 		wait for clk_per/2;		
 		

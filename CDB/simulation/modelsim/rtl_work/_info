@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/simulation/modelsim
 Ecdb
-Z1 w1570728943
+Z1 w1570985768
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -18,13 +18,13 @@ Z5 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vh
 Z6 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd
 l0
 L5
-VG9G2=_;gV:?dINT@:BFHM3
-!s100 mMBP`zkC4cD@J6HNBLKPI3
+V;R@H6K2;d5A9>Af:d6IEX3
+!s100 gh`GK?z[g>Kl;4f8X0X;C3
 Z7 OV;C;10.5b;63
 31
-Z8 !s110 1570730179
+Z8 !s110 1570985884
 !i10b 1
-Z9 !s108 1570730179.000000
+Z9 !s108 1570985884.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd|
 Z11 !s107 D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd|
 !i113 1
@@ -34,11 +34,11 @@ Acdb
 R2
 R3
 R4
-DEx4 work 3 cdb 0 22 G9G2=_;gV:?dINT@:BFHM3
-l31
-L27
-VAn_]icUR]GmUkZS8>4ai01
-!s100 KZf75Q:7dRkzMilW<[;Ej1
+DEx4 work 3 cdb 0 22 ;R@H6K2;d5A9>Af:d6IEX3
+l30
+L25
+V]zVdLocnc7j9><?6iQ^eY2
+!s100 A0nf7m@XmDalV2g:Y8[TH2
 R7
 31
 R8
@@ -50,7 +50,7 @@ R11
 R12
 R13
 Ecdb_tb
-Z14 w1570728734
+Z14 w1570985559
 R3
 R4
 R0
@@ -58,8 +58,8 @@ Z15 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB_t
 Z16 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB_tb.vhd
 l0
 L4
-Vk`WYDTXMWzP@zjlDX3a_T3
-!s100 WKRFM^GcBC2Yd_Y;fn`fF3
+VVekABQf_Gm:l;UnLWn4KK2
+!s100 hWh?QofkadjJ2f;JOo3252
 R7
 31
 R8
@@ -73,11 +73,11 @@ R13
 Atb
 R3
 R4
-DEx4 work 6 cdb_tb 0 22 k`WYDTXMWzP@zjlDX3a_T3
-l45
-L13
-VfIN^IkFRz`J[4@JGFR`;;3
-!s100 U9l2UDaPNT4^7Pimz<5PO0
+DEx4 work 6 cdb_tb 0 22 VekABQf_Gm:l;UnLWn4KK2
+l40
+L14
+VJCKlIP`PLQ6U]0X7?D`ON1
+!s100 [lClb_m92gWj]l5^8dVfz1
 R7
 31
 R8
