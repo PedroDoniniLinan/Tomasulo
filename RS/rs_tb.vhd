@@ -187,11 +187,13 @@ begin
 		-- execucao da 1a instrucao termina e valor é colocado no cdb
 		
 		cdb(wordSize+tagSize-1 downto wordSize) <= "110";
-		cdb(wordSize-1 downto 0) <= x"FFFFFFFF";		
+		cdb(wordSize-1 downto 0) <= x"FFFFFFFF";	
 
 		clock <= '0';
 		wait for clk_per/2;
 
+		load <= "01";	
+		
 		clock <= '1';
 		wait for clk_per/2;
 		clock <= '0';

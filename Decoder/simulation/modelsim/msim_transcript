@@ -1,0 +1,60 @@
+# Reading D:/0# POLI_Endgame-Algm me tira daqui/Quartus/modelsim_ase/tcl/vsim/pref.tcl
+# do Decoder_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/0# POLI_Endgame-Algm me tira daqui/Quartus/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:04:30 on Oct 13,2019
+# vcom -reportprogress 300 -93 -work work D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package ATTRIBUTES
+# -- Loading package std_logic_misc
+# -- Compiling entity Decoder
+# -- Compiling architecture Decoder of Decoder
+# End time: 12:04:30 on Oct 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:04:30 on Oct 13,2019
+# vcom -reportprogress 300 -93 -work work D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity decoder_tb
+# -- Compiling architecture tb of decoder_tb
+# ** Warning: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd(57): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 12:04:30 on Oct 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  Decoder_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" Decoder_tb 
+# Start time: 12:04:30 on Oct 13,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.decoder_tb(tb)
+# Loading ieee.numeric_std(body)
+# Loading synopsys.attributes
+# Loading ieee.std_logic_misc(body)
+# Loading work.decoder(decoder)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 12000 us
+# End time: 12:06:28 on Oct 13,2019, Elapsed time: 0:01:58
+# Errors: 0, Warnings: 0
