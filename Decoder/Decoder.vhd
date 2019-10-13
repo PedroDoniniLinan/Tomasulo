@@ -23,13 +23,16 @@ entity Decoder is
 		rkFiles:			out	 std_logic_vector(regBits-1 downto 0); -- address of operand Rk (to RegFile and MapFile)
 		
 		opCode:			out    std_logic_vector(opBits-1 downto 0); -- write operation on RS line (to RS)
-		fuCode:			out	 std_logic_vector(fuBits-1 downto 0); -- signal to select busy data from RS and select which RS to write into
+
 		fuCodeOneHot:	out	 std_logic_vector(2**fuBits-2 downto 0); -- Onehot signal of fucode for loading the instruction into the correct RS (to RS)
-		writeLine:		out	 std_logic_vector(rsBits-1 downto 0); -- line into which instruction will be written  
 		RSLineOneHot:	out    std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- line into which instruction will be written (onehot) (to RS)
-		writeRS:			out	 std_logic; -- write into MapFile new entry
-		writeAddr:		out	 std_logic_vector(regBits-1 downto 0); -- address of new MapFile entry (destination register)
-		writeData:		out	 std_logic_vector(tagSize-1 downto 0) -- tag of new MapTable entry (to MapFile)
+		
+		--writeLine:		out	 std_logic_vector(rsBits-1 downto 0); -- line into which instruction will be written  
+		--fuCode:			out	 std_logic_vector(fuBits-1 downto 0); -- signal to select busy data from RS and select which RS to write into
+		
+		writeMapRS:			out	 std_logic; -- write into MapFile new entry
+		writeMapAddr:		out	 std_logic_vector(regBits-1 downto 0); -- address of new MapFile entry (destination register)
+		writeMapData:		out	 std_logic_vector(tagSize-1 downto 0) -- tag of new MapTable entry (to MapFile)
 		);
 end Decoder;
 
@@ -107,10 +110,10 @@ begin
 				-- Verify if there is any RS available
 				if rsBusy = '1' then
 					--busy <= '1'; 
-					writeRS <= '0';
+					writeMapRS <= '0';
 					--writeAddr <= (others => '0');
-					writeData <= (others => '0');
-					writeLine <= (others => '0');
+					writeMapData <= (others => '0');
+					--writeLine <= (others => '0');
 				else
 					--busy<= '0';
 					writeRS <= '1';
@@ -124,8 +127,8 @@ begin
 							if busyRS((j+ind-1)*2**rsBits+i) = '0' then
 								lineId := std_logic_vector(to_unsigned(i,rsBits)); -- RS counting begins with 1 (0 means no mapping)
 								fuId := std_logic_vector(to_unsigned(j+ind,fuBits)); 
-								writeLine <= lineId;
-								fuCode <= fuID;
+								--writeLine <= lineId;
+								--fuCode <= fuID;
 								exit Loop_1;
 							end if;
 						end loop;

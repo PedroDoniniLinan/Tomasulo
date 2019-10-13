@@ -18,21 +18,24 @@ architecture tb of decoder_tb is
 	port(
 		clock:    		in 	 std_logic; -- clock
 		load:				in		 std_logic; -- set by FIFO in case new instruction is available
-      instruction:   in 	 std_logic_vector(wordSize-1 downto 0); -- instruction fro FIFO
+      instruction:   in 	 std_logic_vector(wordSize-1 downto 0); -- instruction (from FIFO)
 		busyRs:			in		 std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- array with busy bit from every line in a RS
 		
-		busy:				out    std_logic; -- indicates to FIFO if it is waiting for available line in RS
-		rjFiles:			out	 std_logic_vector(regBits-1 downto 0); -- address of operand Rj in MapFile
-		rkFiles:			out	 std_logic_vector(regBits-1 downto 0); -- address of operand Rk in MapFile
+		busy:				out    std_logic; -- indicates (to FIFO) if it is waiting for available line in RS 
+		rjFiles:			out	 std_logic_vector(regBits-1 downto 0); -- address of operand Rj (to RegFile and MapFile)
+		rkFiles:			out	 std_logic_vector(regBits-1 downto 0); -- address of operand Rk (to RegFile and MapFile)
 		
-		opCode:			out    std_logic_vector(opBits-1 downto 0); -- write operation on RS line
-		fuCode:			out	 std_logic_vector(fuBits-1 downto 0); -- signal to select busy data from RS and select which RS to write into
-		fuCodeOneHot:	out	 std_logic_vector(2**fuBits-2 downto 0); -- Onehot signal of fucode for loading the instruction into the correct RS
-		writeLine:		out	 std_logic_vector(rsBits-1 downto 0); -- line into which instruction will be written  
-		RSLineOneHot:	out    std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- line into which instruction will be written (onehot) 
-		writeRS:			out	 std_logic; -- write into MapFile new entry
-		writeAddr:		out	 std_logic_vector(regBits-1 downto 0); -- address of new MapFile entry (destination register)
-		writeData:		out	 std_logic_vector(tagSize-1 downto 0) -- tag of new MapTable entry
+		opCode:			out    std_logic_vector(opBits-1 downto 0); -- write operation on RS line (to RS)
+
+		fuCodeOneHot:	out	 std_logic_vector(2**fuBits-2 downto 0); -- Onehot signal of fucode for loading the instruction into the correct RS (to RS)
+		RSLineOneHot:	out    std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- line into which instruction will be written (onehot) (to RS)
+		
+		--writeLine:		out	 std_logic_vector(rsBits-1 downto 0); -- line into which instruction will be written  
+		--fuCode:			out	 std_logic_vector(fuBits-1 downto 0); -- signal to select busy data from RS and select which RS to write into
+		
+		writeMapRS:			out	 std_logic; -- write into MapFile new entry
+		writeMapAddr:		out	 std_logic_vector(regBits-1 downto 0); -- address of new MapFile entry (destination register)
+		writeMapData:		out	 std_logic_vector(tagSize-1 downto 0) -- tag of new MapTable entry (to MapFile)
 	);
 	end component;
 
@@ -46,13 +49,13 @@ architecture tb of decoder_tb is
 	signal rkFiles:		std_logic_vector(regBits-1 downto 0); -- address of operand Rk in MapFile
 	
 	signal opCode:			std_logic_vector(opBits-1 downto 0); -- write operation on RS line
-	signal fuCode:			std_logic_vector(fuBits-1 downto 0); -- signal to select busy data from RS and select which RS to write into
+	--signal fuCode:			std_logic_vector(fuBits-1 downto 0); -- signal to select busy data from RS and select which RS to write into
 	signal fuCodeOneHot:	std_logic_vector(2**fuBits-2 downto 0); -- Onehot signal of fucode for loading the instruction into the correct RS
-	signal writeLine:		std_logic_vector(rsBits-1 downto 0); -- line into which instruction will be written  
+	--signal writeLine:		std_logic_vector(rsBits-1 downto 0); -- line into which instruction will be written  
 	signal RSLineOneHot:	std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- line into which instruction will be written (onehot) 
-	signal writeRS:		std_logic; -- write into MapFile new entry
-	signal writeAddr:		std_logic_vector(regBits-1 downto 0); -- address of new MapFile entry (destination register)
-	signal writeData:		std_logic_vector(tagSize-1 downto 0); -- tag of new MapTable entry
+	signal writeMapRS:		std_logic; -- write into MapFile new entry
+	signal writeMapAddr:		std_logic_vector(regBits-1 downto 0); -- address of new MapFile entry (destination register)
+	signal writeMapData:		std_logic_vector(tagSize-1 downto 0); -- tag of new MapTable entry
 	
 	constant clk_per : time := 1us;
 	
@@ -69,13 +72,13 @@ begin
 		rkFiles=>rkFiles,
 		
 		opCode=>opCode,
-		fuCode=>fuCode,
+		--fuCode=>fuCode,
 		fuCodeOneHot=>fuCodeOneHot,
-		writeLine=>writeLine,
+		--writeLine=>writeLine,
 		RSLineOneHot=>RSLineOneHot,
-		writeRS=>writeRS,
-		writeAddr=>writeAddr,
-		writeData=>writeData
+		writeMapRS=>writeRS,
+		writeMapAddr=>writeAddr,
+		writeMapData=>writeData
 	);
 	
 	decoder_process: process

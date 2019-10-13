@@ -16,9 +16,10 @@ entity rs is
 		load:      		in 	 std_logic_vector(nbOfLines-1 downto 0); -- carrega valor em linha da rs (from decoder)
 		loadFU:			in 	 std_logic;	-- indica se a FU dessa RS pode receber a instrução (from decoder)
 
-		-- indica numero da FU a qual rs esta ligada
-		-- a ideia é ter isso como entrada na arquitetura estrutural do tomasulo completo
-		FU_tag:  		in	    std_logic_vector(FUTagSize-1 downto 0); -- tag da FU (from decoder)
+		-- indica numero da FU a qual rs esta ligada (ex.: FUTagSize = 2 => FU_Tag = 01, 10 ou 11)
+		-- a ideia é ter isso como entrada na arquitetura estrutural do vhdl do tomasulo completo
+		-- hard coded
+		FU_tag:  		in	    std_logic_vector(FUTagSize-1 downto 0); -- tag da FU 
 		
 		
 		-- conteudo da instrucao a ser armazenada (from decoder)
