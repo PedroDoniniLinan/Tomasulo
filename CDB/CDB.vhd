@@ -5,20 +5,20 @@ use ieee.numeric_std.all; -- necessario para converter em integer
 entity cdb is
 	generic(
 		wordSize: natural :=32;
-		tagSize:  natural :=3; -- tamanho da tag inteira 
-		FUTagSize:natural :=2; -- numero de linhas da RS
-		nFU: natural := 3;
-		nbOfLines:natural :=2  -- tamanho do pedaço da tag que indica a qual FU pertence
+		tagSize:  natural :=3; -- size of the whole tag 
+		FUTagSize:natural :=2; -- part of the tag that indicates the FU
+		nFU: natural := 3;	  -- number of FU
+		nbOfLines:natural :=2  -- number of lines of each RS
 	);
 	port(
-		clock:    		in 	 std_logic; --! entrada de clock
+		clock:    		in 	 std_logic; 
 		
-		load:				in		 std_logic_vector(nFU-1 downto 0);
-		alu:				in		 std_logic_vector(nFU*(tagSize+wordSize)-1 downto 0);
+		load:				in		 std_logic_vector(nFU-1 downto 0); -- load from all FU when they want to write on the cdb
+		alu:				in		 std_logic_vector(nFU*(tagSize+wordSize)-1 downto 0); -- data+tag from all FU connected to the cdb
 		
-		busy:				out	 std_logic;
+		busy:				out	 std_logic; -- cdb busy bit
 		
-		cdb_o:			out	 std_logic_vector(tagSize+wordSize-1 downto 0)
+		cdb_o:			out	 std_logic_vector(tagSize+wordSize-1 downto 0) -- data+tag on the cdb
 	);
 end cdb;
 

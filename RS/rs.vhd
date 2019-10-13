@@ -13,37 +13,37 @@ entity rs is
 	port(
 		clock:    		in 	 std_logic; --! entrada de clock
 		reset:	 		in 	 std_logic; --! clear assíncrono
-		load:      		in 	 std_logic_vector(nbOfLines-1 downto 0); -- carrega valor em rs
-		loadFU:			in 	 std_logic;	 	
+		load:      		in 	 std_logic_vector(nbOfLines-1 downto 0); -- carrega valor em linha da rs (from decoder)
+		loadFU:			in 	 std_logic;	-- indica se a FU dessa RS pode receber a instrução (from decoder)
 
 		-- indica numero da FU a qual rs esta ligada
 		-- a ideia é ter isso como entrada na arquitetura estrutural do tomasulo completo
-		FU_tag:  		in	    std_logic_vector(FUTagSize-1 downto 0); 
+		FU_tag:  		in	    std_logic_vector(FUTagSize-1 downto 0); -- tag da FU (from decoder)
 		
 		
-		-- conteudo da instrucao a ser armazenada
-		alu_op_i:   	in		 std_logic_vector(opBits-1 downto 0); 				-- Operacao da ALU
+		-- conteudo da instrucao a ser armazenada (from decoder)
+		alu_op_i:   	in		 std_logic_vector(opBits-1 downto 0); 		-- Operacao da ALU
 		v_j_i:  		 	in		 std_logic_vector(wordSize-1 downto 0);	-- Valores
 		v_k_i:  		 	in		 std_logic_vector(wordSize-1 downto 0);
 		q_j_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);		-- Tags de operandos sendo esperados
 		q_k_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);
 		
-		-- entrada vinda do cdb para pegar operandos sendo esperados 
+		-- entrada vinda do cdb para pegar operandos sendo esperados (from cdb)
 		cdb:				in		 std_logic_vector(wordSize+tagSize-1 downto 0); 
 		
 		-- buffer para o testbench (retirar depois)
 		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		
-		-- sinal de busy de todas linhas da rs 
+		-- sinal de busy de todas linhas da rs (to decoder)
 		busy:				out	 std_logic_vector(nbOfLines-1 downto 0);
 		
-		-- saidas para a ALU
+		-- saidas para a ALU (to alu)
 		alu_op_o:   	out	 std_logic_vector(opBits-1 downto 0); 
 		v_j_o:  		 	out	 std_logic_vector(wordSize-1 downto 0);
 		v_k_o:  		 	out	 std_logic_vector(wordSize-1 downto 0);
 		
-		-- tag da instrucao que esta sendo alimentada para a ALU e que vai para o cdb
+		-- tag da instrucao que esta sendo alimentada para a ALU e que vai para o cdb (to cdb)
 		tag:  		 	out	 std_logic_vector(tagSize-1 downto 0)
 	);
 end rs;
