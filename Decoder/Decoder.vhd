@@ -103,7 +103,7 @@ begin
 				-- Get value of operands in RegFile
 				rjFiles <= rj;
 				rkFiles <= rk;
-				writeAddr <= rd;
+				writeMapAddr <= rd;
 				
 				
 				
@@ -116,7 +116,7 @@ begin
 					--writeLine <= (others => '0');
 				else
 					--busy<= '0';
-					writeRS <= '1';
+					writeMapRS <= '1';
 					--writeAddr <= rd;
 					-- loop over lines in the RS 
 					Loop_1: for i in 0 to 2**rsBits-1 loop
@@ -148,7 +148,7 @@ begin
 				RSLineOneHot <= tempRSID;
 				
 				-- Tag of new MapFile entry
-				writeData <= fuID & lineId;
+				writeMapData <= fuID & lineId;
 				
 			end if;
 			

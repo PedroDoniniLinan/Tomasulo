@@ -76,9 +76,9 @@ begin
 		fuCodeOneHot=>fuCodeOneHot,
 		--writeLine=>writeLine,
 		RSLineOneHot=>RSLineOneHot,
-		writeMapRS=>writeRS,
-		writeMapAddr=>writeAddr,
-		writeMapData=>writeData
+		writeMapRS=>writeMapRS,
+		writeMapAddr=>writeMapAddr,
+		writeMapData=>writeMapData
 	);
 	
 	decoder_process: process

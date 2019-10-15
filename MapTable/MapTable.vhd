@@ -16,13 +16,13 @@ entity MapTable is
  read_tag_1 : in std_logic_vector (regNumBits-1 downto 0);	-- sinal do endereco de leitura 1
  read_tag_2 : in std_logic_vector (regNumBits-1 downto 0) ; -- sinal do endereco de leitura 2
  
- tag_write : in bit -- controle de escrita
+ tag_write : in bit; -- controle de escrita
  
  write_tag : in std_logic_vector (regNumBits-1 downto 0) ; -- sinal do endereco de escrita 
  write_tag_data : in std_logic_vector (tagSize-1 downto 0) ; -- sinal de escrita da tag
  
  tag_1  : out std_logic_vector (tagSize-1 downto 0) ; -- sinal de saida do tag da leitura 1
- tag_2  : out std_logic_vector (tagSize-1 downto 0) ; -- sinal de saida do tag da leitura 2
+ tag_2  : out std_logic_vector (tagSize-1 downto 0)   -- sinal de saida do tag da leitura 2
  
  ) ;	  
  

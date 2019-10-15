@@ -650,10 +650,6 @@ agreement for further details.
 	(pt -152 352)
 )
 (connector
-	(pt 152 320)
-	(pt 264 320)
-)
-(connector
 	(pt 264 272)
 	(pt 264 320)
 )
