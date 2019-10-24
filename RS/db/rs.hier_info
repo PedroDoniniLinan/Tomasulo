@@ -1,4 +1,5 @@
 |RS
+clock => ex_comp.CLK
 clock => list_rs[1][0].CLK
 clock => list_rs[1][1].CLK
 clock => list_rs[1][2].CLK
@@ -300,6 +301,7 @@ reset => list_rs[0][71].ACLR
 reset => list_rs[0][72].ACLR
 reset => list_rs[0][73].ACLR
 reset => list_rs[0][74].ACLR
+reset => ex_comp.ENA
 load[0] => process_0.IN0
 load[1] => process_0.IN0
 loadFU => process_0.IN1
