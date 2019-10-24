@@ -21,7 +21,7 @@ agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 328 256)
+	(rect 16 16 296 256)
 	(text "rs" (rect 5 0 13 12)(font "Arial" ))
 	(text "inst" (rect 8 224 20 236)(font "Arial" ))
 	(port
@@ -102,53 +102,39 @@ agreement for further details.
 		(line (pt 0 192)(pt 16 192)(line_width 3))
 	)
 	(port
-		(pt 312 32)
-		(output)
-		(text "r0[2*wordsize+2*tagsize+opbits..0]" (rect 0 0 114 12)(font "Arial" ))
-		(text "r0[2*wordsize+2*tagsize+opbits..0]" (rect 177 27 291 39)(font "Arial" ))
-		(line (pt 312 32)(pt 296 32)(line_width 3))
-	)
-	(port
-		(pt 312 48)
-		(output)
-		(text "r1[2*wordsize+2*tagsize+opbits..0]" (rect 0 0 113 12)(font "Arial" ))
-		(text "r1[2*wordsize+2*tagsize+opbits..0]" (rect 178 43 291 55)(font "Arial" ))
-		(line (pt 312 48)(pt 296 48)(line_width 3))
-	)
-	(port
-		(pt 312 64)
+		(pt 280 32)
 		(output)
 		(text "busy[nboflines-1..0]" (rect 0 0 75 12)(font "Arial" ))
-		(text "busy[nboflines-1..0]" (rect 216 59 291 71)(font "Arial" ))
-		(line (pt 312 64)(pt 296 64)(line_width 3))
+		(text "busy[nboflines-1..0]" (rect 184 27 259 39)(font "Arial" ))
+		(line (pt 280 32)(pt 264 32)(line_width 3))
 	)
 	(port
-		(pt 312 80)
+		(pt 280 48)
 		(output)
 		(text "alu_op_o[opbits-1..0]" (rect 0 0 80 12)(font "Arial" ))
-		(text "alu_op_o[opbits-1..0]" (rect 211 75 291 87)(font "Arial" ))
-		(line (pt 312 80)(pt 296 80)(line_width 3))
+		(text "alu_op_o[opbits-1..0]" (rect 179 43 259 55)(font "Arial" ))
+		(line (pt 280 48)(pt 264 48)(line_width 3))
 	)
 	(port
-		(pt 312 96)
+		(pt 280 64)
 		(output)
 		(text "v_j_o[wordsize-1..0]" (rect 0 0 77 12)(font "Arial" ))
-		(text "v_j_o[wordsize-1..0]" (rect 214 91 291 103)(font "Arial" ))
-		(line (pt 312 96)(pt 296 96)(line_width 3))
+		(text "v_j_o[wordsize-1..0]" (rect 182 59 259 71)(font "Arial" ))
+		(line (pt 280 64)(pt 264 64)(line_width 3))
 	)
 	(port
-		(pt 312 112)
+		(pt 280 80)
 		(output)
 		(text "v_k_o[wordsize-1..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "v_k_o[wordsize-1..0]" (rect 210 107 291 119)(font "Arial" ))
-		(line (pt 312 112)(pt 296 112)(line_width 3))
+		(text "v_k_o[wordsize-1..0]" (rect 178 75 259 87)(font "Arial" ))
+		(line (pt 280 80)(pt 264 80)(line_width 3))
 	)
 	(port
-		(pt 312 128)
+		(pt 280 96)
 		(output)
 		(text "tag[tagsize-1..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "tag[tagsize-1..0]" (rect 232 123 291 135)(font "Arial" ))
-		(line (pt 312 128)(pt 296 128)(line_width 3))
+		(text "tag[tagsize-1..0]" (rect 200 91 259 103)(font "Arial" ))
+		(line (pt 280 96)(pt 264 96)(line_width 3))
 	)
 	(parameter
 		"wordSize"
@@ -176,7 +162,7 @@ agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 296 224)(line_width 1))
+		(rectangle (rect 16 16 264 224)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 328 -64 428 16))
+	(annotation_block (parameter)(rect 296 -64 396 16))
 )

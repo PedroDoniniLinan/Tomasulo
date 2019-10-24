@@ -10,13 +10,15 @@ entity Decoder is
 		rsBits:natural :=1;
 		fuBits: natural := 2;
 		tagSize:  natural := 3;
-		opBits:	natural := 4		
+		opBits:	natural := 4;
+		nb_lines: natural := 6 -- numero de linhas para o busyRs
 	);
 	port(
 		clock:    		in 	 std_logic; -- clock
 		load:				in		 std_logic; -- set by FIFO in case new instruction is available
       instruction:   in 	 std_logic_vector(wordSize-1 downto 0); -- instruction (from FIFO)
-		busyRs:			in		 std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- array with busy bit from every line in a RS
+		--busyRs:			in		 std_logic_vector((((2**fuBits)-1)*(2**rsBits))-1 downto 0); -- array with busy bit from every line in a RS
+		busyRs:			in		 std_logic_vector(nb_lines-1 downto 0); -- array with busy bit from every line in a RS
 		
 		busy:				out    std_logic; -- indicates (to FIFO) if it is waiting for available line in RS 
 		rjFiles:			out	 std_logic_vector(regBits-1 downto 0); -- address of operand Rj (to RegFile and MapFile)
@@ -25,7 +27,8 @@ entity Decoder is
 		opCode:			out    std_logic_vector(opBits-1 downto 0); -- write operation on RS line (to RS)
 
 		fuCodeOneHot:	out	 std_logic_vector(2**fuBits-2 downto 0); -- Onehot signal of fucode for loading the instruction into the correct RS (to RS)
-		RSLineOneHot:	out    std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- line into which instruction will be written (onehot) (to RS)
+		--RSLineOneHot:	out    std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- line into which instruction will be written (onehot) (to RS)
+		RSLineOneHot:	out    std_logic_vector(nb_lines-1 downto 0); -- line into which instruction will be written (onehot) (to RS)
 		
 		--writeLine:		out	 std_logic_vector(rsBits-1 downto 0); -- line into which instruction will be written  
 		--fuCode:			out	 std_logic_vector(fuBits-1 downto 0); -- signal to select busy data from RS and select which RS to write into
@@ -68,7 +71,7 @@ begin
 	
 		if clock='1' and clock'event then					
 			-- decode instruction
-			if load = '1' then
+			if load = '0' then
 				-- decode operation
 				case instruction(31 downto 21) is 
 					when "10001011000" => -- ADD

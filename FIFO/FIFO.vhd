@@ -59,7 +59,7 @@ begin
 			end if;
 			
 			
-			if (rd = '1') then -- se operaçao de leitura
+			if (rd = '0') then -- se operaçao de leitura
 				if (inst_count  = 0) then -- caso esteja vazio
 					empty <= '1';
 				else

@@ -21,7 +21,7 @@ agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 368 224)
+	(rect 16 16 328 224)
 	(text "Decoder" (rect 5 0 39 12)(font "Arial" ))
 	(text "inst" (rect 8 192 20 204)(font "Arial" ))
 	(port
@@ -48,72 +48,72 @@ agreement for further details.
 	(port
 		(pt 0 80)
 		(input)
-		(text "busyRs[2**fubits-1*2**rsbits-1..0]" (rect 0 0 112 12)(font "Arial" ))
-		(text "busyRs[2**fubits-1*2**rsbits-1..0]" (rect 21 75 133 87)(font "Arial" ))
+		(text "busyRs[nb_lines-1..0]" (rect 0 0 86 12)(font "Arial" ))
+		(text "busyRs[nb_lines-1..0]" (rect 21 75 107 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
-		(pt 352 32)
+		(pt 312 32)
 		(output)
 		(text "busy" (rect 0 0 20 12)(font "Arial" ))
-		(text "busy" (rect 311 27 331 39)(font "Arial" ))
-		(line (pt 352 32)(pt 336 32)(line_width 1))
+		(text "busy" (rect 271 27 291 39)(font "Arial" ))
+		(line (pt 312 32)(pt 296 32)(line_width 1))
 	)
 	(port
-		(pt 352 48)
+		(pt 312 48)
 		(output)
 		(text "rjFiles[regbits-1..0]" (rect 0 0 69 12)(font "Arial" ))
-		(text "rjFiles[regbits-1..0]" (rect 262 43 331 55)(font "Arial" ))
-		(line (pt 352 48)(pt 336 48)(line_width 3))
+		(text "rjFiles[regbits-1..0]" (rect 222 43 291 55)(font "Arial" ))
+		(line (pt 312 48)(pt 296 48)(line_width 3))
 	)
 	(port
-		(pt 352 64)
+		(pt 312 64)
 		(output)
 		(text "rkFiles[regbits-1..0]" (rect 0 0 73 12)(font "Arial" ))
-		(text "rkFiles[regbits-1..0]" (rect 258 59 331 71)(font "Arial" ))
-		(line (pt 352 64)(pt 336 64)(line_width 3))
+		(text "rkFiles[regbits-1..0]" (rect 218 59 291 71)(font "Arial" ))
+		(line (pt 312 64)(pt 296 64)(line_width 3))
 	)
 	(port
-		(pt 352 80)
+		(pt 312 80)
 		(output)
 		(text "opCode[opbits-1..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "opCode[opbits-1..0]" (rect 257 75 331 87)(font "Arial" ))
-		(line (pt 352 80)(pt 336 80)(line_width 3))
+		(text "opCode[opbits-1..0]" (rect 217 75 291 87)(font "Arial" ))
+		(line (pt 312 80)(pt 296 80)(line_width 3))
 	)
 	(port
-		(pt 352 96)
+		(pt 312 96)
 		(output)
 		(text "fuCodeOneHot[2**fubits-2..0]" (rect 0 0 108 12)(font "Arial" ))
-		(text "fuCodeOneHot[2**fubits-2..0]" (rect 223 91 331 103)(font "Arial" ))
-		(line (pt 352 96)(pt 336 96)(line_width 3))
+		(text "fuCodeOneHot[2**fubits-2..0]" (rect 183 91 291 103)(font "Arial" ))
+		(line (pt 312 96)(pt 296 96)(line_width 3))
 	)
 	(port
-		(pt 352 112)
+		(pt 312 112)
 		(output)
-		(text "RSLineOneHot[2**fubits-1*2**rsbits-1..0]" (rect 0 0 140 12)(font "Arial" ))
-		(text "RSLineOneHot[2**fubits-1*2**rsbits-1..0]" (rect 191 107 331 119)(font "Arial" ))
-		(line (pt 352 112)(pt 336 112)(line_width 3))
+		(text "RSLineOneHot[nb_lines-1..0]" (rect 0 0 114 12)(font "Arial" ))
+		(text "RSLineOneHot[nb_lines-1..0]" (rect 177 107 291 119)(font "Arial" ))
+		(line (pt 312 112)(pt 296 112)(line_width 3))
 	)
 	(port
-		(pt 352 128)
+		(pt 312 128)
 		(output)
 		(text "writeMapRS" (rect 0 0 49 12)(font "Arial" ))
-		(text "writeMapRS" (rect 282 123 331 135)(font "Arial" ))
-		(line (pt 352 128)(pt 336 128)(line_width 1))
+		(text "writeMapRS" (rect 242 123 291 135)(font "Arial" ))
+		(line (pt 312 128)(pt 296 128)(line_width 1))
 	)
 	(port
-		(pt 352 144)
+		(pt 312 144)
 		(output)
 		(text "writeMapAddr[regbits-1..0]" (rect 0 0 103 12)(font "Arial" ))
-		(text "writeMapAddr[regbits-1..0]" (rect 228 139 331 151)(font "Arial" ))
-		(line (pt 352 144)(pt 336 144)(line_width 3))
+		(text "writeMapAddr[regbits-1..0]" (rect 188 139 291 151)(font "Arial" ))
+		(line (pt 312 144)(pt 296 144)(line_width 3))
 	)
 	(port
-		(pt 352 160)
+		(pt 312 160)
 		(output)
 		(text "writeMapData[tagsize-1..0]" (rect 0 0 101 12)(font "Arial" ))
-		(text "writeMapData[tagsize-1..0]" (rect 230 155 331 167)(font "Arial" ))
-		(line (pt 352 160)(pt 336 160)(line_width 3))
+		(text "writeMapData[tagsize-1..0]" (rect 190 155 291 167)(font "Arial" ))
+		(line (pt 312 160)(pt 296 160)(line_width 3))
 	)
 	(parameter
 		"wordSize"
@@ -145,8 +145,13 @@ agreement for further details.
 		"4"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"nb_lines"
+		"6"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 336 192)(line_width 1))
+		(rectangle (rect 16 16 296 192)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 368 -64 468 16))
+	(annotation_block (parameter)(rect 328 -64 428 16))
 )

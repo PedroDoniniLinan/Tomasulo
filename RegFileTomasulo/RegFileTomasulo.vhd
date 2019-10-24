@@ -4,7 +4,7 @@ use ieee.numeric_std.all; -- necessario para converter em integer
 
 
 entity RegFileTomasulo is
- generic(wordSize: natural :=64; tagSize: natural :=2; regNum: natural := 32; regNumBits: natural := 5);
+ generic(wordSize: natural :=64; regNum: natural := 32; regNumBits: natural := 5);
  port (
  reset : in std_logic;
  clock : in std_logic;

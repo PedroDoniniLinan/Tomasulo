@@ -16,9 +16,15 @@ entity cdb is
 		load:				in		 std_logic_vector(nFU-1 downto 0); -- load from all FU when they want to write on the cdb
 		alu:				in		 std_logic_vector(nFU*(tagSize+wordSize)-1 downto 0); -- data+tag from all FU connected to the cdb
 		
+		data_i:				in		 std_logic_vector(nFU*(wordSize)-1 downto 0); -- data from all FU connected to the cdb
+		tag_i:				in		 std_logic_vector(nFU*(tagSize)-1 downto 0); -- tag from all FU connected to the cdb
+		
 		busy:				out	 std_logic; -- cdb busy bit
 		
-		cdb_o:			out	 std_logic_vector(tagSize+wordSize-1 downto 0) -- data+tag on the cdb
+		cdb_o:			out	std_logic_vector(tagSize+wordSize-1 downto 0); -- data+tag on the cdb
+		data_o:			out	std_logic_vector(wordSize-1 downto 0); -- data on the cdb
+		tag_o:			out	std_logic_vector(tagSize-1 downto 0) -- tag on the cdb
+		
 	);
 end cdb;
 
@@ -45,6 +51,8 @@ begin
 				end if;
 				if load(ind) = '1' then
 					cdb_o <= alu((ind+1)*(wordSize+tagSize)-1 downto ind*(wordSize+tagSize));
+					data_o <= data_i((ind+1)*(wordSize)-1 downto ind*(wordSize));
+					tag_o <= tag_i((ind+1)*(tagSize)-1 downto ind*(tagSize));
 					cdb_busy <= '1';
 					start := ind + 1;
 					exit;

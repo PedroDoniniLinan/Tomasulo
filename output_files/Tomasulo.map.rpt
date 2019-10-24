@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Tomasulo
-Tue Oct 15 16:31:44 2019
+Wed Oct 23 10:51:27 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -10,7 +10,21 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Parameter Settings for User Entity Instance: Decoder:decoder
+ 10. Parameter Settings for User Entity Instance: FIFO:fifo
+ 11. Parameter Settings for User Entity Instance: rs:RS_Mult
+ 12. Parameter Settings for User Entity Instance: cdb:inst5
+ 13. Parameter Settings for User Entity Instance: MapTable:inst2
+ 14. Parameter Settings for User Entity Instance: RegFileTomasulo:inst3
+ 15. Parameter Settings for User Entity Instance: rs:RS_Add2
+ 16. Parameter Settings for User Entity Instance: rs:RS_Add1
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +48,27 @@ agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Tue Oct 15 16:31:44 2019           ;
-; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
-; Revision Name               ; Tomasulo                                    ;
-; Top-level Entity Name       ; Tomasulo                                    ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Oct 23 10:51:27 2019       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                   ; Tomasulo                                    ;
+; Top-level Entity Name           ; Tomasulo                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 8                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -155,13 +174,208 @@ agreement for further details.
 +----------------------------+-------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                         ;
++-------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path    ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                            ; Library ;
++-------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------+---------+
+; RS/rs.vhd                           ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd                           ;         ;
+; MapTable/MapTable.vhd               ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/MapTable/MapTable.vhd               ;         ;
+; FIFO/FIFO.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO/FIFO.vhd                       ;         ;
+; CDB/CDB.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB.vhd                         ;         ;
+; Decoder/Decoder.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Decoder/Decoder.vhd                 ;         ;
+; RegFileTomasulo/RegFileTomasulo.vhd ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RegFileTomasulo/RegFileTomasulo.vhd ;         ;
+; Tomasulo.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Tomasulo.bdf                        ;         ;
++-------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimate of Logic utilization (ALMs needed) ; 0     ;
+;                                             ;       ;
+; Combinational ALUT usage for logic          ; 0     ;
+;     -- 7 input functions                    ; 0     ;
+;     -- 6 input functions                    ; 0     ;
+;     -- 5 input functions                    ; 0     ;
+;     -- 4 input functions                    ; 0     ;
+;     -- <=3 input functions                  ; 0     ;
+;                                             ;       ;
+; Dedicated logic registers                   ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 8     ;
+;                                             ;       ;
+; Total DSP Blocks                            ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 8     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |Tomasulo                  ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 8    ; 0            ; |Tomasulo           ; Tomasulo    ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Decoder:decoder ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; wordsize       ; 64    ; Signed Integer                      ;
+; regbits        ; 5     ; Signed Integer                      ;
+; rsbits         ; 1     ; Signed Integer                      ;
+; fubits         ; 2     ; Signed Integer                      ;
+; tagsize        ; 3     ; Signed Integer                      ;
+; opbits         ; 4     ; Signed Integer                      ;
+; nb_lines       ; 6     ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; wordsize       ; 64    ; Signed Integer                ;
+; regnum         ; 32    ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rs:RS_Mult ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; wordsize       ; 64    ; Signed Integer                 ;
+; tagsize        ; 3     ; Signed Integer                 ;
+; futagsize      ; 2     ; Signed Integer                 ;
+; nboflines      ; 2     ; Signed Integer                 ;
+; opbits         ; 4     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cdb:inst5 ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; wordsize       ; 64    ; Signed Integer                ;
+; tagsize        ; 3     ; Signed Integer                ;
+; futagsize      ; 2     ; Signed Integer                ;
+; nfu            ; 3     ; Signed Integer                ;
+; nboflines      ; 2     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MapTable:inst2 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; tagsize        ; 3     ; Signed Integer                     ;
+; regnum         ; 32    ; Signed Integer                     ;
+; regnumbits     ; 5     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RegFileTomasulo:inst3 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; wordsize       ; 64    ; Signed Integer                            ;
+; regnum         ; 32    ; Signed Integer                            ;
+; regnumbits     ; 5     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rs:RS_Add2 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; wordsize       ; 64    ; Signed Integer                 ;
+; tagsize        ; 3     ; Signed Integer                 ;
+; futagsize      ; 2     ; Signed Integer                 ;
+; nboflines      ; 2     ; Signed Integer                 ;
+; opbits         ; 4     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rs:RS_Add1 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; wordsize       ; 64    ; Signed Integer                 ;
+; tagsize        ; 3     ; Signed Integer                 ;
+; futagsize      ; 2     ; Signed Integer                 ;
+; nboflines      ; 2     ; Signed Integer                 ;
+; opbits         ; 4     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 8                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Tue Oct 15 16:31:24 2019
+    Info: Processing started: Wed Oct 23 10:50:58 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Tomasulo -c Tomasulo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -181,13 +395,13 @@ Info (12021): Found 2 design units, including 1 entities, in source file cdb/cdb
     Info (12022): Found design unit 1: cdb_tb-tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB_tb.vhd Line: 14
     Info (12023): Found entity 1: cdb_tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file cdb/cdb.vhd
-    Info (12022): Found design unit 1: cdb-cdb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB.vhd Line: 25
+    Info (12022): Found design unit 1: cdb-cdb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB.vhd Line: 31
     Info (12023): Found entity 1: cdb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file decoder/decoder_tb.vhd
     Info (12022): Found design unit 1: decoder_tb-tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Decoder/Decoder_tb.vhd Line: 15
     Info (12023): Found entity 1: decoder_tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Decoder/Decoder_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file decoder/decoder.vhd
-    Info (12022): Found design unit 1: Decoder-Decoder File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Decoder/Decoder.vhd Line: 39
+    Info (12022): Found design unit 1: Decoder-Decoder File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Decoder/Decoder.vhd Line: 42
     Info (12023): Found entity 1: Decoder File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Decoder/Decoder.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file regfiletomasulo/regfiletomasulo.vhd
     Info (12022): Found design unit 1: RegFileTomasulo-RegFileTomasuloArq File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RegFileTomasulo/RegFileTomasulo.vhd Line: 24
@@ -195,13 +409,174 @@ Info (12021): Found 2 design units, including 1 entities, in source file regfile
 Info (12021): Found 1 design units, including 1 entities, in source file tomasulo.bdf
     Info (12023): Found entity 1: Tomasulo
 Info (12127): Elaborating entity "Tomasulo" for the top level hierarchy
-Error (275050): Bus range -1 is illegal in signal "port "busyRs[2**fubits-1*2**rsbits-1..0]" (ID Decoder:inst1)"
-Error (275050): Bus range -1 is illegal in signal "port "RSLineOneHot[2**fubits-1*2**rsbits-1..0]" (ID Decoder:inst1)"
-Error (12153): Can't elaborate top-level user hierarchy
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 3 errors, 1 warning
-    Error: Peak virtual memory: 4828 megabytes
-    Error: Processing ended: Tue Oct 15 16:31:44 2019
-    Error: Elapsed time: 00:00:20
-    Error: Total CPU time (on all processors): 00:00:40
+Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:decoder"
+Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:fifo"
+Warning (10492): VHDL Process Statement warning at FIFO.vhd(80): signal "inst_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO/FIFO.vhd Line: 80
+Warning (10492): VHDL Process Statement warning at FIFO.vhd(83): signal "inst_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO/FIFO.vhd Line: 83
+Info (12128): Elaborating entity "rs" for hierarchy "rs:RS_Mult"
+Warning (10492): VHDL Process Statement warning at rs.vhd(121): signal "FU_tag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 121
+Warning (10631): VHDL Process Statement warning at rs.vhd(62): inferring latch(es) for signal or variable "alu_op_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Warning (10631): VHDL Process Statement warning at rs.vhd(62): inferring latch(es) for signal or variable "v_j_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Warning (10631): VHDL Process Statement warning at rs.vhd(62): inferring latch(es) for signal or variable "v_k_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Warning (10631): VHDL Process Statement warning at rs.vhd(62): inferring latch(es) for signal or variable "tag", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "tag[0]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "tag[1]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "tag[2]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[0]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[1]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[2]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[3]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[4]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[5]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[6]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[7]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[8]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[9]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[10]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[11]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[12]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[13]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[14]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[15]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[16]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[17]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[18]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[19]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[20]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[21]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[22]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[23]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[24]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[25]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[26]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[27]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[28]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[29]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[30]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[31]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[32]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[33]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[34]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[35]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[36]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[37]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[38]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[39]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[40]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[41]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[42]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[43]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[44]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[45]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[46]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[47]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[48]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[49]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[50]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[51]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[52]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[53]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[54]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[55]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[56]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[57]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[58]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[59]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[60]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[61]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[62]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_k_o[63]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[0]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[1]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[2]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[3]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[4]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[5]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[6]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[7]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[8]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[9]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[10]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[11]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[12]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[13]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[14]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[15]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[16]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[17]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[18]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[19]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[20]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[21]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[22]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[23]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[24]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[25]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[26]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[27]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[28]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[29]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[30]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[31]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[32]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[33]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[34]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[35]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[36]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[37]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[38]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[39]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[40]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[41]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[42]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[43]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[44]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[45]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[46]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[47]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[48]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[49]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[50]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[51]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[52]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[53]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[54]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[55]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[56]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[57]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[58]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[59]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[60]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[61]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[62]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "v_j_o[63]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "alu_op_o[0]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "alu_op_o[1]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "alu_op_o[2]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (10041): Inferred latch for "alu_op_o[3]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
+Info (12128): Elaborating entity "cdb" for hierarchy "cdb:inst5"
+Warning (10492): VHDL Process Statement warning at CDB.vhd(66): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB.vhd Line: 66
+Info (12128): Elaborating entity "MapTable" for hierarchy "MapTable:inst2"
+Info (12128): Elaborating entity "RegFileTomasulo" for hierarchy "RegFileTomasulo:inst3"
+Warning (10036): Verilog HDL or VHDL warning at RegFileTomasulo.vhd(31): object "escrita" assigned a value but never read File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RegFileTomasulo/RegFileTomasulo.vhd Line: 31
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clock"
+    Warning (15610): No output dependent on input pin "reset"
+    Warning (15610): No output dependent on input pin "TAG_RS_Mult[1]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Mult[0]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Add2[1]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Add2[0]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Add1[1]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Add1[0]"
+Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4884 megabytes
+    Info: Processing ended: Wed Oct 23 10:51:27 2019
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:48
 
 
