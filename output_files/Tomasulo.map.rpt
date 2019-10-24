@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Tomasulo
-Wed Oct 23 10:51:27 2019
+Thu Oct 24 13:02:51 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -18,10 +18,10 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
  10. Parameter Settings for User Entity Instance: FIFO:fifo
  11. Parameter Settings for User Entity Instance: rs:RS_Mult
  12. Parameter Settings for User Entity Instance: cdb:inst5
- 13. Parameter Settings for User Entity Instance: MapTable:inst2
- 14. Parameter Settings for User Entity Instance: RegFileTomasulo:inst3
- 15. Parameter Settings for User Entity Instance: rs:RS_Add2
- 16. Parameter Settings for User Entity Instance: rs:RS_Add1
+ 13. Parameter Settings for User Entity Instance: rs:RS_Add1
+ 14. Parameter Settings for User Entity Instance: MapTable:inst2
+ 15. Parameter Settings for User Entity Instance: RegFileTomasulo:inst3
+ 16. Parameter Settings for User Entity Instance: rs:RS_Add2
  17. Post-Synthesis Netlist Statistics for Top Partition
  18. Elapsed Time Per Partition
  19. Analysis & Synthesis Messages
@@ -51,7 +51,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Oct 23 10:51:27 2019       ;
+; Analysis & Synthesis Status     ; Successful - Thu Oct 24 13:02:51 2019       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; Tomasulo                                    ;
 ; Top-level Entity Name           ; Tomasulo                                    ;
@@ -186,6 +186,7 @@ agreement for further details.
 ; Decoder/Decoder.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Decoder/Decoder.vhd                 ;         ;
 ; RegFileTomasulo/RegFileTomasulo.vhd ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RegFileTomasulo/RegFileTomasulo.vhd ;         ;
 ; Tomasulo.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/Tomasulo.bdf                        ;         ;
+; alu.vhd                             ; yes             ; User VHDL File                     ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/alu.vhd                             ;         ;
 +-------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------+---------+
 
 
@@ -296,6 +297,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rs:RS_Add1 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; wordsize       ; 64    ; Signed Integer                 ;
+; tagsize        ; 3     ; Signed Integer                 ;
+; futagsize      ; 2     ; Signed Integer                 ;
+; nboflines      ; 2     ; Signed Integer                 ;
+; opbits         ; 4     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: MapTable:inst2 ;
 +----------------+-------+------------------------------------+
@@ -322,20 +337,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +---------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: rs:RS_Add2 ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; wordsize       ; 64    ; Signed Integer                 ;
-; tagsize        ; 3     ; Signed Integer                 ;
-; futagsize      ; 2     ; Signed Integer                 ;
-; nboflines      ; 2     ; Signed Integer                 ;
-; opbits         ; 4     ; Signed Integer                 ;
-+----------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: rs:RS_Add1 ;
 +----------------+-------+--------------------------------+
 ; Parameter Name ; Value ; Type                           ;
 +----------------+-------+--------------------------------+
@@ -375,7 +376,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Wed Oct 23 10:50:58 2019
+    Info: Processing started: Thu Oct 24 13:02:32 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Tomasulo -c Tomasulo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -408,6 +409,12 @@ Info (12021): Found 2 design units, including 1 entities, in source file regfile
     Info (12023): Found entity 1: RegFileTomasulo File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RegFileTomasulo/RegFileTomasulo.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file tomasulo.bdf
     Info (12023): Found entity 1: Tomasulo
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: alu-functional File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/alu.vhd Line: 24
+    Info (12023): Found entity 1: alu File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/alu.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file fifo_tb.vhd
+    Info (12022): Found design unit 1: FIFO_tb-tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO_tb.vhd Line: 15
+    Info (12023): Found entity 1: FIFO_tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO_tb.vhd Line: 6
 Info (12127): Elaborating entity "Tomasulo" for the top level hierarchy
 Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:decoder"
 Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:fifo"
@@ -556,6 +563,7 @@ Info (10041): Inferred latch for "alu_op_o[2]" at rs.vhd(62) File: C:/Users/Pedr
 Info (10041): Inferred latch for "alu_op_o[3]" at rs.vhd(62) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 62
 Info (12128): Elaborating entity "cdb" for hierarchy "cdb:inst5"
 Warning (10492): VHDL Process Statement warning at CDB.vhd(66): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB.vhd Line: 66
+Info (12128): Elaborating entity "alu" for hierarchy "alu:inst"
 Info (12128): Elaborating entity "MapTable" for hierarchy "MapTable:inst2"
 Info (12128): Elaborating entity "RegFileTomasulo" for hierarchy "RegFileTomasulo:inst3"
 Warning (10036): Verilog HDL or VHDL warning at RegFileTomasulo.vhd(31): object "escrita" assigned a value but never read File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RegFileTomasulo/RegFileTomasulo.vhd Line: 31
@@ -564,19 +572,19 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "clock"
     Warning (15610): No output dependent on input pin "reset"
-    Warning (15610): No output dependent on input pin "TAG_RS_Mult[1]"
-    Warning (15610): No output dependent on input pin "TAG_RS_Mult[0]"
-    Warning (15610): No output dependent on input pin "TAG_RS_Add2[1]"
-    Warning (15610): No output dependent on input pin "TAG_RS_Add2[0]"
     Warning (15610): No output dependent on input pin "TAG_RS_Add1[1]"
     Warning (15610): No output dependent on input pin "TAG_RS_Add1[0]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Add2[1]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Add2[0]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Mult[1]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Mult[0]"
 Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 0 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4884 megabytes
-    Info: Processing ended: Wed Oct 23 10:51:27 2019
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:48
+    Info: Peak virtual memory: 4863 megabytes
+    Info: Processing ended: Thu Oct 24 13:02:51 2019
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:39
 
 
