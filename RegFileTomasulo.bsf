@@ -87,14 +87,16 @@ agreement for further details.
 		(text "read_data_2[wordsize-1..0]" (rect 194 43 299 55)(font "Arial" ))
 		(line (pt 320 48)(pt 304 48)(line_width 3))
 	)
+	(port
+		(pt 320 64)
+		(output)
+		(text "r5_out[wordsize-1..0]" (rect 0 0 80 12)(font "Arial" ))
+		(text "r5_out[wordsize-1..0]" (rect 219 59 299 71)(font "Arial" ))
+		(line (pt 320 64)(pt 304 64)(line_width 3))
+	)
 	(parameter
 		"wordSize"
 		"64"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"tagSize"
-		"2"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter

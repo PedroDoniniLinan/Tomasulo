@@ -18,6 +18,9 @@ entity RegFileTomasulo is
  write_reg : in std_logic_vector (regNumBits-1 downto 0) ; -- sinal do endereco de escrita
  write_data : in std_logic_vector (wordSize-1 downto 0) ; -- registra o que deve ser escrito
  
+ -- TESTE
+ r5_out : out std_logic_vector (wordSize-1 downto 0) ; -- sinal do R5 para testes
+ 
  reg_write : in bit ) ;	  -- controle de escrita/leitura
 end RegFileTomasulo; 
 
@@ -36,6 +39,11 @@ begin
 			for i in 0 to 31 loop
 				lista_reg(i) <= (wordSize-1 downto 0 => '0');
 			end loop;
+			
+			-- TESTE
+			lista_reg(2) <= "0000000000000000000000000000000000000000000000000000000000000011";
+			lista_reg(2) <= "0000000000000000000000000000000000000000000000000000000000000100";
+			-- TESTE FIM
 			leitura1 <= 0;
 			leitura2 <= 0;
 		elsif clock='1' and clock'event then
@@ -48,6 +56,8 @@ begin
 					leitura2 <= TO_INTEGER(unsigned(read_reg_2)); -- obtem o registrador da segunda leitura
 					read_data_1 <= lista_reg(leitura1);	-- recebe o valor do registrador 1	
 					read_data_2 <= lista_reg(leitura2); -- recebe o valor do registrador 2
+					-- TESTE
+					r5_out <= lista_reg(5); --recebe o valor do r5
 			end case ;
 
 		end if;

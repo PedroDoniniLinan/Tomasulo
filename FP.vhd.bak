@@ -1,0 +1,24 @@
+library ieee;
+use ieee.numeric_bit.all;
+USE ieee.std_logic_1164.all;                                
+
+
+entity FP is
+  port (
+    A, B : in  signed(63 downto 0); -- inputs
+    F    : out signed(63 downto 0); -- output
+    S    : in  STD_LOGIC_VECTOR (3 downto 0); -- op selection
+    );
+end entity FP;
+
+architecture fp of FP is
+  signal fpout : signed(63 downto 0) := (others=>'0');
+begin
+  with S select fpout <=
+    A * B when "0000", -- AND
+    A / B when "0001", -- OR
+
+    (others=>'0') when others;
+  -- Copying temporary signal to output
+  F <= fpout;
+end architecture fp;

@@ -4,7 +4,7 @@ use ieee.numeric_std.all; -- necessario para converter em integer
 
 
 entity FIFO is
- generic(wordSize: natural :=64; regNum: natural := 32);
+ generic(wordSize: natural :=32; regNum: natural := 32);
  port (
  reset : in std_logic;
  clock : in std_logic;
@@ -36,11 +36,22 @@ begin
 			for i in 0 to regNum-1 loop
 				fila_reg(i) <= (wordSize-1 downto 0 => '0');
 			end loop;
+			--TESTE
+			fila_reg(0) <= "10001011000" & "00010" & "000000" & "00011" & "00001"; -- ADD R2 + R3 = R1  
+			fila_reg(1) <= "10001011000" & "00010" & "000000" & "00001" & "00100"; -- ADD R2 + R1 = R4
+			fila_reg(2) <= "10001011000" & "00100" & "000000" & "00011" & "00101"; -- ADD R2 + R3 = R5
 			point_read <= 0;
-			point_write <= 0;
-			empty <= '1';
+			point_write <= 3;
+			empty <= '0';
 			full <= '0';
 			inst_count <= 0;
+			----- FIM TESTE
+			
+			--point_read <= 0;
+			--point_write <= 0;
+			--empty <= '1';
+			--full <= '0';
+			--inst_count <= 0;
 			
 		elsif clock='1' and clock'event then	  
 		  

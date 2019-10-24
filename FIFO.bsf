@@ -82,7 +82,7 @@ agreement for further details.
 	)
 	(parameter
 		"wordSize"
-		"64"
+		"32"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
