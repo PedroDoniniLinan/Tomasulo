@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for Tomasulo
-Thu Oct 24 13:04:13 2019
+Thu Oct 24 13:41:17 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -370,7 +370,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu Oct 24 13:04:06 2019
+    Info: Processing started: Thu Oct 24 13:41:08 2019
 Info: Command: quartus_sta Tomasulo -c Tomasulo
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -431,8 +431,8 @@ Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 5086 megabytes
-    Info: Processing ended: Thu Oct 24 13:04:13 2019
-    Info: Elapsed time: 00:00:07
+    Info: Processing ended: Thu Oct 24 13:41:17 2019
+    Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:08
 
 

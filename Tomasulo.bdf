@@ -1110,6 +1110,42 @@ agreement for further details.
 		(rectangle (rect 16 16 152 96))
 	)
 )
+(symbol
+	(rect 1704 1200 1872 1312)
+	(text "FP" (rect 5 0 19 12)(font "Arial" ))
+	(text "inst4" (rect 8 96 30 113)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "A[63..0]" (rect 0 0 38 12)(font "Arial" ))
+		(text "A[63..0]" (rect 21 27 59 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "B[63..0]" (rect 0 0 38 12)(font "Arial" ))
+		(text "B[63..0]" (rect 21 43 59 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "S[3..0]" (rect 0 0 33 12)(font "Arial" ))
+		(text "S[3..0]" (rect 21 59 54 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "F[63..0]" (rect 0 0 38 12)(font "Arial" ))
+		(text "F[63..0]" (rect 115 27 153 39)(font "Arial" ))
+		(line (pt 168 32)(pt 152 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 152 96))
+	)
+)
 (connector
 	(pt 664 288)
 	(pt 696 288)
@@ -1756,6 +1792,43 @@ agreement for further details.
 (connector
 	(pt 256 176)
 	(pt 256 192)
+)
+(connector
+	(pt 1544 1216)
+	(pt 1664 1216)
+	(bus)
+)
+(connector
+	(pt 1664 1216)
+	(pt 1664 1264)
+	(bus)
+)
+(connector
+	(pt 1664 1264)
+	(pt 1704 1264)
+	(bus)
+)
+(connector
+	(pt 1544 1232)
+	(pt 1704 1232)
+	(bus)
+)
+(connector
+	(pt 1544 1248)
+	(pt 1704 1248)
+	(bus)
+)
+(connector
+	(text "tag_i[8..6]" (rect 1554 1248 1601 1265)(font "Intel Clear" ))
+	(pt 1544 1264)
+	(pt 1592 1264)
+	(bus)
+)
+(connector
+	(text "data_i[191..128]" (rect 1882 1216 1958 1233)(font "Intel Clear" ))
+	(pt 1872 1232)
+	(pt 1944 1232)
+	(bus)
 )
 (junction (pt 1064 648))
 (junction (pt 1080 664))

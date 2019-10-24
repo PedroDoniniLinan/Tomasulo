@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Tomasulo
-Thu Oct 24 13:02:51 2019
+Thu Oct 24 13:39:16 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -51,7 +51,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Oct 24 13:02:51 2019       ;
+; Analysis & Synthesis Status     ; Successful - Thu Oct 24 13:39:16 2019       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; Tomasulo                                    ;
 ; Top-level Entity Name           ; Tomasulo                                    ;
@@ -376,7 +376,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu Oct 24 13:02:32 2019
+    Info: Processing started: Thu Oct 24 13:38:54 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Tomasulo -c Tomasulo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -415,6 +415,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file fifo_tb.vhd
     Info (12022): Found design unit 1: FIFO_tb-tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO_tb.vhd Line: 15
     Info (12023): Found entity 1: FIFO_tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO_tb.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file fp.vhd
+    Info (12022): Found design unit 1: FP-fp File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FP.vhd Line: 14
+    Info (12023): Found entity 1: FP File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FP.vhd Line: 6
 Info (12127): Elaborating entity "Tomasulo" for the top level hierarchy
 Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:decoder"
 Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:fifo"
@@ -582,9 +585,9 @@ Info (21057): Implemented 8 device resources after synthesis - the final resourc
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 0 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4863 megabytes
-    Info: Processing ended: Thu Oct 24 13:02:51 2019
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:39
+    Info: Peak virtual memory: 4867 megabytes
+    Info: Processing ended: Thu Oct 24 13:39:16 2019
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:45
 
 
