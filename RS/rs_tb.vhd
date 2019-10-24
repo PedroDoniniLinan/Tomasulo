@@ -203,6 +203,35 @@ begin
 		wait for clk_per/2;
 		clock <= '0';
 		wait for clk_per/2;		
+
+		-- valor esperado pela nova instrucao aparece no cdb
+		
+		cdb(wordSize+tagSize-1 downto wordSize) <= "001";
+		cdb(wordSize-1 downto 0) <= x"FFFFFFFF";
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		clock <= '1';
+		wait for clk_per/2;
+		
+		-- execucao da 2a instrucao termina e valor é colocado no cdb
+		
+		cdb(wordSize+tagSize-1 downto wordSize) <= "111";
+		cdb(wordSize-1 downto 0) <= x"FFFFFFFF";	
+		
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
 		
 	end process;
 	

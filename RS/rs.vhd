@@ -54,6 +54,7 @@ architecture rs of rs is
 
 type rs_lines is array (0 to nbOfLines-1) of std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 signal list_rs : rs_lines; 
+signal ex_comp: std_logic := '1';
 
 constant zeros : std_logic_vector(2*tagSize-1 downto 0) := (others => '0'); -- usado para uma comparacao
 
@@ -85,6 +86,7 @@ begin
 			-- apaga instrucao executada que se encontra no cdb ja
 			if cdb(wordSize+tagSize-1 downto wordSize+tagSize-FUTagSize) = FU_Tag then
 				list_rs(to_integer(unsigned(cdb(wordSize+tagSize-FUTagSize-1 downto wordSize)))) <= (others => '0');
+				ex_comp <= '1';
 			end if;
 			
 			-- carrega instrucao emitida			
@@ -110,15 +112,18 @@ begin
 		
 		end if;
 		
+		
 		-- coloca em execucao instrucao com operandos prontos
 		for i in 0 to nbOfLines-1 loop
 			if (list_rs(i)(2*tagSize-1 downto 0) = zeros) 
 			and (list_rs(i)(2*wordSize+2*tagSize+opBits) = '1') 
+			and ex_comp = '1'
 			then
 				alu_op_o <= list_rs(i)(2*wordSize+2*tagSize+opBits-1 downto 2*wordSize+2*tagSize);
 				v_j_o <= list_rs(i)(2*wordSize+2*tagSize-1 downto wordSize+2*tagSize);	
 				v_k_o <= list_rs(i)(wordSize+2*tagSize-1 downto 2*tagSize);
 				tag <= FU_Tag & std_logic_vector(TO_SIGNED(i, tagSize-FUtagSize));
+				ex_comp <= '0';
 				exit;
 			end if;
 		end loop;
