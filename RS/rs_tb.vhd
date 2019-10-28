@@ -36,11 +36,12 @@ architecture tb of rs_tb is
 		cdb:				in		 std_logic_vector(wordSize+tagSize-1 downto 0); 
 		
 		-- buffer para o testbench (retirar depois)
-		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
-		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+		--r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+		--r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		
 		-- sinal de busy de todas linhas da rs 
 		busy:				out	 std_logic_vector(nbOfLines-1 downto 0);
+		ready:			out	 std_logic;
 		
 		-- saidas para a ALU
 		alu_op_o:   	out	 std_logic_vector(opBits-1 downto 0); 
@@ -66,10 +67,11 @@ architecture tb of rs_tb is
 	
 	signal cdb:			std_logic_vector(wordSize+tagSize-1 downto 0) := (others => '0');
 		
-	signal r0 :  std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
-	signal r1 :  std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+	--signal r0 :  std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+	--signal r1 :  std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		
 	signal busy:		std_logic_vector(nbOfLines-1 downto 0);
+	signal ready:		std_logic;
 	
 	signal alu_op_o:	std_logic_vector(3 downto 0);
 	signal v_j_o:  	std_logic_vector(wordSize-1 downto 0);
@@ -97,10 +99,11 @@ begin
 		
 		cdb=>cdb,
 		
-		r0=>r0,
-		r1=>r1,
+		--r0=>r0,
+		--r1=>r1,
 		
 		busy=>busy,
+		ready=> ready,
 		
 		alu_op_o=>alu_op_o ,
 		v_j_o=>v_j_o ,

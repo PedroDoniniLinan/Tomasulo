@@ -40,6 +40,9 @@ entity rs is
 		-- sinal de busy de todas linhas da rs (to decoder)
 		busy:				out	 std_logic_vector(nbOfLines-1 downto 0);
 		
+		-- inicia execução na alu (to alu)
+		ready:			out	 std_logic;
+		
 		-- saidas para a ALU (to alu)
 		alu_op_o:   	out	 std_logic_vector(opBits-1 downto 0); 
 		v_j_o:  		 	out	 std_logic_vector(wordSize-1 downto 0);
@@ -54,7 +57,6 @@ architecture rs of rs is
 
 type rs_lines is array (0 to nbOfLines-1) of std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 signal list_rs : rs_lines; 
-signal ex_comp: std_logic := '1';
 
 constant zeros : std_logic_vector(2*tagSize-1 downto 0) := (others => '0'); -- usado para uma comparacao
 
@@ -62,6 +64,7 @@ begin
 
 	process (reset, clock, list_rs) -- caso qualquer entrada sofra alguma alteracao, inicia process
 	variable temp : std_logic_vector(nbOfLines-1 downto 0);
+	variable ex_comp: std_logic := '1';
 	begin
 	
 		-- para testbench
@@ -86,7 +89,7 @@ begin
 			-- apaga instrucao executada que se encontra no cdb ja
 			if cdb(wordSize+tagSize-1 downto wordSize+tagSize-FUTagSize) = FU_Tag then
 				list_rs(to_integer(unsigned(cdb(wordSize+tagSize-FUTagSize-1 downto wordSize)))) <= (others => '0');
-				ex_comp <= '1';
+				ex_comp := '1';
 			end if;
 			
 			-- carrega instrucao emitida			
@@ -123,7 +126,7 @@ begin
 				v_j_o <= list_rs(i)(2*wordSize+2*tagSize-1 downto wordSize+2*tagSize);	
 				v_k_o <= list_rs(i)(wordSize+2*tagSize-1 downto 2*tagSize);
 				tag <= FU_Tag & std_logic_vector(TO_SIGNED(i, tagSize-FUtagSize));
-				ex_comp <= '0';
+				ex_comp := '0';
 				exit;
 			end if;
 		end loop;
@@ -137,6 +140,8 @@ begin
 			
 		end loop;
 		busy <= temp;
+		ready <= not(ex_comp);
+		
 		
 	end process;
 
