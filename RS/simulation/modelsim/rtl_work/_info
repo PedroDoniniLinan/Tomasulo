@@ -7,26 +7,26 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/simulation/modelsim
+Z0 dC:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/simulation/modelsim
 Ers
-Z1 w1571946855
+Z1 w1571948023
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z5 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd
-Z6 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd
+Z5 8C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd
+Z6 FC:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd
 l0
 L5
 V7HedZD`Z>e?iEQ:BBK?[o0
 !s100 1LHPd5_1I7Y;8F>c@ga2n0
 Z7 OV;C;10.5b;63
 31
-Z8 !s110 1571947168
+Z8 !s110 1571949019
 !i10b 1
-Z9 !s108 1571947168.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd|
-Z11 !s107 D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd|
+Z9 !s108 1571949019.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd|
+Z11 !s107 C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd|
 !i113 1
 Z12 o-93 -work work
 Z13 tExplicit 1 CvgOpt 0
@@ -50,23 +50,23 @@ R11
 R12
 R13
 Ers_tb
-Z14 w1571947103
+Z14 w1571947708
 R3
 R4
 R0
-Z15 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd
-Z16 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd
+Z15 8C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd
+Z16 FC:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd
 l0
 L4
 V_2Pf8`ImKnIK>X`VGT=fK1
 !s100 K3bm8f^>fLoROC_fZU0n11
 R7
 31
-Z17 !s110 1571947169
+R8
 !i10b 1
-Z18 !s108 1571947169.000000
-Z19 !s90 -reportprogress|300|-93|-work|work|D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd|
-Z20 !s107 D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd|
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd|
+Z18 !s107 C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd|
 !i113 1
 R12
 R13
@@ -80,11 +80,11 @@ VRd<eN7L7WI_k7T>YL9;JO2
 !s100 637bD7SVndeb2g?S7ce?m3
 R7
 31
-R17
+R8
 !i10b 1
+R9
+R17
 R18
-R19
-R20
 !i113 1
 R12
 R13

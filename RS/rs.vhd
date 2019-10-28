@@ -33,9 +33,7 @@ entity rs is
 		-- entrada vinda do cdb para pegar operandos sendo esperados (from cdb)
 		cdb:				in		 std_logic_vector(wordSize+tagSize-1 downto 0); 
 		
-		-- buffer para o testbench (retirar depois)
-		--r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
-		--r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+		
 		
 		-- sinal de busy de todas linhas da rs (to decoder)
 		busy:				out	 std_logic_vector(nbOfLines-1 downto 0);
@@ -47,6 +45,10 @@ entity rs is
 		
 		-- tag da instrucao que esta sendo alimentada para a ALU e que vai para o cdb (to cdb)
 		tag:  		 	out	 std_logic_vector(tagSize-1 downto 0)
+		
+		-- buffer para o testbench (retirar depois)
+		--r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+		--r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0)
 	);
 end rs;
 
