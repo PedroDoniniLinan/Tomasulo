@@ -7,15 +7,15 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/simulation/modelsim
+Z0 dC:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/simulation/modelsim
 Ers
 Z1 w1572111298
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z5 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd
-Z6 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd
+Z5 8C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd
+Z6 FC:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd
 l0
 L5
 VYfh3>[CcHf__3dn>QIoGi2
@@ -54,8 +54,8 @@ Z14 w1572111185
 R3
 R4
 R0
-Z15 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd
-Z16 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd
+Z15 8C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd
+Z16 FC:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd
 l0
 L4
 V_2Pf8`ImKnIK>X`VGT=fK1

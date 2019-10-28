@@ -58,8 +58,8 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -179,13 +179,13 @@ Info: Running Quartus Prime Analysis & Elaboration
     Info: Processing started: Sat Oct 26 14:35:00 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RS -c RS --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file rs.vhd
     Info (12022): Found design unit 1: rs-rs File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd Line: 56
     Info (12023): Found entity 1: rs File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file rs_tb.vhd
-    Info (12022): Found design unit 1: rs_tb-tb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd Line: 14
-    Info (12023): Found entity 1: rs_tb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd Line: 4
+    Info (12022): Found design unit 1: rs_tb-tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd Line: 14
+    Info (12023): Found entity 1: rs_tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd Line: 4
 Info (12127): Elaborating entity "RS" for the top level hierarchy
 Warning (10492): VHDL Process Statement warning at rs.vhd(128): signal "FU_tag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd Line: 128
 Warning (10631): VHDL Process Statement warning at rs.vhd(65): inferring latch(es) for signal or variable "alu_op_o", which holds its previous value in one or more paths through the process File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd Line: 65

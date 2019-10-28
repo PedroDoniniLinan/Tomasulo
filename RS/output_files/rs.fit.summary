@@ -1,13 +1,13 @@
-Fitter Status : Successful - Wed Sep 25 16:20:20 2019
+Fitter Status : Failed - Thu Oct 24 17:25:39 2019
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-Revision Name : rs
+Revision Name : RS
 Top-level Entity Name : rs
 Family : Cyclone V
 Device : 5CGXFC7C7F23C8
 Timing Models : Final
-Logic utilization (in ALMs) : 1 / 56,480 ( < 1 % )
-Total registers : 0
-Total pins : 47 / 268 ( 18 % )
+Logic utilization (in ALMs) : 158 / 56,480 ( < 1 % )
+Total registers : 151
+Total pins : 339 / 268 ( 126 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 7,024,640 ( 0 % )
 Total RAM Blocks : 0 / 686 ( 0 % )

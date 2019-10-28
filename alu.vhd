@@ -1,42 +1,69 @@
---------------------------------------------------------------------------------
---! @file alu.vhd
---! @brief 64-bit ALU
---! @author Bruno Albertini (balbertini@usp.br)
---! @date 20180807
---------------------------------------------------------------------------------
-
 library ieee;
 use ieee.numeric_bit.all;
 USE ieee.std_logic_1164.all;                                
 
 
--- @brief ALU is signed and uses 2-complement
 entity alu is
+  generic(delay: natural :=5; wordSize: natural := 64); -- number of cycles to execute
   port (
-    A, B : in  signed(63 downto 0); -- inputs
-    F    : out signed(63 downto 0); -- output
+    reset : in std_logic;
+	 clock : in std_logic;
+	 execute : in std_logic;
+    A, B : in  signed(wordSize-1 downto 0); -- inputs
+    F    : out signed(wordSize-1 downto 0); -- output
     S    : in  STD_LOGIC_VECTOR (3 downto 0); -- ALUop selection
-    Z    : out STD_LOGIC -- zero flag
+    --Z    : out STD_LOGIC -- zero flag
+	 ready : out std_logic
     );
 end entity alu;
 
--- @brief Fully functional architecture
 architecture functional of alu is
   signal aluout, altb: signed(63 downto 0) := (others=>'0');
+  signal executing: std_logic := '0'; 
+  signal timer : integer := 0;
 begin
-  with S select aluout <=
-    A and B when "0000", -- AND
-    A or  B when "0001", -- OR
-    A +   B when "0010", -- ADD
-    A -   B when "0110", -- SUB
-    B   		when "0111", -- PASS B
-    A nor B when "1100", -- NOR
-    (others=>'0') when others;
-  -- Generating A<B?1:0
-  --altb(63 downto 1) <= (others=>'0');
-  --altb(0) <= '1' when (A<B) else '0';
-  -- Generating zero flag
-  Z <= '1' when (aluout=0) else '0';
-  -- Copying temporary signal to output
-  F <= aluout;
+	process	 (reset, clock, S)
+	begin
+	
+	if reset = '1' then		 
+			executing <= '0';
+			ready <= '0';
+			F <= (others=>'0');
+			
+		elsif clock='1' and clock'event then
+			-- if executing, count timer
+			if executing = '1' then
+				timer <= timer + 1;
+				
+				
+			-- if execute signal received
+			elsif execute = '1' then
+				executing <= '1';
+				ready <= '0';
+						case S is
+							when "0000" => aluout <= A and B;-- AND
+							when "0001" => aluout <= A or  B;-- OR
+							when "0010" => aluout <= A +   B;-- ADD
+							when "0110" => aluout <= A -   B;-- SUB
+							when "0111" => aluout <= B;		-- PASS B
+							when "1100" => aluout <= A nor B;-- NOR
+							when others => aluout <= (others=>'0') ;
+						end case;
+					
+				
+			end if;
+			
+			-- if delay reached
+			if timer = delay then
+				timer <= 0;
+				ready <= '1';
+				executing <= '0';
+				-- Copying temporary signal to output
+				F <= aluout;
+				
+			end if;
+		end if;
+		
+
+  end process;
 end architecture functional;
