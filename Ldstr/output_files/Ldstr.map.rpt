@@ -1,0 +1,1452 @@
+Analysis & Synthesis report for Ldstr
+Tue Oct 29 16:07:21 2019
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: AdderMem:inst1
+ 15. Parameter Settings for User Entity Instance: LdstrQueue:inst
+ 16. Parameter Settings for User Entity Instance: DecoderLDSTR:inst3
+ 17. Parameter Settings for User Entity Instance: Mem:inst2
+ 18. Parameter Settings for User Entity Instance: MapTable:inst5
+ 19. Parameter Settings for User Entity Instance: RegFileTomasulo:inst6
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Oct 29 16:07:20 2019       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                   ; Ldstr                                       ;
+; Top-level Entity Name           ; Ldstr                                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 799                                         ;
+; Total pins                      ; 128                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA2F17A7        ;                    ;
+; Top-level entity name                                                           ; Ldstr              ; Ldstr              ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                      ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; RegFileTomasulo.vhd              ; yes             ; User VHDL File                     ; C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd ;         ;
+; MapTable.vhd                     ; yes             ; User VHDL File                     ; C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd        ;         ;
+; DecoderLDSTR.vhd                 ; yes             ; User VHDL File                     ; C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd    ;         ;
+; Mem.vhd                          ; yes             ; User VHDL File                     ; C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd             ;         ;
+; LdstrQueue.vhd                   ; yes             ; User VHDL File                     ; C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd      ;         ;
+; AdderMem.vhd                     ; yes             ; User VHDL File                     ; C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd        ;         ;
+; Ldstr.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Ldstr.bdf           ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 581         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 542         ;
+;     -- 7 input functions                    ; 2           ;
+;     -- 6 input functions                    ; 313         ;
+;     -- 5 input functions                    ; 32          ;
+;     -- 4 input functions                    ; 20          ;
+;     -- <=3 input functions                  ; 175         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 799         ;
+;                                             ;             ;
+; I/O pins                                    ; 128         ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 799         ;
+; Total fan-out                               ; 5914        ;
+; Average fan-out                             ; 3.70        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name          ; Entity Name     ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-----------------+--------------+
+; |Ldstr                     ; 542 (0)             ; 799 (0)                   ; 0                 ; 0          ; 128  ; 0            ; |Ldstr                       ; Ldstr           ; work         ;
+;    |AdderMem:inst1|        ; 59 (59)             ; 50 (50)                   ; 0                 ; 0          ; 0    ; 0            ; |Ldstr|AdderMem:inst1        ; AdderMem        ; work         ;
+;    |DecoderLDSTR:inst3|    ; 114 (114)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Ldstr|DecoderLDSTR:inst3    ; DecoderLDSTR    ; work         ;
+;    |LdstrQueue:inst|       ; 16 (16)             ; 86 (86)                   ; 0                 ; 0          ; 0    ; 0            ; |Ldstr|LdstrQueue:inst       ; LdstrQueue      ; work         ;
+;    |MapTable:inst5|        ; 99 (99)             ; 117 (117)                 ; 0                 ; 0          ; 0    ; 0            ; |Ldstr|MapTable:inst5        ; MapTable        ; work         ;
+;    |Mem:inst2|             ; 43 (43)             ; 34 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |Ldstr|Mem:inst2             ; Mem             ; work         ;
+;    |RegFileTomasulo:inst6| ; 211 (211)           ; 512 (512)                 ; 0                 ; 0          ; 0    ; 0            ; |Ldstr|RegFileTomasulo:inst6 ; RegFileTomasulo ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                  ;
++-----------------------------------------------------+---------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                   ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------------------+------------------------+
+; DecoderLDSTR:inst3|rsBusy                           ; DecoderLDSTR:inst3|rsBusy             ; yes                    ;
+; DecoderLDSTR:inst3|writeMapRS                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|writeMapData[2]                  ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rjFiles[0]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rjFiles[1]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rjFiles[2]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rjFiles[3]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rjFiles[4]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|writeMapData[1]                  ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|writeMapData[0]                  ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rkFiles[0]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rkFiles[1]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rkFiles[2]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rkFiles[3]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|rkFiles[4]                       ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[8]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[7]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[6]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[5]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[4]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[3]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[2]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[1]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|dt_address[0]                    ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|fuID[1]                          ; DecoderLDSTR:inst3|fuID[1]            ; yes                    ;
+; DecoderLDSTR:inst3|ind[1]                           ; DecoderLDSTR:inst3|ind[1]             ; yes                    ;
+; DecoderLDSTR:inst3|ind[0]                           ; DecoderLDSTR:inst3|ind[1]             ; yes                    ;
+; DecoderLDSTR:inst3|n[1]                             ; DecoderLDSTR:inst3|rsBusy             ; yes                    ;
+; DecoderLDSTR:inst3|n[0]                             ; DecoderLDSTR:inst3|rsBusy             ; yes                    ;
+; DecoderLDSTR:inst3|writeMapAddr[0]                  ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|writeMapAddr[1]                  ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|writeMapAddr[2]                  ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|writeMapAddr[3]                  ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|writeMapAddr[4]                  ; load                                  ; yes                    ;
+; DecoderLDSTR:inst3|fuID[0]                          ; DecoderLDSTR:inst3|fuID[1]            ; yes                    ;
+; DecoderLDSTR:inst3|lineId[0]                        ; DecoderLDSTR:inst3|lineId[0]          ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[8]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[7]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[6]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[5]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[4]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[3]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[2]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[1]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; DecoderLDSTR:inst3|dt_address_temp[0]               ; DecoderLDSTR:inst3|dt_address_temp[8] ; yes                    ;
+; Number of user-specified and inferred latches = 45  ;                                       ;                        ;
++-----------------------------------------------------+---------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; LdstrQueue:inst|dt_address_out[9..31]   ; Stuck at GND due to stuck port data_in ;
+; LdstrQueue:inst|point_read[1..31]       ; Stuck at GND due to stuck port data_in ;
+; LdstrQueue:inst|v_n_out[31]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][69]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][69]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][31]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][31] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][31] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[30]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][68]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][68]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][30]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][30] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][30] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[29]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][67]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][67]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][29]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][29] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][29] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[28]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][66]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][66]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][28]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][28] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][28] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[27]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][65]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][65]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][27]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][27] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][27] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[26]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][64]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][64]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][26]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][26] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][26] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[25]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][63]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][63]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][25]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][25] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][25] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[24]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][62]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][62]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][24]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][24] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][24] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[23]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][61]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][61]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][23]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][23] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][23] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[22]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][60]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][60]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][22]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][22] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][22] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[21]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][59]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][59]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][21]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][21] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][21] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[20]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][58]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][58]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][20]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][20] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][20] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[19]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][57]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][57]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][19]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][19] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][19] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[18]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][56]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][56]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][18]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][18] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][18] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[17]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][55]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][55]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][17]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][17] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][17] ; Lost fanout                            ;
+; LdstrQueue:inst|v_n_out[16]             ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[0][54]          ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][54]          ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[0][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[1][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[2][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[3][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[4][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[5][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[6][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[7][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[8][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[9][16]  ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[10][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[11][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[12][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[13][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[14][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[15][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[16][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[17][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[18][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[19][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[20][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[21][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[22][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[23][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[24][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[25][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[26][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[27][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[28][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[29][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[30][16] ; Lost fanout                            ;
+; RegFileTomasulo:inst6|lista_reg[31][16] ; Lost fanout                            ;
+; LdstrQueue:inst|point_write[1..31]      ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][5]           ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][4]           ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][3]           ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][2]           ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][1]           ; Lost fanout                            ;
+; LdstrQueue:inst|list_rs[1][0]           ; Lost fanout                            ;
+; Total Number of Removed Registers = 651 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                      ;
++------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; Register name                      ; Reason for Removal        ; Registers Removed due to This Register                                          ;
++------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; LdstrQueue:inst|dt_address_out[31] ; Stuck at GND              ; LdstrQueue:inst|v_n_out[31], LdstrQueue:inst|list_rs[0][69],                    ;
+;                                    ; due to stuck port data_in ; LdstrQueue:inst|list_rs[1][69], RegFileTomasulo:inst6|lista_reg[0][31],         ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[1][31], RegFileTomasulo:inst6|lista_reg[2][31], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[3][31], RegFileTomasulo:inst6|lista_reg[4][31], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[5][31], RegFileTomasulo:inst6|lista_reg[6][31], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[7][31], RegFileTomasulo:inst6|lista_reg[8][31], ;
+;                                    ;                           ; LdstrQueue:inst|v_n_out[30], LdstrQueue:inst|list_rs[0][68],                    ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][68], RegFileTomasulo:inst6|lista_reg[0][30],         ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[1][30], RegFileTomasulo:inst6|lista_reg[2][30], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[3][30], RegFileTomasulo:inst6|lista_reg[4][30], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[5][30], RegFileTomasulo:inst6|lista_reg[6][30], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[7][30], RegFileTomasulo:inst6|lista_reg[8][30], ;
+;                                    ;                           ; LdstrQueue:inst|v_n_out[29], LdstrQueue:inst|list_rs[0][67],                    ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][67], RegFileTomasulo:inst6|lista_reg[0][29],         ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[1][29], RegFileTomasulo:inst6|lista_reg[2][29], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[3][29], RegFileTomasulo:inst6|lista_reg[4][29], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[5][29], RegFileTomasulo:inst6|lista_reg[6][29], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[7][29], RegFileTomasulo:inst6|lista_reg[8][29], ;
+;                                    ;                           ; LdstrQueue:inst|v_n_out[28], LdstrQueue:inst|list_rs[0][66],                    ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][66], RegFileTomasulo:inst6|lista_reg[0][28],         ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[1][28], RegFileTomasulo:inst6|lista_reg[2][28], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[3][28], RegFileTomasulo:inst6|lista_reg[4][28], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[5][28], RegFileTomasulo:inst6|lista_reg[6][28], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[7][28], RegFileTomasulo:inst6|lista_reg[8][28], ;
+;                                    ;                           ; LdstrQueue:inst|v_n_out[27], LdstrQueue:inst|list_rs[0][65],                    ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][65], RegFileTomasulo:inst6|lista_reg[0][27],         ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[1][27], RegFileTomasulo:inst6|lista_reg[2][27], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[3][27], RegFileTomasulo:inst6|lista_reg[4][27], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[5][27], RegFileTomasulo:inst6|lista_reg[6][27], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[7][27], RegFileTomasulo:inst6|lista_reg[8][27], ;
+;                                    ;                           ; LdstrQueue:inst|v_n_out[26], LdstrQueue:inst|list_rs[0][64],                    ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][64], RegFileTomasulo:inst6|lista_reg[0][26],         ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[1][26], RegFileTomasulo:inst6|lista_reg[2][26], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[3][26], RegFileTomasulo:inst6|lista_reg[4][26], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[5][26], RegFileTomasulo:inst6|lista_reg[6][26], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[7][26], RegFileTomasulo:inst6|lista_reg[8][26], ;
+;                                    ;                           ; LdstrQueue:inst|v_n_out[25], LdstrQueue:inst|list_rs[0][63],                    ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][63], RegFileTomasulo:inst6|lista_reg[0][25],         ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[1][25], RegFileTomasulo:inst6|lista_reg[2][25], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[3][25], RegFileTomasulo:inst6|lista_reg[4][25], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[5][25], RegFileTomasulo:inst6|lista_reg[6][25], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[7][25], RegFileTomasulo:inst6|lista_reg[8][25], ;
+;                                    ;                           ; LdstrQueue:inst|v_n_out[24], LdstrQueue:inst|list_rs[0][62],                    ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][62], RegFileTomasulo:inst6|lista_reg[0][24],         ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[1][24], RegFileTomasulo:inst6|lista_reg[2][24], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[3][24], RegFileTomasulo:inst6|lista_reg[4][24], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[5][24], RegFileTomasulo:inst6|lista_reg[6][24], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[7][24], RegFileTomasulo:inst6|lista_reg[8][24], ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][5], LdstrQueue:inst|list_rs[1][4],                   ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][3], LdstrQueue:inst|list_rs[1][2],                   ;
+;                                    ;                           ; LdstrQueue:inst|list_rs[1][1]                                                   ;
+; LdstrQueue:inst|v_n_out[23]        ; Lost Fanouts              ; LdstrQueue:inst|list_rs[0][61], LdstrQueue:inst|list_rs[1][61],                 ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[0][23], RegFileTomasulo:inst6|lista_reg[1][23], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[2][23], RegFileTomasulo:inst6|lista_reg[3][23], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[4][23], RegFileTomasulo:inst6|lista_reg[5][23], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[6][23], RegFileTomasulo:inst6|lista_reg[7][23], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[8][23]                                          ;
+; LdstrQueue:inst|v_n_out[22]        ; Lost Fanouts              ; LdstrQueue:inst|list_rs[0][60], LdstrQueue:inst|list_rs[1][60],                 ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[0][22], RegFileTomasulo:inst6|lista_reg[1][22], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[2][22], RegFileTomasulo:inst6|lista_reg[3][22], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[4][22], RegFileTomasulo:inst6|lista_reg[5][22], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[6][22], RegFileTomasulo:inst6|lista_reg[7][22], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[8][22]                                          ;
+; LdstrQueue:inst|v_n_out[21]        ; Lost Fanouts              ; LdstrQueue:inst|list_rs[0][59], LdstrQueue:inst|list_rs[1][59],                 ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[0][21], RegFileTomasulo:inst6|lista_reg[1][21], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[2][21], RegFileTomasulo:inst6|lista_reg[3][21], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[4][21], RegFileTomasulo:inst6|lista_reg[5][21], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[6][21], RegFileTomasulo:inst6|lista_reg[7][21], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[8][21]                                          ;
+; LdstrQueue:inst|v_n_out[20]        ; Lost Fanouts              ; LdstrQueue:inst|list_rs[0][58], LdstrQueue:inst|list_rs[1][58],                 ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[0][20], RegFileTomasulo:inst6|lista_reg[1][20], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[2][20], RegFileTomasulo:inst6|lista_reg[3][20], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[4][20], RegFileTomasulo:inst6|lista_reg[5][20], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[6][20], RegFileTomasulo:inst6|lista_reg[7][20], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[8][20]                                          ;
+; LdstrQueue:inst|v_n_out[19]        ; Lost Fanouts              ; LdstrQueue:inst|list_rs[0][57], LdstrQueue:inst|list_rs[1][57],                 ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[0][19], RegFileTomasulo:inst6|lista_reg[1][19], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[2][19], RegFileTomasulo:inst6|lista_reg[3][19], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[4][19], RegFileTomasulo:inst6|lista_reg[5][19], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[6][19], RegFileTomasulo:inst6|lista_reg[7][19], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[8][19]                                          ;
+; LdstrQueue:inst|v_n_out[18]        ; Lost Fanouts              ; LdstrQueue:inst|list_rs[0][56], LdstrQueue:inst|list_rs[1][56],                 ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[0][18], RegFileTomasulo:inst6|lista_reg[1][18], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[2][18], RegFileTomasulo:inst6|lista_reg[3][18], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[4][18], RegFileTomasulo:inst6|lista_reg[5][18], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[6][18], RegFileTomasulo:inst6|lista_reg[7][18], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[8][18]                                          ;
+; LdstrQueue:inst|v_n_out[17]        ; Lost Fanouts              ; LdstrQueue:inst|list_rs[0][55], LdstrQueue:inst|list_rs[1][55],                 ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[0][17], RegFileTomasulo:inst6|lista_reg[1][17], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[2][17], RegFileTomasulo:inst6|lista_reg[3][17], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[4][17], RegFileTomasulo:inst6|lista_reg[5][17], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[6][17], RegFileTomasulo:inst6|lista_reg[7][17], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[8][17]                                          ;
+; LdstrQueue:inst|v_n_out[16]        ; Lost Fanouts              ; LdstrQueue:inst|list_rs[0][54], LdstrQueue:inst|list_rs[1][54],                 ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[0][16], RegFileTomasulo:inst6|lista_reg[1][16], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[2][16], RegFileTomasulo:inst6|lista_reg[3][16], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[4][16], RegFileTomasulo:inst6|lista_reg[5][16], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[6][16], RegFileTomasulo:inst6|lista_reg[7][16], ;
+;                                    ;                           ; RegFileTomasulo:inst6|lista_reg[8][16]                                          ;
++------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 799   ;
+; Number of registers using Synchronous Clear  ; 60    ;
+; Number of registers using Synchronous Load   ; 25    ;
+; Number of registers using Asynchronous Clear ; 791   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 712   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; LdstrQueue:inst|list_rs[0][1]           ; 3       ;
+; LdstrQueue:inst|list_rs[0][0]           ; 3       ;
+; Mem:inst2|done                          ; 4       ;
+; LdstrQueue:inst|list_rs[0][5]           ; 1       ;
+; LdstrQueue:inst|list_rs[0][4]           ; 1       ;
+; LdstrQueue:inst|list_rs[0][3]           ; 1       ;
+; LdstrQueue:inst|list_rs[0][2]           ; 1       ;
+; LdstrQueue:inst|point_read[0]           ; 28      ;
+; RegFileTomasulo:inst6|lista_reg[4][2]   ; 1       ;
+; RegFileTomasulo:inst6|lista_reg[3][1]   ; 1       ;
+; RegFileTomasulo:inst6|lista_reg[3][0]   ; 1       ;
+; Total number of inverted registers = 11 ;         ;
++-----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 32:1               ; 3 bits    ; 63 LEs        ; 63 LEs               ; 0 LEs                  ; Yes        ; |Ldstr|MapTable:inst5|tag_1[2]     ;
+; 32:1               ; 3 bits    ; 63 LEs        ; 63 LEs               ; 0 LEs                  ; Yes        ; |Ldstr|MapTable:inst5|tag_2[2]     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Ldstr|DecoderLDSTR:inst3|ind[0]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Ldstr|DecoderLDSTR:inst3|fuID[0]  ;
+; 32:1               ; 16 bits   ; 336 LEs       ; 336 LEs              ; 0 LEs                  ; No         ; |Ldstr|RegFileTomasulo:inst6|Mux19 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AdderMem:inst1 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; wordsize       ; 32    ; Signed Integer                     ;
+; n_cycles       ; 4     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LdstrQueue:inst ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; wordsize       ; 32    ; Signed Integer                      ;
+; tagsize        ; 3     ; Signed Integer                      ;
+; futagsize      ; 2     ; Signed Integer                      ;
+; nboflines      ; 2     ; Signed Integer                      ;
+; opbits         ; 1     ; Signed Integer                      ;
+; dt_addresssize ; 9     ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DecoderLDSTR:inst3 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; wordsize       ; 32    ; Signed Integer                         ;
+; regbits        ; 5     ; Signed Integer                         ;
+; rsbits         ; 1     ; Signed Integer                         ;
+; fubits         ; 2     ; Signed Integer                         ;
+; tagsize        ; 3     ; Signed Integer                         ;
+; opbits         ; 4     ; Signed Integer                         ;
+; nb_lines       ; 2     ; Signed Integer                         ;
+; ldstrbits      ; 1     ; Signed Integer                         ;
+; n_lines_ldstr  ; 2     ; Signed Integer                         ;
+; dt_addresssize ; 9     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mem:inst2 ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; addresssize    ; 16    ; Signed Integer                ;
+; wordsize       ; 32    ; Signed Integer                ;
+; n_cycles       ; 10    ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MapTable:inst5 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; tagsize        ; 3     ; Signed Integer                     ;
+; regnum         ; 32    ; Signed Integer                     ;
+; regnumbits     ; 5     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RegFileTomasulo:inst6 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; wordsize       ; 32    ; Signed Integer                            ;
+; regnum         ; 32    ; Signed Integer                            ;
+; regnumbits     ; 5     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 799                         ;
+;     CLR               ; 27                          ;
+;     CLR SCLR          ; 60                          ;
+;     ENA               ; 8                           ;
+;     ENA CLR           ; 679                         ;
+;     ENA CLR SLD       ; 25                          ;
+; arriav_lcell_comb     ; 542                         ;
+;     arith             ; 80                          ;
+;         1 data inputs ; 69                          ;
+;         2 data inputs ; 11                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 460                         ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 76                          ;
+;         4 data inputs ; 20                          ;
+;         5 data inputs ; 32                          ;
+;         6 data inputs ; 313                         ;
+; boundary_port         ; 128                         ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.84                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Tue Oct 29 16:06:59 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Ldstr -c Ldstr
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file regfiletomasulo.vhd
+    Info (12022): Found design unit 1: RegFileTomasulo-RegFileTomasuloArq File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd Line: 27
+    Info (12023): Found entity 1: RegFileTomasulo File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file maptable.vhd
+    Info (12022): Found design unit 1: MapTable-MapTable File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd Line: 31
+    Info (12023): Found entity 1: MapTable File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file decoderldstr.vhd
+    Info (12022): Found design unit 1: DecoderLDSTR-DecoderLDSTR File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 48
+    Info (12023): Found entity 1: DecoderLDSTR File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mem.vhd
+    Info (12022): Found design unit 1: Mem-Mem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd Line: 24
+    Info (12023): Found entity 1: Mem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file ldstrqueue.vhd
+    Info (12022): Found design unit 1: LdstrQueue-LdstrQueue File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 54
+    Info (12023): Found entity 1: LdstrQueue File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file addermem.vhd
+    Info (12022): Found design unit 1: AdderMem-AdderMem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd Line: 22
+    Info (12023): Found entity 1: AdderMem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file ldstr.bdf
+    Info (12023): Found entity 1: Ldstr
+Info (12021): Found 2 design units, including 1 entities, in source file ldstr_tb.vhd
+    Info (12022): Found design unit 1: Ldstr_tb-bdf_type File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/ldstr_tb.vhd Line: 45
+    Info (12023): Found entity 1: Ldstr_tb File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/ldstr_tb.vhd Line: 25
+Info (12127): Elaborating entity "Ldstr" for the top level hierarchy
+Info (12128): Elaborating entity "AdderMem" for hierarchy "AdderMem:inst1"
+Info (12128): Elaborating entity "LdstrQueue" for hierarchy "LdstrQueue:inst"
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(86): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(87): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 87
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(147): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 147
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(151): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(152): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 152
+Info (12128): Elaborating entity "DecoderLDSTR" for hierarchy "DecoderLDSTR:inst3"
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(83): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(98): signal "load" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 98
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(100): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 100
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(110): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 110
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(111): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 111
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(112): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 112
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(122): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 122
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(123): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 123
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(124): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 124
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(133): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 133
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(134): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 134
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(136): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 136
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(145): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 145
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(147): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 147
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(148): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 148
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(182): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 182
+Warning (10492): VHDL Process Statement warning at DecoderLDSTR.vhd(200): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 200
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "rjFiles", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "rkFiles", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "writeMapAddr", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "dt_address", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "writeMapRS", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "writeMapData", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "fuCodeOneHot", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "RSLineOneHot", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "ldstr", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "opCode", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "rsBusy", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "ind", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "n", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "dt_address_temp", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "fuID", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "lineId", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at DecoderLDSTR.vhd(52): inferring latch(es) for signal or variable "busy", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "busy" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "opCode[0]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "opCode[1]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "opCode[2]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "opCode[3]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "ldstr" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "RSLineOneHot[0]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "RSLineOneHot[1]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "RSLineOneHot[2]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "RSLineOneHot[3]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "RSLineOneHot[4]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "RSLineOneHot[5]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "fuCodeOneHot[0]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "fuCodeOneHot[1]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "fuCodeOneHot[2]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapData[0]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapData[1]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapData[2]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapRS" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[0]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[1]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[2]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[3]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[4]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[5]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[6]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[7]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "dt_address[8]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapAddr[0]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapAddr[1]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapAddr[2]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapAddr[3]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "writeMapAddr[4]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rkFiles[0]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rkFiles[1]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rkFiles[2]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rkFiles[3]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rkFiles[4]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rjFiles[0]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rjFiles[1]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rjFiles[2]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rjFiles[3]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "rjFiles[4]" at DecoderLDSTR.vhd(52) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 52
+Info (10041): Inferred latch for "lineId[0]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "fuID[0]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "fuID[1]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[0]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[1]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[2]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[3]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[4]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[5]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[6]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[7]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "dt_address_temp[8]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[0]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[1]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[2]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[3]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[4]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[5]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[6]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[7]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[8]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[9]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[10]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[11]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[12]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[13]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[14]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[15]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[16]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[17]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[18]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[19]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[20]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[21]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[22]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[23]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[24]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[25]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[26]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[27]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[28]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[29]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[30]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "n[31]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[0]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[1]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[2]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[3]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[4]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[5]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[6]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[7]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[8]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[9]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[10]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[11]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[12]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[13]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[14]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[15]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[16]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[17]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[18]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[19]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[20]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[21]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[22]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[23]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[24]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[25]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[26]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[27]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[28]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[29]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[30]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "ind[31]" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (10041): Inferred latch for "rsBusy" at DecoderLDSTR.vhd(84) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+Info (12128): Elaborating entity "Mem" for hierarchy "Mem:inst2"
+Warning (10492): VHDL Process Statement warning at Mem.vhd(58): signal "mem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at Mem.vhd(58): signal "addr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd Line: 58
+Info (12128): Elaborating entity "MapTable" for hierarchy "MapTable:inst5"
+Info (12128): Elaborating entity "RegFileTomasulo" for hierarchy "RegFileTomasulo:inst6"
+Warning (10036): Verilog HDL or VHDL warning at RegFileTomasulo.vhd(34): object "escrita" assigned a value but never read File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at RegFileTomasulo.vhd(75): signal "lista_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at RegFileTomasulo.vhd(75): signal "leitura1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at RegFileTomasulo.vhd(76): signal "lista_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd Line: 76
+Warning (10492): VHDL Process Statement warning at RegFileTomasulo.vhd(76): signal "leitura2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd Line: 76
+Warning (10492): VHDL Process Statement warning at RegFileTomasulo.vhd(78): signal "lista_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd Line: 78
+Warning (13012): Latch DecoderLDSTR:inst3|rsBusy has unsafe behavior File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 70
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inst_in[31]
+Warning (13012): Latch DecoderLDSTR:inst3|fuID[1] has unsafe behavior File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inst_in[31]
+Warning (13012): Latch DecoderLDSTR:inst3|ind[1] has unsafe behavior File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inst_in[31]
+Warning (13012): Latch DecoderLDSTR:inst3|ind[0] has unsafe behavior File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inst_in[31]
+Warning (13012): Latch DecoderLDSTR:inst3|n[1] has unsafe behavior File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inst_in[31]
+Warning (13012): Latch DecoderLDSTR:inst3|n[0] has unsafe behavior File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inst_in[31]
+Warning (13012): Latch DecoderLDSTR:inst3|fuID[0] has unsafe behavior File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inst_in[31]
+Warning (13012): Latch DecoderLDSTR:inst3|lineId[0] has unsafe behavior File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd Line: 84
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LdstrQueue:inst|list_rs[0][80] File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 72
+Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register AdderMem:inst1|counter[31] will power up to Low File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd Line: 32
+    Critical Warning (18010): Register AdderMem:inst1|counter[0] will power up to Low File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd Line: 32
+    Critical Warning (18010): Register LdstrQueue:inst|point_read[0] will power up to High File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd Line: 72
+    Critical Warning (18010): Register Mem:inst2|counter[31] will power up to Low File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd Line: 33
+    Critical Warning (18010): Register Mem:inst2|counter[0] will power up to Low File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd Line: 33
+    Critical Warning (18010): Register MapTable:inst5|leitura1[0] will power up to Low File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd Line: 43
+    Critical Warning (18010): Register MapTable:inst5|leitura2[0] will power up to Low File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd Line: 43
+    Critical Warning (18010): Register MapTable:inst5|escrita[0] will power up to Low File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd Line: 43
+Info (17049): 597 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 53 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "inst_in[11]"
+    Warning (15610): No output dependent on input pin "inst_in[10]"
+    Warning (15610): No output dependent on input pin "cdb[34]"
+    Warning (15610): No output dependent on input pin "cdb[33]"
+    Warning (15610): No output dependent on input pin "cdb[32]"
+    Warning (15610): No output dependent on input pin "cdb[31]"
+    Warning (15610): No output dependent on input pin "cdb[30]"
+    Warning (15610): No output dependent on input pin "cdb[29]"
+    Warning (15610): No output dependent on input pin "cdb[28]"
+    Warning (15610): No output dependent on input pin "cdb[27]"
+    Warning (15610): No output dependent on input pin "cdb[26]"
+    Warning (15610): No output dependent on input pin "cdb[25]"
+    Warning (15610): No output dependent on input pin "cdb[24]"
+    Warning (15610): No output dependent on input pin "cdb[23]"
+    Warning (15610): No output dependent on input pin "cdb[22]"
+    Warning (15610): No output dependent on input pin "cdb[21]"
+    Warning (15610): No output dependent on input pin "cdb[20]"
+    Warning (15610): No output dependent on input pin "cdb[19]"
+    Warning (15610): No output dependent on input pin "cdb[18]"
+    Warning (15610): No output dependent on input pin "cdb[17]"
+    Warning (15610): No output dependent on input pin "cdb[16]"
+    Warning (15610): No output dependent on input pin "cdb[15]"
+    Warning (15610): No output dependent on input pin "cdb[14]"
+    Warning (15610): No output dependent on input pin "cdb[13]"
+    Warning (15610): No output dependent on input pin "cdb[12]"
+    Warning (15610): No output dependent on input pin "cdb[11]"
+    Warning (15610): No output dependent on input pin "cdb[10]"
+    Warning (15610): No output dependent on input pin "cdb[9]"
+    Warning (15610): No output dependent on input pin "cdb[8]"
+    Warning (15610): No output dependent on input pin "cdb[7]"
+    Warning (15610): No output dependent on input pin "cdb[6]"
+    Warning (15610): No output dependent on input pin "cdb[5]"
+    Warning (15610): No output dependent on input pin "cdb[4]"
+    Warning (15610): No output dependent on input pin "cdb[3]"
+    Warning (15610): No output dependent on input pin "cdb[2]"
+    Warning (15610): No output dependent on input pin "cdb[1]"
+    Warning (15610): No output dependent on input pin "cdb[0]"
+    Warning (15610): No output dependent on input pin "reg_write_data[31]"
+    Warning (15610): No output dependent on input pin "reg_write_data[30]"
+    Warning (15610): No output dependent on input pin "reg_write_data[29]"
+    Warning (15610): No output dependent on input pin "reg_write_data[28]"
+    Warning (15610): No output dependent on input pin "reg_write_data[27]"
+    Warning (15610): No output dependent on input pin "reg_write_data[26]"
+    Warning (15610): No output dependent on input pin "reg_write_data[25]"
+    Warning (15610): No output dependent on input pin "reg_write_data[24]"
+    Warning (15610): No output dependent on input pin "reg_write_data[23]"
+    Warning (15610): No output dependent on input pin "reg_write_data[22]"
+    Warning (15610): No output dependent on input pin "reg_write_data[21]"
+    Warning (15610): No output dependent on input pin "reg_write_data[20]"
+    Warning (15610): No output dependent on input pin "reg_write_data[19]"
+    Warning (15610): No output dependent on input pin "reg_write_data[18]"
+    Warning (15610): No output dependent on input pin "reg_write_data[17]"
+    Warning (15610): No output dependent on input pin "reg_write_data[16]"
+Info (21057): Implemented 1366 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 110 input pins
+    Info (21059): Implemented 18 output pins
+    Info (21061): Implemented 1238 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 127 warnings
+    Info: Peak virtual memory: 4899 megabytes
+    Info: Processing ended: Tue Oct 29 16:07:21 2019
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:48
+
+

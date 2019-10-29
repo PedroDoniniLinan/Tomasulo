@@ -1,0 +1,58 @@
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+use std.textio.all;
+
+entity Mem is
+  generic (
+    addressSize : natural := 32;
+    wordSize    : natural := 32;
+	 n_cycles: natural := 10
+  );
+  port (
+    clock: in  std_logic;
+	 reset: in std_logic;
+	 start_mem : in std_logic -- input from AdderMem
+	 wrt: in std_logic; -- input from LdstrQueue alu_op_o
+    addr   : in  bit_vector(addressSize-1 downto 0); -- input from AdderMem
+    data_i : in  bit_vector(wordSize-1 downto 0); -- input from LdstrQueue r_t
+    data_o : out bit_vector(wordSize-1 downto 0); -- data to cdb
+	 done : out std_logic -- output to ldstrQueue
+  );
+end Mem;
+
+architecture Mem of Mem is
+  constant depth : natural := 2**addressSize;
+  type mem_type is array (0 to depth-1) of bit_vector(wordSize-1 downto 0);
+  signal mem : mem_type;
+  signal counter : integer;
+  signal busy : std_logic;
+begin
+  wrt: process(ck)
+  begin
+	 if reset = '1' then		 
+				counter <= 0;
+				done <= 1;
+				data_o <= (others => '0');
+    elsif (clock='1' and clock'event) then
+		if start_mem = '1' then
+			busy <= '1'
+			done <= 0;					
+			
+			if busy = '1' then
+				counter <= counter + 1;					
+			end if;
+			
+			if counter = n_cycles then
+				busy <= 0;
+				done <= 1;
+				counter <= 0;
+			end if;
+				
+			if (wr='1') then
+			  mem(to_integer(unsigned(to_stdlogicvector(addr)))) <= data_i;
+			end if;
+    end if;
+  end process;
+  data_o <= mem(to_integer(unsigned(to_stdlogicvector(addr))));
+end Mem;

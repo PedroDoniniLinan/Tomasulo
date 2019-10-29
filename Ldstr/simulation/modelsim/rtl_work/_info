@@ -1,0 +1,299 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/simulation/modelsim
+Eaddermem
+Z1 w1572371207
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd
+Z6 FC:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd
+l0
+L5
+VgjB_zbDo1Tb^@]Bk]ERF>3
+!s100 KGnh9PBVba>[Cc2@4iE2X3
+Z7 OV;C;10.5b;63
+31
+Z8 !s110 1572376073
+!i10b 1
+Z9 !s108 1572376073.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd|
+Z11 !s107 C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/AdderMem.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Aaddermem
+R2
+R3
+R4
+DEx4 work 8 addermem 0 22 gjB_zbDo1Tb^@]Bk]ERF>3
+l26
+L22
+V@hUSX_QI6[8Sb?0TY2c::2
+!s100 ESb?KoE02646EZln?IF_d3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Edecoderldstr
+Z14 w1572374890
+Z15 DPx8 synopsys 10 attributes 0 22 liCm]LV3<lX4Zl>o6^8IV1
+Z16 DPx4 ieee 14 std_logic_misc 0 22 BLzBaQbXS>Q1z>5YO]m[52
+R2
+R3
+R4
+R0
+Z17 8C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd
+Z18 FC:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd
+l0
+L6
+VUMJ;CKUl=30WjX6hPI7]F0
+!s100 3lJXL[HMYTS906h^UA1<43
+R7
+31
+Z19 !s110 1572376072
+!i10b 1
+Z20 !s108 1572376072.000000
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd|
+Z22 !s107 C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/DecoderLDSTR.vhd|
+!i113 1
+R12
+R13
+Adecoderldstr
+R15
+R16
+R2
+R3
+R4
+DEx4 work 12 decoderldstr 0 22 UMJ;CKUl=30WjX6hPI7]F0
+l50
+L48
+V4_Ae[11Bc4bC0cU=e3mGa3
+!s100 :Z=jM_lNIOS<2Y;Acl4T12
+R7
+31
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R12
+R13
+Eldstr_tb
+Z23 w1572371961
+R3
+R4
+R0
+Z24 8C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/ldstr_tb.vhd
+Z25 FC:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/ldstr_tb.vhd
+l0
+L25
+VZEz@e4[TMOBk>16=C>5hA1
+!s100 jaIBF^;9IZoSDg<FRWDPo0
+R7
+31
+R8
+!i10b 1
+R9
+Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/ldstr_tb.vhd|
+Z27 !s107 C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/ldstr_tb.vhd|
+!i113 1
+R12
+R13
+Abdf_type
+R3
+R4
+DEx4 work 8 ldstr_tb 0 22 ZEz@e4[TMOBk>16=C>5hA1
+l239
+L45
+ViDLYIUB?J0ATkib[2O81>0
+!s100 V_4G5Q[@[`e]<cV76D0zG0
+R7
+31
+R8
+!i10b 1
+R9
+R26
+R27
+!i113 1
+R12
+R13
+Eldstrqueue
+Z28 w1572371044
+R2
+R3
+R4
+R0
+Z29 8C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd
+Z30 FC:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd
+l0
+L5
+Vd0fnjMY@mWMgFm>lQDOjI2
+!s100 C3>;G9P>2[8HGC^j55@mg1
+R7
+31
+R19
+!i10b 1
+R20
+Z31 !s90 -reportprogress|300|-93|-work|work|C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd|
+Z32 !s107 C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/LdstrQueue.vhd|
+!i113 1
+R12
+R13
+Aldstrqueue
+R2
+R3
+R4
+DEx4 work 10 ldstrqueue 0 22 d0fnjMY@mWMgFm>lQDOjI2
+l63
+L54
+VAT2:eWV=cZlLRR<GYC02A3
+!s100 _8QzWG1RUnNcd7UTKMX]^3
+R7
+31
+R19
+!i10b 1
+R20
+R31
+R32
+!i113 1
+R12
+R13
+Emaptable
+Z33 w1572355993
+R2
+R3
+R4
+R0
+Z34 8C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd
+Z35 FC:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd
+l0
+L6
+V^3[mf];LlIQjVczG6LXEV2
+!s100 :APmjkVGfK3mUSZJ<61Kg2
+R7
+31
+R19
+!i10b 1
+R20
+Z36 !s90 -reportprogress|300|-93|-work|work|C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd|
+Z37 !s107 C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/MapTable.vhd|
+!i113 1
+R12
+R13
+Amaptable
+R2
+R3
+R4
+DEx4 work 8 maptable 0 22 ^3[mf];LlIQjVczG6LXEV2
+l40
+L31
+VkeS9b=jYU3L[[c78_z9``1
+!s100 4RjdkF7MBU>QGnJIE7o`a3
+R7
+31
+R19
+!i10b 1
+R20
+R36
+R37
+!i113 1
+R12
+R13
+Emem
+Z38 w1572371546
+R2
+R3
+R4
+R0
+Z39 8C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd
+Z40 FC:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd
+l0
+L6
+V<dE32ERZEdn3EkabP?1XJ1
+!s100 >Sc7dOoS9So`NhhS5cV2b0
+R7
+31
+R19
+!i10b 1
+R20
+Z41 !s90 -reportprogress|300|-93|-work|work|C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd|
+Z42 !s107 C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/Mem.vhd|
+!i113 1
+R12
+R13
+Amem
+R2
+R3
+R4
+DEx4 work 3 mem 0 22 <dE32ERZEdn3EkabP?1XJ1
+l30
+L24
+V8Ii]5aa2Kg^IK?4Db756_2
+!s100 R`4:Q?m=l_2h@C[9Cd4?O1
+R7
+31
+R19
+!i10b 1
+R20
+R41
+R42
+!i113 1
+R12
+R13
+Eregfiletomasulo
+Z43 w1572369124
+R2
+R3
+R4
+R0
+Z44 8C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd
+Z45 FC:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd
+l0
+L6
+VD^AA3[Qk:HaJLOBnS?9BG0
+!s100 mW?[G`f>MD1:gaH53BmDa3
+R7
+31
+R19
+!i10b 1
+R20
+Z46 !s90 -reportprogress|300|-93|-work|work|C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd|
+Z47 !s107 C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Ldstr/RegFileTomasulo.vhd|
+!i113 1
+R12
+R13
+Aregfiletomasuloarq
+R2
+R3
+R4
+DEx4 work 15 regfiletomasulo 0 22 D^AA3[Qk:HaJLOBnS?9BG0
+l35
+L27
+VHnO60jgJjbKIiB3Q@;JGL2
+!s100 0I]DH8Xzi_laM9i6>H6Fz0
+R7
+31
+R19
+!i10b 1
+R20
+R46
+R47
+!i113 1
+R12
+R13

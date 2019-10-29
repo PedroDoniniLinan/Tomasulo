@@ -1,0 +1,187 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 368 256)
+	(text "LdstrQueue" (rect 5 0 52 12)(font "Arial" ))
+	(text "inst" (rect 8 224 20 236)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 20 12)(font "Arial" ))
+		(text "clock" (rect 21 27 41 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "reset" (rect 0 0 20 12)(font "Arial" ))
+		(text "reset" (rect 21 43 41 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "load" (rect 0 0 15 12)(font "Arial" ))
+		(text "load" (rect 21 59 36 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "alu_op_i[opbits-1..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "alu_op_i[opbits-1..0]" (rect 21 75 97 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "v_n_in[wordsize-1..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "v_n_in[wordsize-1..0]" (rect 21 91 103 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "v_t_in[wordsize-1..0]" (rect 0 0 80 12)(font "Arial" ))
+		(text "v_t_in[wordsize-1..0]" (rect 21 107 101 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "q_n[tagsize-1..0]" (rect 0 0 62 12)(font "Arial" ))
+		(text "q_n[tagsize-1..0]" (rect 21 123 83 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "q_t[tagsize-1..0]" (rect 0 0 60 12)(font "Arial" ))
+		(text "q_t[tagsize-1..0]" (rect 21 139 81 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "done" (rect 0 0 18 12)(font "Arial" ))
+		(text "done" (rect 21 155 39 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "cdb[wordsize+tagsize-1..0]" (rect 0 0 94 12)(font "Arial" ))
+		(text "cdb[wordsize+tagsize-1..0]" (rect 21 171 115 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "dt_address_in[dt_addresssize-1..0]" (rect 0 0 136 12)(font "Arial" ))
+		(text "dt_address_in[dt_addresssize-1..0]" (rect 21 187 157 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 352 32)
+		(output)
+		(text "busy[nboflines-1..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "busy[nboflines-1..0]" (rect 256 27 331 39)(font "Arial" ))
+		(line (pt 352 32)(pt 336 32)(line_width 3))
+	)
+	(port
+		(pt 352 48)
+		(output)
+		(text "alu_op_o[opbits-1..0]" (rect 0 0 80 12)(font "Arial" ))
+		(text "alu_op_o[opbits-1..0]" (rect 251 43 331 55)(font "Arial" ))
+		(line (pt 352 48)(pt 336 48)(line_width 3))
+	)
+	(port
+		(pt 352 64)
+		(output)
+		(text "v_n_out[wordsize-1..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "v_n_out[wordsize-1..0]" (rect 243 59 331 71)(font "Arial" ))
+		(line (pt 352 64)(pt 336 64)(line_width 3))
+	)
+	(port
+		(pt 352 80)
+		(output)
+		(text "v_t_out[wordsize-1..0]" (rect 0 0 86 12)(font "Arial" ))
+		(text "v_t_out[wordsize-1..0]" (rect 245 75 331 87)(font "Arial" ))
+		(line (pt 352 80)(pt 336 80)(line_width 3))
+	)
+	(port
+		(pt 352 96)
+		(output)
+		(text "dt_address_out[wordsize-1..0]" (rect 0 0 116 12)(font "Arial" ))
+		(text "dt_address_out[wordsize-1..0]" (rect 215 91 331 103)(font "Arial" ))
+		(line (pt 352 96)(pt 336 96)(line_width 3))
+	)
+	(port
+		(pt 352 112)
+		(output)
+		(text "start" (rect 0 0 17 12)(font "Arial" ))
+		(text "start" (rect 314 107 331 119)(font "Arial" ))
+		(line (pt 352 112)(pt 336 112)(line_width 1))
+	)
+	(port
+		(pt 352 128)
+		(output)
+		(text "tag[tagsize-1..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "tag[tagsize-1..0]" (rect 272 123 331 135)(font "Arial" ))
+		(line (pt 352 128)(pt 336 128)(line_width 3))
+	)
+	(parameter
+		"wordSize"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"tagSize"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"FUTagSize"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"nbOfLines"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"opBits"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"dt_addressSize"
+		"9"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 336 224)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 368 -64 468 16))
+)

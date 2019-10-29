@@ -1,0 +1,309 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "start_mem",
+					"strict" : false
+				},
+				{
+					"name" : "start_mem10",
+					"strict" : false
+				},
+				{
+					"name" : "address[15]",
+					"strict" : false
+				},
+				{
+					"name" : "address[14]",
+					"strict" : false
+				},
+				{
+					"name" : "address[13]",
+					"strict" : false
+				},
+				{
+					"name" : "address[12]",
+					"strict" : false
+				},
+				{
+					"name" : "address[11]",
+					"strict" : false
+				},
+				{
+					"name" : "address[10]",
+					"strict" : false
+				},
+				{
+					"name" : "address[9]",
+					"strict" : false
+				},
+				{
+					"name" : "address[8]",
+					"strict" : false
+				},
+				{
+					"name" : "address[7]",
+					"strict" : false
+				},
+				{
+					"name" : "address[6]",
+					"strict" : false
+				},
+				{
+					"name" : "address[5]",
+					"strict" : false
+				},
+				{
+					"name" : "address[4]",
+					"strict" : false
+				},
+				{
+					"name" : "address[3]",
+					"strict" : false
+				},
+				{
+					"name" : "address[2]",
+					"strict" : false
+				},
+				{
+					"name" : "address[1]",
+					"strict" : false
+				},
+				{
+					"name" : "address[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[22]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[30]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[31]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[27]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[26]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[23]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[21]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[29]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[28]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[25]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[24]",
+					"strict" : false
+				},
+				{
+					"name" : "load",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[20]",
+					"strict" : false
+				},
+				{
+					"name" : "busyRs[1]",
+					"strict" : false
+				},
+				{
+					"name" : "busyRs[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[18]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[19]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[16]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[17]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[9]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[8]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[15]",
+					"strict" : false
+				},
+				{
+					"name" : "write_reg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "write_reg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "write_reg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "write_reg[3]",
+					"strict" : false
+				},
+				{
+					"name" : "write_reg[4]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[14]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[13]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[12]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[11]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[10]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[9]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[8]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[15]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[14]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[13]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_write_data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inst_in[12]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
