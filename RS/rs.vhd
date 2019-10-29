@@ -38,8 +38,7 @@ entity rs is
 		-- sinal de busy de todas linhas da rs (to decoder)
 		busy:				out	 std_logic_vector(nbOfLines-1 downto 0);
 		
-		-- inicia execução na alu (to alu)
-		ready:			out	 std_logic;
+		
 		
 		-- saidas para a ALU (to alu)
 		alu_op_o:   	out	 std_logic_vector(opBits-1 downto 0); 
@@ -47,7 +46,10 @@ entity rs is
 		v_k_o:  		 	out	 std_logic_vector(wordSize-1 downto 0);
 		
 		-- tag da instrucao que esta sendo alimentada para a ALU e que vai para o cdb (to cdb)
-		tag:  		 	out	 std_logic_vector(tagSize-1 downto 0)
+		tag:  		 	out	 std_logic_vector(tagSize-1 downto 0);
+		
+		-- inicia execução na alu (to alu)
+		ready:			out	 std_logic
 		
 		-- buffer para o testbench (retirar depois)
 		--r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);

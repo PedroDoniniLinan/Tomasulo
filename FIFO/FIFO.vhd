@@ -15,7 +15,7 @@ entity FIFO is
  rd : in  std_logic; -- controle de leitura (dispatch)
  read_inst : out std_logic_vector(wordSize-1 downto 0); -- sinal de saida da leitura da instrucao
  
- empty : out std_logic; -- fila esta vazia, nao consegue ler
+ notEmpty : out std_logic; -- fila esta vazia, nao consegue ler
  full  : out std_logic -- fila esta cheia, nao consegue escrever
 ) ;	  
 end FIFO; 
@@ -42,14 +42,14 @@ begin
 			fila_reg(2) <= "10001011000" & "00100" & "000000" & "00011" & "00101"; -- ADD R2 + R3 = R5
 			point_read <= 0;
 			point_write <= 3;
-			empty <= '0';
+			notEmpty <= '0';
 			full <= '0';
 			inst_count <= 0;
 			----- FIM TESTE
 			
 			--point_read <= 0;
 			--point_write <= 0;
-			--empty <= '1';
+			--notEmpty <= '1';
 			--full <= '0';
 			--inst_count <= 0;
 			
@@ -72,7 +72,7 @@ begin
 			
 			if (rd = '0') then -- se operaçao de leitura
 				if (inst_count  = 0) then -- caso esteja vazio
-					empty <= '1';
+					notEmpty <= '1';
 				else
 					read_inst <= fila_reg(point_read); -- le a primeira inst da fila
 					inst_count <= inst_count - 1; -- decrementa inst_count
@@ -90,13 +90,13 @@ begin
 		
 		if (inst_count  = regNum) then -- caso esteja cheio
 			full <= '1';
-			empty <= '0';
+			notEmpty <= '0';
 		elsif (inst_count  = 0) then -- caso esteja vazio
 			full <= '0';
-			empty <= '1';
+			notEmpty <= '1';
 		else
 			full <= '0';
-			empty <= '0';
+			notEmpty <= '0';
 		end if;
 	end process ;
 end FIFO;

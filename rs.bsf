@@ -136,6 +136,13 @@ agreement for further details.
 		(text "tag[tagsize-1..0]" (rect 200 91 259 103)(font "Arial" ))
 		(line (pt 280 96)(pt 264 96)(line_width 3))
 	)
+	(port
+		(pt 280 112)
+		(output)
+		(text "ready" (rect 0 0 23 12)(font "Arial" ))
+		(text "ready" (rect 236 107 259 119)(font "Arial" ))
+		(line (pt 280 112)(pt 264 112)(line_width 1))
+	)
 	(parameter
 		"wordSize"
 		"32"

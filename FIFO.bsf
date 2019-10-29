@@ -69,8 +69,8 @@ agreement for further details.
 	(port
 		(pt 280 48)
 		(output)
-		(text "empty" (rect 0 0 25 12)(font "Arial" ))
-		(text "empty" (rect 234 43 259 55)(font "Arial" ))
+		(text "notEmpty" (rect 0 0 40 12)(font "Arial" ))
+		(text "notEmpty" (rect 219 43 259 55)(font "Arial" ))
 		(line (pt 280 48)(pt 264 48)(line_width 1))
 	)
 	(port

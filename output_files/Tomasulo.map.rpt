@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Tomasulo
-Mon Oct 28 15:19:57 2019
+Tue Oct 29 14:39:27 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -18,13 +18,13 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
  10. Parameter Settings for User Entity Instance: FIFO:fifo
  11. Parameter Settings for User Entity Instance: rs:RS_Mult
  12. Parameter Settings for User Entity Instance: cdb:inst5
- 13. Parameter Settings for User Entity Instance: FP:inst4
- 14. Parameter Settings for User Entity Instance: alu:inst
- 15. Parameter Settings for User Entity Instance: rs:RS_Add1
- 16. Parameter Settings for User Entity Instance: MapTable:inst2
- 17. Parameter Settings for User Entity Instance: RegFileTomasulo:inst3
- 18. Parameter Settings for User Entity Instance: alu:inst1
- 19. Parameter Settings for User Entity Instance: rs:RS_Add2
+ 13. Parameter Settings for User Entity Instance: alu:inst1
+ 14. Parameter Settings for User Entity Instance: rs:RS_Add2
+ 15. Parameter Settings for User Entity Instance: MapTable:inst2
+ 16. Parameter Settings for User Entity Instance: RegFileTomasulo:inst3
+ 17. Parameter Settings for User Entity Instance: alu:inst
+ 18. Parameter Settings for User Entity Instance: rs:RS_Add1
+ 19. Parameter Settings for User Entity Instance: FP:inst4
  20. Post-Synthesis Netlist Statistics for Top Partition
  21. Elapsed Time Per Partition
  22. Analysis & Synthesis Messages
@@ -54,7 +54,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Oct 28 15:19:57 2019       ;
+; Analysis & Synthesis Status     ; Successful - Tue Oct 29 14:39:27 2019       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; Tomasulo                                    ;
 ; Top-level Entity Name           ; Tomasulo                                    ;
@@ -301,30 +301,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------+
-; Parameter Settings for User Entity Instance: FP:inst4 ;
-+----------------+-------+------------------------------+
-; Parameter Name ; Value ; Type                         ;
-+----------------+-------+------------------------------+
-; delay          ; 5     ; Signed Integer               ;
-; wordSize       ; 64    ; Signed Integer               ;
-+----------------+-------+------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------+
-; Parameter Settings for User Entity Instance: alu:inst ;
-+----------------+-------+------------------------------+
-; Parameter Name ; Value ; Type                         ;
-+----------------+-------+------------------------------+
-; delay          ; 4     ; Signed Integer               ;
-; wordsize       ; 64    ; Signed Integer               ;
-+----------------+-------+------------------------------+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:inst1 ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; delay          ; 4     ; Signed Integer                ;
+; wordsize       ; 64    ; Signed Integer                ;
++----------------+-------+-------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: rs:RS_Add1 ;
+; Parameter Settings for User Entity Instance: rs:RS_Add2 ;
 +----------------+-------+--------------------------------+
 ; Parameter Name ; Value ; Type                           ;
 +----------------+-------+--------------------------------+
@@ -361,19 +350,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------+
-; Parameter Settings for User Entity Instance: alu:inst1 ;
-+----------------+-------+-------------------------------+
-; Parameter Name ; Value ; Type                          ;
-+----------------+-------+-------------------------------+
-; delay          ; 4     ; Signed Integer                ;
-; wordsize       ; 64    ; Signed Integer                ;
-+----------------+-------+-------------------------------+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:inst ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; delay          ; 4     ; Signed Integer               ;
+; wordsize       ; 64    ; Signed Integer               ;
++----------------+-------+------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: rs:RS_Add2 ;
+; Parameter Settings for User Entity Instance: rs:RS_Add1 ;
 +----------------+-------+--------------------------------+
 ; Parameter Name ; Value ; Type                           ;
 +----------------+-------+--------------------------------+
@@ -383,6 +372,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; nboflines      ; 2     ; Signed Integer                 ;
 ; opbits         ; 4     ; Signed Integer                 ;
 +----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FP:inst4 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; delay          ; 5     ; Signed Integer               ;
+; wordsize       ; 64    ; Signed Integer               ;
++----------------+-------+------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -413,7 +413,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Oct 28 15:19:37 2019
+    Info: Processing started: Tue Oct 29 14:39:06 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Tomasulo -c Tomasulo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -421,7 +421,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file rs/rs_t
     Info (12022): Found design unit 1: rs_tb-tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd Line: 14
     Info (12023): Found entity 1: rs_tb File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file rs/rs.vhd
-    Info (12022): Found design unit 1: rs-rs File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 55
+    Info (12022): Found design unit 1: rs-rs File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 60
     Info (12023): Found entity 1: rs File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file maptable/maptable.vhd
     Info (12022): Found design unit 1: MapTable-MapTable File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/MapTable/MapTable.vhd Line: 31
@@ -461,172 +461,171 @@ Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:fifo"
 Warning (10492): VHDL Process Statement warning at FIFO.vhd(91): signal "inst_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO/FIFO.vhd Line: 91
 Warning (10492): VHDL Process Statement warning at FIFO.vhd(94): signal "inst_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/FIFO/FIFO.vhd Line: 94
 Info (12128): Elaborating entity "rs" for hierarchy "rs:RS_Mult"
-Warning (10492): VHDL Process Statement warning at rs.vhd(122): signal "ex_comp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 122
-Warning (10492): VHDL Process Statement warning at rs.vhd(127): signal "FU_tag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 127
-Warning (10631): VHDL Process Statement warning at rs.vhd(65): inferring latch(es) for signal or variable "alu_op_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Warning (10631): VHDL Process Statement warning at rs.vhd(65): inferring latch(es) for signal or variable "v_j_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Warning (10631): VHDL Process Statement warning at rs.vhd(65): inferring latch(es) for signal or variable "v_k_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Warning (10631): VHDL Process Statement warning at rs.vhd(65): inferring latch(es) for signal or variable "tag", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "tag[0]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "tag[1]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "tag[2]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[0]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[1]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[2]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[3]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[4]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[5]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[6]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[7]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[8]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[9]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[10]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[11]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[12]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[13]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[14]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[15]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[16]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[17]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[18]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[19]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[20]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[21]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[22]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[23]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[24]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[25]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[26]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[27]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[28]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[29]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[30]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[31]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[32]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[33]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[34]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[35]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[36]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[37]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[38]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[39]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[40]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[41]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[42]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[43]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[44]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[45]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[46]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[47]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[48]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[49]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[50]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[51]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[52]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[53]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[54]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[55]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[56]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[57]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[58]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[59]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[60]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[61]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[62]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_k_o[63]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[0]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[1]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[2]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[3]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[4]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[5]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[6]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[7]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[8]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[9]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[10]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[11]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[12]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[13]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[14]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[15]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[16]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[17]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[18]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[19]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[20]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[21]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[22]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[23]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[24]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[25]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[26]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[27]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[28]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[29]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[30]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[31]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[32]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[33]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[34]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[35]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[36]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[37]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[38]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[39]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[40]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[41]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[42]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[43]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[44]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[45]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[46]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[47]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[48]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[49]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[50]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[51]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[52]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[53]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[54]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[55]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[56]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[57]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[58]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[59]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[60]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[61]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[62]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "v_j_o[63]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "alu_op_o[0]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "alu_op_o[1]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "alu_op_o[2]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
-Info (10041): Inferred latch for "alu_op_o[3]" at rs.vhd(65) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 65
+Warning (10492): VHDL Process Statement warning at rs.vhd(132): signal "FU_tag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 132
+Warning (10631): VHDL Process Statement warning at rs.vhd(69): inferring latch(es) for signal or variable "alu_op_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Warning (10631): VHDL Process Statement warning at rs.vhd(69): inferring latch(es) for signal or variable "v_j_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Warning (10631): VHDL Process Statement warning at rs.vhd(69): inferring latch(es) for signal or variable "v_k_o", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Warning (10631): VHDL Process Statement warning at rs.vhd(69): inferring latch(es) for signal or variable "tag", which holds its previous value in one or more paths through the process File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "tag[0]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "tag[1]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "tag[2]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[0]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[1]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[2]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[3]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[4]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[5]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[6]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[7]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[8]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[9]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[10]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[11]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[12]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[13]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[14]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[15]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[16]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[17]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[18]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[19]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[20]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[21]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[22]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[23]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[24]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[25]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[26]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[27]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[28]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[29]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[30]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[31]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[32]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[33]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[34]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[35]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[36]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[37]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[38]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[39]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[40]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[41]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[42]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[43]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[44]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[45]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[46]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[47]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[48]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[49]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[50]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[51]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[52]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[53]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[54]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[55]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[56]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[57]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[58]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[59]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[60]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[61]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[62]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_k_o[63]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[0]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[1]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[2]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[3]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[4]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[5]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[6]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[7]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[8]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[9]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[10]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[11]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[12]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[13]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[14]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[15]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[16]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[17]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[18]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[19]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[20]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[21]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[22]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[23]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[24]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[25]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[26]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[27]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[28]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[29]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[30]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[31]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[32]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[33]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[34]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[35]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[36]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[37]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[38]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[39]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[40]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[41]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[42]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[43]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[44]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[45]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[46]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[47]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[48]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[49]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[50]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[51]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[52]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[53]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[54]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[55]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[56]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[57]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[58]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[59]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[60]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[61]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[62]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "v_j_o[63]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "alu_op_o[0]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "alu_op_o[1]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "alu_op_o[2]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
+Info (10041): Inferred latch for "alu_op_o[3]" at rs.vhd(69) File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RS/rs.vhd Line: 69
 Info (12128): Elaborating entity "cdb" for hierarchy "cdb:inst5"
 Warning (10492): VHDL Process Statement warning at CDB.vhd(66): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/CDB/CDB.vhd Line: 66
-Info (12128): Elaborating entity "FP" for hierarchy "FP:inst4"
-Info (12128): Elaborating entity "alu" for hierarchy "alu:inst"
+Info (12128): Elaborating entity "alu" for hierarchy "alu:inst1"
 Info (12128): Elaborating entity "MapTable" for hierarchy "MapTable:inst2"
 Info (12128): Elaborating entity "RegFileTomasulo" for hierarchy "RegFileTomasulo:inst3"
 Warning (10036): Verilog HDL or VHDL warning at RegFileTomasulo.vhd(34): object "escrita" assigned a value but never read File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/Tomasulo/RegFileTomasulo/RegFileTomasulo.vhd Line: 34
+Info (12128): Elaborating entity "FP" for hierarchy "FP:inst4"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "clock"
     Warning (15610): No output dependent on input pin "reset"
-    Warning (15610): No output dependent on input pin "TAG_RS_Add1[1]"
-    Warning (15610): No output dependent on input pin "TAG_RS_Add1[0]"
     Warning (15610): No output dependent on input pin "TAG_RS_Add2[1]"
     Warning (15610): No output dependent on input pin "TAG_RS_Add2[0]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Add1[1]"
+    Warning (15610): No output dependent on input pin "TAG_RS_Add1[0]"
     Warning (15610): No output dependent on input pin "TAG_RS_Mult[1]"
     Warning (15610): No output dependent on input pin "TAG_RS_Mult[0]"
 Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4865 megabytes
-    Info: Processing ended: Mon Oct 28 15:19:57 2019
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:39
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4864 megabytes
+    Info: Processing ended: Tue Oct 29 14:39:27 2019
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:42
 
 

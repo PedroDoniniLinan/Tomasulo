@@ -303,6 +303,13 @@ agreement for further details.
 		(text "tag[tagsize-1..0]" (rect 193 91 259 103)(font "Arial" ))
 		(line (pt 280 96)(pt 264 96)(line_width 3))
 	)
+	(port
+		(pt 280 112)
+		(output)
+		(text "ready" (rect 0 0 28 12)(font "Arial" ))
+		(text "ready" (rect 236 107 259 119)(font "Arial" ))
+		(line (pt 280 112)(pt 264 112))
+	)
 	(parameter
 		"wordSize"
 		"64"
@@ -448,6 +455,13 @@ agreement for further details.
 		(text "tag[tagsize-1..0]" (rect 0 0 79 12)(font "Arial" ))
 		(text "tag[tagsize-1..0]" (rect 193 91 259 103)(font "Arial" ))
 		(line (pt 280 96)(pt 264 96)(line_width 3))
+	)
+	(port
+		(pt 280 112)
+		(output)
+		(text "ready" (rect 0 0 28 12)(font "Arial" ))
+		(text "ready" (rect 236 107 259 119)(font "Arial" ))
+		(line (pt 280 112)(pt 264 112))
 	)
 	(parameter
 		"wordSize"
@@ -595,6 +609,13 @@ agreement for further details.
 		(text "tag[tagsize-1..0]" (rect 193 91 259 103)(font "Arial" ))
 		(line (pt 280 96)(pt 264 96)(line_width 3))
 	)
+	(port
+		(pt 280 112)
+		(output)
+		(text "ready" (rect 0 0 28 12)(font "Arial" ))
+		(text "ready" (rect 236 107 259 119)(font "Arial" ))
+		(line (pt 280 112)(pt 264 112))
+	)
 	(parameter
 		"wordSize"
 		"64"
@@ -624,103 +645,6 @@ agreement for further details.
 		(rectangle (rect 16 16 264 224))
 	)
 	(annotation_block (parameter)(rect 1400 1048 1571 1162))
-)
-(symbol
-	(rect 1984 352 2296 496)
-	(text "cdb" (rect 5 0 22 12)(font "Arial" ))
-	(text "inst5" (rect 8 128 31 140)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clock" (rect 0 0 25 12)(font "Arial" ))
-		(text "clock" (rect 21 27 46 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "load[nfu-1..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "load[nfu-1..0]" (rect 21 43 87 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "alu[nfu*tagsize+wordsize-1..0]" (rect 0 0 146 12)(font "Arial" ))
-		(text "alu[nfu*tagsize+wordsize-1..0]" (rect 21 59 167 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "data_i[nfu*wordsize-1..0]" (rect 0 0 121 12)(font "Arial" ))
-		(text "data_i[nfu*wordsize-1..0]" (rect 21 75 142 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "tag_i[nfu*tagsize-1..0]" (rect 0 0 108 12)(font "Arial" ))
-		(text "tag_i[nfu*tagsize-1..0]" (rect 21 91 129 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 3))
-	)
-	(port
-		(pt 312 32)
-		(output)
-		(text "busy" (rect 0 0 24 12)(font "Arial" ))
-		(text "busy" (rect 271 27 291 39)(font "Arial" ))
-		(line (pt 312 32)(pt 296 32))
-	)
-	(port
-		(pt 312 48)
-		(output)
-		(text "cdb_o[tagsize+wordsize-1..0]" (rect 0 0 140 12)(font "Arial" ))
-		(text "cdb_o[tagsize+wordsize-1..0]" (rect 173 43 291 55)(font "Arial" ))
-		(line (pt 312 48)(pt 296 48)(line_width 3))
-	)
-	(port
-		(pt 312 64)
-		(output)
-		(text "data_o[wordsize-1..0]" (rect 0 0 103 12)(font "Arial" ))
-		(text "data_o[wordsize-1..0]" (rect 204 59 291 71)(font "Arial" ))
-		(line (pt 312 64)(pt 296 64)(line_width 3))
-	)
-	(port
-		(pt 312 80)
-		(output)
-		(text "tag_o[tagsize-1..0]" (rect 0 0 90 12)(font "Arial" ))
-		(text "tag_o[tagsize-1..0]" (rect 215 75 291 87)(font "Arial" ))
-		(line (pt 312 80)(pt 296 80)(line_width 3))
-	)
-	(parameter
-		"wordSize"
-		"64"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"tagSize"
-		"3"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"FUTagSize"
-		"2"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"nFU"
-		"3"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"nbOfLines"
-		"2"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 296 128))
-	)
-	(annotation_block (parameter)(rect 2104 232 2275 346))
 )
 (symbol
 	(rect 1712 1152 1936 1296)
@@ -931,81 +855,6 @@ agreement for further details.
 		(rectangle (rect 16 16 296 192))
 	)
 	(annotation_block (parameter)(rect 784 64 953 216))
-)
-(symbol
-	(rect 288 80 568 224)
-	(text "FIFO" (rect 5 0 30 12)(font "Arial" ))
-	(text "fifo" (rect 8 128 25 140)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "reset" (rect 0 0 24 12)(font "Arial" ))
-		(text "reset" (rect 21 27 45 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "clock" (rect 0 0 25 12)(font "Arial" ))
-		(text "clock" (rect 21 43 46 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "wr" (rect 0 0 10 12)(font "Arial" ))
-		(text "wr" (rect 21 59 31 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "write_inst[wordsize-1..0]" (rect 0 0 116 12)(font "Arial" ))
-		(text "write_inst[wordsize-1..0]" (rect 21 75 137 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "rd" (rect 0 0 9 12)(font "Arial" ))
-		(text "rd" (rect 21 91 30 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96))
-	)
-	(port
-		(pt 280 32)
-		(output)
-		(text "read_inst[wordsize-1..0]" (rect 0 0 115 12)(font "Arial" ))
-		(text "read_inst[wordsize-1..0]" (rect 162 27 259 39)(font "Arial" ))
-		(line (pt 280 32)(pt 264 32)(line_width 3))
-	)
-	(port
-		(pt 280 48)
-		(output)
-		(text "empty" (rect 0 0 31 12)(font "Arial" ))
-		(text "empty" (rect 233 43 259 55)(font "Arial" ))
-		(line (pt 280 48)(pt 264 48))
-	)
-	(port
-		(pt 280 64)
-		(output)
-		(text "full" (rect 0 0 15 12)(font "Arial" ))
-		(text "full" (rect 247 59 259 71)(font "Arial" ))
-		(line (pt 280 64)(pt 264 64))
-	)
-	(parameter
-		"wordSize"
-		"32"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"regNum"
-		"32"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 264 128))
-	)
-	(annotation_block (parameter)(rect 336 16 505 73))
 )
 (symbol
 	(rect 1288 112 1608 288)
@@ -1255,6 +1104,178 @@ agreement for further details.
 		(rectangle (rect 16 16 208 128))
 	)
 	(annotation_block (parameter)(rect 1760 504 1929 561))
+)
+(symbol
+	(rect 1984 352 2296 496)
+	(text "cdb" (rect 5 0 22 12)(font "Arial" ))
+	(text "inst5" (rect 8 128 31 140)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 25 12)(font "Arial" ))
+		(text "clock" (rect 21 27 46 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "load[nfu-1..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "load[nfu-1..0]" (rect 21 43 87 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "alu[nfu*tagsize+wordsize-1..0]" (rect 0 0 146 12)(font "Arial" ))
+		(text "alu[nfu*tagsize+wordsize-1..0]" (rect 21 59 167 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "data_i[nfu*wordsize-1..0]" (rect 0 0 121 12)(font "Arial" ))
+		(text "data_i[nfu*wordsize-1..0]" (rect 21 75 142 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "tag_i[nfu*tagsize-1..0]" (rect 0 0 108 12)(font "Arial" ))
+		(text "tag_i[nfu*tagsize-1..0]" (rect 21 91 129 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 312 32)
+		(output)
+		(text "busy" (rect 0 0 24 12)(font "Arial" ))
+		(text "busy" (rect 271 27 291 39)(font "Arial" ))
+		(line (pt 312 32)(pt 296 32))
+	)
+	(port
+		(pt 312 48)
+		(output)
+		(text "cdb_o[tagsize+wordsize-1..0]" (rect 0 0 140 12)(font "Arial" ))
+		(text "cdb_o[tagsize+wordsize-1..0]" (rect 173 43 291 55)(font "Arial" ))
+		(line (pt 312 48)(pt 296 48)(line_width 3))
+	)
+	(port
+		(pt 312 64)
+		(output)
+		(text "data_o[wordsize-1..0]" (rect 0 0 103 12)(font "Arial" ))
+		(text "data_o[wordsize-1..0]" (rect 204 59 291 71)(font "Arial" ))
+		(line (pt 312 64)(pt 296 64)(line_width 3))
+	)
+	(port
+		(pt 312 80)
+		(output)
+		(text "tag_o[tagsize-1..0]" (rect 0 0 90 12)(font "Arial" ))
+		(text "tag_o[tagsize-1..0]" (rect 215 75 291 87)(font "Arial" ))
+		(line (pt 312 80)(pt 296 80)(line_width 3))
+	)
+	(parameter
+		"wordSize"
+		"64"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"tagSize"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"FUTagSize"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"nFU"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"nbOfLines"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 296 128))
+	)
+	(annotation_block (parameter)(rect 2104 232 2275 346))
+)
+(symbol
+	(rect 288 80 568 224)
+	(text "FIFO" (rect 5 0 30 12)(font "Arial" ))
+	(text "fifo" (rect 8 128 25 140)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "reset" (rect 0 0 24 12)(font "Arial" ))
+		(text "reset" (rect 21 27 45 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clock" (rect 0 0 25 12)(font "Arial" ))
+		(text "clock" (rect 21 43 46 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "wr" (rect 0 0 10 12)(font "Arial" ))
+		(text "wr" (rect 21 59 31 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "write_inst[wordsize-1..0]" (rect 0 0 116 12)(font "Arial" ))
+		(text "write_inst[wordsize-1..0]" (rect 21 75 137 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "rd" (rect 0 0 9 12)(font "Arial" ))
+		(text "rd" (rect 21 91 30 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 280 32)
+		(output)
+		(text "read_inst[wordsize-1..0]" (rect 0 0 115 12)(font "Arial" ))
+		(text "read_inst[wordsize-1..0]" (rect 162 27 259 39)(font "Arial" ))
+		(line (pt 280 32)(pt 264 32)(line_width 3))
+	)
+	(port
+		(pt 280 48)
+		(output)
+		(text "notEmpty" (rect 0 0 48 12)(font "Arial" ))
+		(text "notEmpty" (rect 219 43 259 55)(font "Arial" ))
+		(line (pt 280 48)(pt 264 48))
+	)
+	(port
+		(pt 280 64)
+		(output)
+		(text "full" (rect 0 0 15 12)(font "Arial" ))
+		(text "full" (rect 247 59 259 71)(font "Arial" ))
+		(line (pt 280 64)(pt 264 64))
+	)
+	(parameter
+		"wordSize"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"regNum"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 264 128))
+	)
+	(annotation_block (parameter)(rect 336 16 505 73))
 )
 (connector
 	(pt 664 288)
@@ -2003,6 +2024,63 @@ agreement for further details.
 	(pt 1936 1184)
 	(pt 1960 1184)
 	(bus)
+)
+(connector
+	(text "load_cdb[2..0]" (rect 1930 384 1997 401)(font "Intel Clear" ))
+	(pt 1984 400)
+	(pt 1920 400)
+	(bus)
+)
+(connector
+	(text "load_cdb[0]" (rect 1946 600 2002 617)(font "Intel Clear" ))
+	(pt 1984 616)
+	(pt 1936 616)
+)
+(connector
+	(text "load_cdb[1]" (rect 1930 888 1986 905)(font "Intel Clear" ))
+	(pt 1920 904)
+	(pt 1968 904)
+)
+(connector
+	(text "load_cdb[2]" (rect 1936 1184 1992 1201)(font "Intel Clear" ))
+	(pt 1936 1200)
+	(pt 1968 1200)
+)
+(connector
+	(pt 1712 632)
+	(pt 1640 632)
+)
+(connector
+	(pt 1544 696)
+	(pt 1640 696)
+)
+(connector
+	(pt 1640 632)
+	(pt 1640 696)
+)
+(connector
+	(pt 1696 920)
+	(pt 1640 920)
+)
+(connector
+	(pt 1544 984)
+	(pt 1640 984)
+)
+(connector
+	(pt 1640 984)
+	(pt 1640 920)
+)
+(connector
+	(pt 1712 1216)
+	(pt 1680 1216)
+)
+(connector
+	(pt 1680 1216)
+	(pt 1680 1280)
+)
+(connector
+	(pt 1544 1280)
+	(pt 1680 1280)
 )
 (junction (pt 1064 648))
 (junction (pt 1080 664))
