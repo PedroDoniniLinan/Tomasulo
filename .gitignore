@@ -2,3 +2,7 @@ db/
 output_files/
 FIFO_tb.vhd.bak FP.vhd.bak Tomasulo.vhd.bak Tomasulo_tb.vhd.bak
 Tomasulo.qws
+*.qsf
+*.qws
+*.bak
+simulation/
