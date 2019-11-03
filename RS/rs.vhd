@@ -4,7 +4,7 @@ use ieee.numeric_std.all; -- necessario para converter em integer
 
 entity rs is
 	generic(
-		wordSize: natural :=32;
+		wordSize: natural :=64;
 		tagSize:  natural :=3; -- tamanho da tag inteira 
 		FUTagSize:natural :=2; -- tamanho do pedaço da tag que indica a qual FU pertence
 		nbOfLines:natural :=2; -- numero de linhas da RS 

@@ -1,5 +1,5 @@
-Analysis & Synthesis report for MapTable
-Fri Oct 04 14:34:56 2019
+Analysis & Elaboration report for MapTable
+Sat Nov 02 17:14:37 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -7,18 +7,11 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |MapTable
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: Top-level Entity: |MapTable
+  5. Analysis & Elaboration Settings
+  6. Analysis & Elaboration Messages
 
 
 
@@ -42,31 +35,54 @@ agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Oct 04 14:34:56 2019       ;
-; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
-; Revision Name                   ; MapTable                                    ;
-; Top-level Entity Name           ; MapTable                                    ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 83                                          ;
-; Total pins                      ; 24                                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Sat Nov 02 17:14:37 2019       ;
+; Quartus Prime Version         ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                 ; MapTable                                    ;
+; Top-level Entity Name         ; MapTable                                    ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |MapTable ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; tagSize        ; 3     ; Signed Integer                                  ;
+; regNum         ; 32    ; Signed Integer                                  ;
+; regNumBits     ; 5     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
+; Analysis & Elaboration Settings                                                                                           ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
@@ -152,164 +168,33 @@ agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-+----------------------------+-------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                            ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                     ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
-; MapTable.vhd                     ; yes             ; User VHDL File  ; C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/MapTable/MapTable.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 86          ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 79          ;
-;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 68          ;
-;     -- 5 input functions                    ; 8           ;
-;     -- 4 input functions                    ; 0           ;
-;     -- <=3 input functions                  ; 3           ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 83          ;
-;                                             ;             ;
-; I/O pins                                    ; 24          ;
-;                                             ;             ;
-; Total DSP Blocks                            ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 83          ;
-; Total fan-out                               ; 810         ;
-; Average fan-out                             ; 3.86        ;
-+---------------------------------------------+-------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |MapTable                  ; 79 (79)             ; 83 (83)                   ; 0                 ; 0          ; 24   ; 0            ; |MapTable           ; MapTable    ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 83    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 79    ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 83    ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 32:1               ; 2 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; Yes        ; |MapTable|tag_1[0]~reg0    ;
-; 32:1               ; 2 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; Yes        ; |MapTable|tag_2[0]~reg0    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
-+--------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |MapTable ;
-+----------------+-------+-------------------------------------------------+
-; Parameter Name ; Value ; Type                                            ;
-+----------------+-------+-------------------------------------------------+
-; tagSize        ; 2     ; Signed Integer                                  ;
-; regNum         ; 32    ; Signed Integer                                  ;
-; regNumBits     ; 5     ; Signed Integer                                  ;
-+----------------+-------+-------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_ff             ; 83                          ;
-;     ENA               ; 4                           ;
-;     ENA CLR           ; 79                          ;
-; arriav_lcell_comb     ; 79                          ;
-;     normal            ; 79                          ;
-;         2 data inputs ; 3                           ;
-;         5 data inputs ; 8                           ;
-;         6 data inputs ; 68                          ;
-; boundary_port         ; 24                          ;
-;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.10                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Fri Oct 04 14:34:35 2019
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MapTable -c MapTable
+    Info: Processing started: Sat Nov 02 17:14:18 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MapTable -c MapTable --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file maptable.vhd
-    Info (12022): Found design unit 1: MapTable-MapTable File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/MapTable/MapTable.vhd Line: 25
-    Info (12023): Found entity 1: MapTable File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/MapTable/MapTable.vhd Line: 6
+    Info (12022): Found design unit 1: MapTable-MapTable File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable.vhd Line: 35
+    Info (12023): Found entity 1: MapTable File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file maptable_tb.vhd
+    Info (12022): Found design unit 1: MapTable_tb-tb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable_tb.vhd Line: 16
+    Info (12023): Found entity 1: MapTable_tb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable_tb.vhd Line: 6
 Info (12127): Elaborating entity "MapTable" for the top level hierarchy
-Info (286030): Timing-Driven Synthesis is running
-Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register leitura1[0] will power up to Low File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/MapTable/MapTable.vhd Line: 36
-    Critical Warning (18010): Register leitura2[0] will power up to Low File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/MapTable/MapTable.vhd Line: 36
-    Critical Warning (18010): Register escrita[0] will power up to Low File: C:/Users/Pedrp/Documents/Poli USP/OrgArq 2/MapTable/MapTable.vhd Line: 36
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 182 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 20 input pins
-    Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 158 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4839 megabytes
-    Info: Processing ended: Fri Oct 04 14:34:56 2019
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:43
+Warning (10631): VHDL Process Statement warning at MapTable.vhd(41): inferring latch(es) for signal or variable "write_reg", which holds its previous value in one or more paths through the process File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable.vhd Line: 41
+Info (10041): Inferred latch for "write_reg[0]" at MapTable.vhd(41) File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable.vhd Line: 41
+Info (10041): Inferred latch for "write_reg[1]" at MapTable.vhd(41) File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable.vhd Line: 41
+Info (10041): Inferred latch for "write_reg[2]" at MapTable.vhd(41) File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable.vhd Line: 41
+Info (10041): Inferred latch for "write_reg[3]" at MapTable.vhd(41) File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable.vhd Line: 41
+Info (10041): Inferred latch for "write_reg[4]" at MapTable.vhd(41) File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/MapTable/MapTable.vhd Line: 41
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4828 megabytes
+    Info: Processing ended: Sat Nov 02 17:14:37 2019
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:38
 
 

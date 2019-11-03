@@ -12,7 +12,7 @@
 # 
 # vcom -93 -work work {D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:04:30 on Oct 13,2019
+# Start time: 23:49:35 on Nov 02,2019
 # vcom -reportprogress 300 -93 -work work D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -22,25 +22,25 @@
 # -- Loading package std_logic_misc
 # -- Compiling entity Decoder
 # -- Compiling architecture Decoder of Decoder
-# End time: 12:04:30 on Oct 13,2019, Elapsed time: 0:00:00
+# End time: 23:49:35 on Nov 02,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:04:30 on Oct 13,2019
+# Start time: 23:49:36 on Nov 02,2019
 # vcom -reportprogress 300 -93 -work work D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity decoder_tb
 # -- Compiling architecture tb of decoder_tb
-# ** Warning: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd(57): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 12:04:30 on Oct 13,2019, Elapsed time: 0:00:00
+# ** Warning: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd(63): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 23:49:36 on Nov 02,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  Decoder_tb
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" Decoder_tb 
-# Start time: 12:04:30 on Oct 13,2019
+# Start time: 23:49:36 on Nov 02,2019
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -56,5 +56,5 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run 12000 us
-# End time: 12:06:28 on Oct 13,2019, Elapsed time: 0:01:58
+# End time: 23:50:31 on Nov 02,2019, Elapsed time: 0:00:55
 # Errors: 0, Warnings: 0

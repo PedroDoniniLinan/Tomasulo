@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/simulation/modelsim
 Edecoder
-Z1 w1570977862
+Z1 w1572749339
 Z2 DPx8 synopsys 10 attributes 0 22 liCm]LV3<lX4Zl>o6^8IV1
 Z3 DPx4 ieee 14 std_logic_misc 0 22 BLzBaQbXS>Q1z>5YO]m[52
 Z4 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
@@ -20,13 +20,13 @@ Z7 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/De
 Z8 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder.vhd
 l0
 L6
-VSAiB4Ae=2K^1m1C_^7hRn0
-!s100 ]:KzBUHg:al<T^gFE9?oO2
+VT6NIM9<g0o6<XzS]>PUnz2
+!s100 2_AZGoJSaEIA??`LXo4fE1
 Z9 OV;C;10.5b;63
 31
-Z10 !s110 1570979070
+Z10 !s110 1572749375
 !i10b 1
-Z11 !s108 1570979070.000000
+Z11 !s108 1572749375.000000
 Z12 !s90 -reportprogress|300|-93|-work|work|D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder.vhd|
 Z13 !s107 D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder.vhd|
 !i113 1
@@ -38,11 +38,11 @@ R3
 R4
 R5
 R6
-DEx4 work 7 decoder 0 22 SAiB4Ae=2K^1m1C_^7hRn0
-l38
-L36
-V7Z4MZBCTEnP`5>I`Ek2jH1
-!s100 VD<<eg[SU^n8XLMI9XJUG3
+DEx4 work 7 decoder 0 22 T6NIM9<g0o6<XzS]>PUnz2
+l44
+L42
+VIj<zcn@ZkIHP2N>?B9f283
+!s100 :QekJXDl_1F<?LPaNWSom2
 R9
 31
 R10
@@ -54,7 +54,7 @@ R13
 R14
 R15
 Edecoder_tb
-Z16 w1570978970
+Z16 w1572748431
 R5
 R6
 R0
@@ -62,33 +62,33 @@ Z17 8D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/D
 Z18 FD:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd
 l0
 L4
-V_Bi7_Tdi5Ce5aW6Zo^>Sb1
-!s100 RRQf]01G;8lj=mZ5E]RN<1
+VNZM;QGQJn4>4deCFQ:FSZ2
+!s100 <H=1z@YVbFOLWK:Sj1Ez>1
 R9
 31
-R10
+Z19 !s110 1572749376
 !i10b 1
-R11
-Z19 !s90 -reportprogress|300|-93|-work|work|D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd|
-Z20 !s107 D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd|
+Z20 !s108 1572749376.000000
+Z21 !s90 -reportprogress|300|-93|-work|work|D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd|
+Z22 !s107 D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/Decoder/Decoder_tb.vhd|
 !i113 1
 R14
 R15
 Atb
 R5
 R6
-DEx4 work 10 decoder_tb 0 22 _Bi7_Tdi5Ce5aW6Zo^>Sb1
-l59
-L15
-VHXAU7g;N>HUhQWoOGaLnD2
-!s100 `aIAD9?_CCKUNe2L:cVoK3
+DEx4 work 10 decoder_tb 0 22 NZM;QGQJn4>4deCFQ:FSZ2
+l65
+L16
+Vb`zbibUke2bWh3fGE1P^P3
+!s100 ?iP2RTK:`IISLcGZQKnjl2
 R9
 31
-R10
-!i10b 1
-R11
 R19
+!i10b 1
 R20
+R21
+R22
 !i113 1
 R14
 R15
