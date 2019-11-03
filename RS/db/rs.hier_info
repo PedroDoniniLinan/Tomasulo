@@ -603,7 +603,6 @@ cdb[34] => Equal3.IN0
 cdb[34] => Equal4.IN0
 busy[0] <= list_rs[0][74].DB_MAX_OUTPUT_PORT_TYPE
 busy[1] <= list_rs[1][74].DB_MAX_OUTPUT_PORT_TYPE
-ready <= process_0.DB_MAX_OUTPUT_PORT_TYPE
 alu_op_o[0] <= alu_op_o[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
 alu_op_o[1] <= alu_op_o[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 alu_op_o[2] <= alu_op_o[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
@@ -675,5 +674,6 @@ v_k_o[31] <= v_k_o[31]$latch.DB_MAX_OUTPUT_PORT_TYPE
 tag[0] <= tag[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
 tag[1] <= tag[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 tag[2] <= tag[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+ready <= process_0.DB_MAX_OUTPUT_PORT_TYPE
 
 

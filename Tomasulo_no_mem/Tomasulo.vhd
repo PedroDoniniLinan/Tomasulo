@@ -19,16 +19,50 @@
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
+use IEEE.STD_LOGIC_SIGNED.all; 
 --use ieee.numeric_std.all; -- necessario para converter em integer
 
-LIBRARY work;
+--LIBRARY work;
 
 ENTITY Tomasulo IS 
 	PORT
 	(
 		rd_fifo: buffer std_logic;
 		inst_fifo: buffer std_logic_vector(31 downto 0);
-	
+		fifo_has : buffer std_logic;
+
+		opCopeDec : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);
+		rjDec : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
+		rkDec : buffer STD_LOGIC_VECTOR(4 DOWNTO 0); 		 
+		rs1hot : buffer STD_LOGIC_VECTOR(5 DOWNTO 0);
+		regTagAddr : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
+		regTag : buffer STD_LOGIC_VECTOR(2 DOWNTO 0);
+
+		r010 : 		buffer std_logic_vector(138 downto 0);
+		r011 : 		buffer std_logic_vector(138 downto 0);	
+		r100 : 		buffer std_logic_vector(138 downto 0);
+		r101 : 		buffer std_logic_vector(138 downto 0);		
+		r110 : 		buffer std_logic_vector(138 downto 0);
+		r111 : 		buffer std_logic_vector(138 downto 0);
+
+		A01 : 		buffer std_logic_vector(63 downto 0);
+		B01 : 		buffer std_logic_vector(63 downto 0);
+		F01 : 		buffer std_logic_vector(63 downto 0);
+		
+		ex01: 		buffer std_logic;
+		S01 : 		buffer std_logic_vector(3 downto 0);
+		ready01: 		buffer std_logic;	
+		timer_o : 		buffer std_logic_vector(3 downto 0);
+
+		A10 : 		buffer std_logic_vector(63 downto 0);
+		B10 : 		buffer std_logic_vector(63 downto 0);
+		F10 : 		buffer std_logic_vector(63 downto 0);
+		timer_o2 : 		buffer std_logic_vector(3 downto 0);		
+
+		A11 : 		buffer std_logic_vector(63 downto 0);
+		B11 : 		buffer std_logic_vector(63 downto 0);
+		F11 : 		buffer std_logic_vector(63 downto 0);		 		
+		
 		reset :  IN  STD_LOGIC;
 		clock :  IN  STD_LOGIC
 	);
@@ -45,7 +79,8 @@ GENERIC (fuBits : INTEGER;
 			tagSize : INTEGER;
 			wordSize : INTEGER
 			);
-	PORT(clock : IN STD_LOGIC;
+	PORT(
+--	clock : IN STD_LOGIC;
 		 load : IN STD_LOGIC;
 		 busyRs : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
 		 instruction : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -69,7 +104,8 @@ GENERIC (regNum : INTEGER;
 		 clock : IN STD_LOGIC;
 		 wr : IN STD_LOGIC;
 		 rd : IN STD_LOGIC;
-		 write_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		 write_inst : IN STD_LOGIC_VECTOR(31 DOWNTO 0);	 
+		 
 		 notEmpty : OUT STD_LOGIC;
 		 full : OUT STD_LOGIC;
 		 read_inst : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -81,13 +117,16 @@ GENERIC (delay : INTEGER;
 			wordSize : INTEGER
 			);
 	PORT(reset : IN STD_LOGIC;
-		 clock : IN STD_LOGIC;
-		 execute : IN STD_LOGIC;
-		 A : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
-		 B : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
-		 S : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		 ready : OUT STD_LOGIC;
-		 F : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
+	 clock : in std_logic;
+	 execute : in std_logic;
+	 done : in std_logic;
+    A  : in  std_logic_vector(wordSize-1 downto 0); -- inputs
+	 B : in  std_logic_vector(wordSize-1 downto 0); -- inputs
+    F    : out std_logic_vector(wordSize-1 downto 0); -- output
+    S    : in  std_logic_vector (3 downto 0); -- ALUop selection
+    --Z    : out STD_LOGIC -- zero flag
+	 timer: buffer std_logic_vector(3 downto 0);
+	 ready : out std_logic
 	);
 END COMPONENT;
 
@@ -177,9 +216,14 @@ GENERIC (FUTagSize : INTEGER;
 		 v_j_i : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 v_k_i : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 ready : OUT STD_LOGIC;
+		 done:				out std_logic;
 		 alu_op_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 busy : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 		 tag : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 
+		 r0 : 		buffer std_logic_vector(138 downto 0);
+		 r1 : 		buffer std_logic_vector(138 downto 0);
+		 
 		 v_j_o : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 v_k_o : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
 	);
@@ -197,9 +241,9 @@ SIGNAL	tag_1 :  STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL	tag_2 :  STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL	tag_i :  STD_LOGIC_VECTOR(8 DOWNTO 0);
 SIGNAL	write_reg :  STD_LOGIC_VECTOR(4 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC := '0';
+SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC := '0';
 SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
@@ -221,8 +265,39 @@ SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_28 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
+signal done1 : std_logic;
+signal done2 : std_logic;
+
 BEGIN 
 
+
+
+rd_fifo <= SYNTHESIZED_WIRE_2;
+inst_fifo <= SYNTHESIZED_WIRE_1;
+fifo_has <= SYNTHESIZED_WIRE_0;
+
+opCopeDec <= SYNTHESIZED_WIRE_28;
+rjDec <= SYNTHESIZED_WIRE_26;
+rkDec <= SYNTHESIZED_WIRE_27; 		 
+rs1hot <= RS1H;
+regTagAddr <= SYNTHESIZED_WIRE_14;
+regTag <= SYNTHESIZED_WIRE_15;
+
+A01 <= SYNTHESIZED_WIRE_4;
+B01 <= SYNTHESIZED_WIRE_5;
+F01 <= data_i(63 DOWNTO 0);		 
+
+ex01 <= SYNTHESIZED_WIRE_3;
+S01 <= SYNTHESIZED_WIRE_6;
+ready01 <= load_cdb(0);	
+
+A10 <= SYNTHESIZED_WIRE_8;
+B10 <= SYNTHESIZED_WIRE_9;
+F10 <= data_i(127 DOWNTO 64);		 
+
+A11 <= SYNTHESIZED_WIRE_20;
+B11 <= SYNTHESIZED_WIRE_21;
+F11 <= data_i(191 DOWNTO 128);		 
 
 
 b2v_decoder : decoder
@@ -234,7 +309,8 @@ GENERIC MAP(fuBits => 2,
 			tagSize => 3,
 			wordSize => 32
 			)
-PORT MAP(clock => clock,
+PORT MAP(
+--clock => clock,
 		 load => SYNTHESIZED_WIRE_0,
 		 busyRs => busyRS,
 		 instruction => SYNTHESIZED_WIRE_1,
@@ -248,7 +324,6 @@ PORT MAP(clock => clock,
 		 writeMapAddr => SYNTHESIZED_WIRE_14,
 		 writeMapData => SYNTHESIZED_WIRE_15);
 
-
 b2v_fifo : fifo
 GENERIC MAP(regNum => 32,
 			wordSize => 32
@@ -260,24 +335,21 @@ PORT MAP(reset => reset,
 		 write_inst => (others => '0'),
 		 notEmpty => SYNTHESIZED_WIRE_0,
 		 read_inst => SYNTHESIZED_WIRE_1);
-
-
-rd_fifo <= SYNTHESIZED_WIRE_2;
-inst_fifo <= SYNTHESIZED_WIRE_1;		 
-		 
 		 
 b2v_inst : alu
-GENERIC MAP(delay => 4,
+GENERIC MAP(delay => 2,
 			wordSize => 64
 			)
 PORT MAP(reset => clock,
 		 clock => reset,
+		 done=>done1,
 		 execute => SYNTHESIZED_WIRE_3,
 		 A => SYNTHESIZED_WIRE_4,
 		 B => SYNTHESIZED_WIRE_5,
 		 S => SYNTHESIZED_WIRE_6,
 		 ready => load_cdb(0),
-		 F => data_i(63 DOWNTO 0));		 
+		 timer=>timer_o,
+		 F => data_i(63 DOWNTO 0));	 
 		 
 b2v_inst1 : alu
 GENERIC MAP(delay => 4,
@@ -285,11 +357,13 @@ GENERIC MAP(delay => 4,
 			)
 PORT MAP(reset => clock,
 		 clock => reset,
+		 done=>done2,
 		 execute => SYNTHESIZED_WIRE_7,
 		 A => SYNTHESIZED_WIRE_8,
 		 B => SYNTHESIZED_WIRE_9,
 		 S => SYNTHESIZED_WIRE_10,
 		 ready => load_cdb(1),
+		 timer=>timer_o2,
 		 F => data_i(127 DOWNTO 64));		 
 		 
 --a1 <= signed(SYNTHESIZED_WIRE_4);
@@ -375,7 +449,7 @@ PORT MAP(reset => clock,
 		 ready => load_cdb(2),
 		 F => data_i(191 DOWNTO 128));		 
 		 
-
+		 
 --a3 <= signed(SYNTHESIZED_WIRE_20);
 --b3 <= signed(SYNTHESIZED_WIRE_21);		 
 --		 
@@ -427,13 +501,19 @@ PORT MAP(clock => clock,
 		 q_k_i => tag_2,
 		 v_j_i => RegFile1,
 		 v_k_i => RegFile2,
+		 done=>done1,
 		 ready => SYNTHESIZED_WIRE_3,
 		 alu_op_o => SYNTHESIZED_WIRE_6,
 		 busy => busyRS(1 DOWNTO 0),
 		 tag => tag_i(2 DOWNTO 0),
+		 
+		 r0=>r010,
+		 r1=>r011,
+		 
 		 v_j_o => SYNTHESIZED_WIRE_4,
 		 v_k_o => SYNTHESIZED_WIRE_5);
 
+		 
 
 b2v_RS_Add2 : rs
 GENERIC MAP(FUTagSize => 2,
@@ -453,10 +533,15 @@ PORT MAP(clock => clock,
 		 q_k_i => tag_2,
 		 v_j_i => RegFile1,
 		 v_k_i => RegFile2,
+		 done=>done2,
 		 ready => SYNTHESIZED_WIRE_7,
 		 alu_op_o => SYNTHESIZED_WIRE_10,
 		 busy => busyRS(3 DOWNTO 2),
 		 tag => tag_i(5 DOWNTO 3),
+		 		 
+		 r0=>r100,
+		 r1=>r101,		 
+		 
 		 v_j_o => SYNTHESIZED_WIRE_8,
 		 v_k_o => SYNTHESIZED_WIRE_9);
 
@@ -483,6 +568,10 @@ PORT MAP(clock => clock,
 		 alu_op_o => SYNTHESIZED_WIRE_22,
 		 busy => busyRS(5 DOWNTO 4),
 		 tag => tag_i(8 DOWNTO 6),
+		 
+		 r0=>r110,
+		 r1=>r111,		 
+		 
 		 v_j_o => SYNTHESIZED_WIRE_20,
 		 v_k_o => SYNTHESIZED_WIRE_21);
 

@@ -1,5 +1,5 @@
 library ieee;
---use ieee.numeric_bit.all;
+use ieee.numeric_bit.all;
 USE ieee.std_logic_1164.all;   
 use IEEE.STD_LOGIC_SIGNED.all;                               
 
@@ -31,6 +31,16 @@ begin
 	process	 (reset, clock, S, A, B)
 	begin
 	
+	case S is
+		when "0000" => aluout <= A + B;-- AND
+		when "0001" => aluout <= A -  B;-- OR
+		when "0010" => aluout <= A and B;-- ADD	
+		when "0110" => aluout <= A or  B;-- SUB
+		when "0111" => aluout <= B;		-- PASS B
+		when "1100" => aluout <= A nor B;-- NOR
+		when others => aluout <= (others=>'0') ;
+	end case;	
+	
 	if reset = '1' then		 
 			ready <= '0';
 			timer <= (others => '0');
@@ -40,17 +50,6 @@ begin
 		
 		if execute = '1' then
 			timer <= timer + 1;
-			
-			case S is
-				when "0000" => aluout <= A + B;-- AND
-				when "0001" => aluout <= A -  B;-- OR
-				when "0010" => aluout <= A and B;-- ADD	
-				when "0110" => aluout <= A or  B;-- SUB
-				when "0111" => aluout <= B;		-- PASS B
-				when "1100" => aluout <= A nor B;-- NOR
-				when others => aluout <= (others=>'0') ;
-			end case;	
-			
 			
 			if timer = "0010" then
 				timer <= (others => '0');

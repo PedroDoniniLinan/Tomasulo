@@ -14,7 +14,7 @@ entity Decoder is
 		nb_lines: natural := 6 -- numero de linhas para o busyRs
 	);
 	port(
-		clock:    		in 	 std_logic; -- clock
+--		clock:    		in 	 std_logic; -- clock
 		load:				in		 std_logic; -- set by FIFO in case new instruction is available
       instruction:   in 	 std_logic_vector(wordSize-1 downto 0); -- instruction (from FIFO)
 		--busyRs:			in		 std_logic_vector((((2**fuBits)-1)*(2**rsBits))-1 downto 0); -- array with busy bit from every line in a RS
@@ -43,7 +43,7 @@ architecture Decoder of Decoder is
 
 begin
 
-	process (clock, busyRS)
+	process (instruction, busyRS, load)
 	variable fuID : std_logic_vector(fuBits-1 downto 0); -- id 0 is used for no mapping
 	variable lineId : std_logic_vector(rsBits-1 downto 0);
 	
@@ -85,7 +85,7 @@ begin
 				rk := instruction (20 downto 16); -- Rm in GreenCode
 				rd := instruction(4 downto 0); -- Rd in Green Card
 			when "11001011000" => -- Mult
-				opCode <= "0010"; -- Operation 00 is ADD in fixed-point FU
+				opCode <= "0010"; 
 				
 				rsBusy := rsBusyMult;
 				ind := indMult;

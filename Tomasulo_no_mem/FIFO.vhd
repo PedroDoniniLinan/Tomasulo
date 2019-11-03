@@ -30,6 +30,7 @@ signal point_write : integer; -- aponta para a primeira posiçao vazia (posiçao
 signal inst_count : integer; -- guarda o numero de instruçoes na fila
 
 begin	
+
 	process	 (reset, clock) -- caso qualquer entrada sofra alguma alteracao, inicia process
 	begin
 		if reset = '1' then		 
@@ -39,12 +40,12 @@ begin
 			--TESTE
 			fila_reg(0) <= "10001011000" & "00010" & "000000" & "00011" & "00001"; -- ADD R2 + R3 = R1  
 			fila_reg(1) <= "10001011000" & "00010" & "000000" & "00001" & "00100"; -- ADD R2 + R1 = R4
-			fila_reg(2) <= "10001011000" & "00100" & "000000" & "00011" & "00101"; -- ADD R2 + R3 = R5
+			fila_reg(2) <= "10001011000" & "00100" & "000000" & "00011" & "00101"; -- ADD R4 + R3 = R5
 			point_read <= 0;
 			point_write <= 3;
 			notEmpty <= '1';
 			full <= '0';
-			inst_count <= 0;
+			inst_count <= 3;
 			----- FIM TESTE
 			
 			--point_read <= 0;

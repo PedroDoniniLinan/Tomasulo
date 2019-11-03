@@ -1,5 +1,5 @@
 Flow report for RS
-Sat Oct 26 14:35:16 2019
+Sun Nov 03 16:47:36 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Flow Summary                                                              ;
 +-----------------------------+---------------------------------------------+
-; Flow Status                 ; Successful - Sat Oct 26 14:35:16 2019       ;
+; Flow Status                 ; Successful - Sun Nov 03 16:47:36 2019       ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name               ; RS                                          ;
 ; Top-level Entity Name       ; rs                                          ;
@@ -63,7 +63,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/26/2019 14:35:00 ;
+; Start date & time ; 11/03/2019 16:47:23 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; RS                  ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 1095260407224.157211130031772          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 1095260407224.157281044206572          ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; rs_tb          ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; rs_tb                                  ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --            ; --          ; eda_simulation ;
@@ -101,8 +101,8 @@ agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:16     ; 1.0                     ; 4826 MB             ; 00:00:39                           ;
-; Total                  ; 00:00:16     ; --                      ; --                  ; 00:00:39                           ;
+; Analysis & Elaboration ; 00:00:14     ; 1.0                     ; 4827 MB             ; 00:00:34                           ;
+; Total                  ; 00:00:14     ; --                      ; --                  ; 00:00:34                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -111,7 +111,7 @@ agreement for further details.
 +------------------------+------------------+------------+------------+----------------+
 ; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +------------------------+------------------+------------+------------+----------------+
-; Analysis & Elaboration ; PedroBairao      ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Elaboration ; DESKTOP-23RO15I  ; Windows 10 ; 10.0       ; x86_64         ;
 +------------------------+------------------+------------+------------+----------------+
 
 

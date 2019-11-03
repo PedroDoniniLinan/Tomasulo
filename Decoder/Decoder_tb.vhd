@@ -92,11 +92,20 @@ begin
 		wait for clk_per/2;		
 		clock <= '0';
 		wait for clk_per/2;
+
+		load <= '1';
+		
+		clock <= '1';
+		wait for clk_per/2;		
+		clock <= '0';
+		wait for clk_per/2;
+				
+		clock <= '1';
+		wait for clk_per/2;		
+		clock <= '0';
+		wait for clk_per/2;
 		
 		load <= '1';
---		fila_reg(0) <= "10001011000" & "00010" & "000000" & "00011" & "00001"; -- ADD R2 + R3 = R1  
---		fila_reg(1) <= "10001011000" & "00010" & "000000" & "00001" & "00100"; -- ADD R2 + R1 = R4
---		fila_reg(2) <= "10001011000" & "00100" & "000000" & "00011" & "00101"; -- ADD R2 + R3 = R5
 --		instruction <= "10001011000" & "00100" & "000000" & "00011" & "00101";
 		instruction <= "10001000000" & "00100" & "000000" & "00011" & "00000";
 		busyRS <= "000000";

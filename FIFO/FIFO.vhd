@@ -15,6 +15,10 @@ entity FIFO is
  rd : in  std_logic; -- controle de leitura (dispatch)
  read_inst : out std_logic_vector(wordSize-1 downto 0); -- sinal de saida da leitura da instrucao
  
+ 
+ f0 : buffer std_logic_vector(wordSize-1 downto 0);
+ f1 : buffer std_logic_vector(wordSize-1 downto 0);
+ 
  notEmpty : out std_logic; -- fila esta vazia, nao consegue ler
  full  : out std_logic -- fila esta cheia, nao consegue escrever
 ) ;	  
@@ -30,6 +34,10 @@ signal point_write : integer; -- aponta para a primeira posiçao vazia (posiçao
 signal inst_count : integer; -- guarda o numero de instruçoes na fila
 
 begin	
+
+	f0 <= fila_reg(0);
+	f1 <= fila_reg(1);
+
 	process	 (reset, clock) -- caso qualquer entrada sofra alguma alteracao, inicia process
 	begin
 		if reset = '1' then		 
@@ -44,7 +52,7 @@ begin
 			point_write <= 3;
 			notEmpty <= '1';
 			full <= '0';
-			inst_count <= 0;
+			inst_count <= 3;
 			----- FIM TESTE
 			
 			--point_read <= 0;

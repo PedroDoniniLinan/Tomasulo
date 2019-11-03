@@ -18,6 +18,9 @@ architecture tb of FIFO_tb is
 	 rd : in  std_logic; -- controle de leitura (dispatch)
 	 read_inst : out std_logic_vector(wordSize-1 downto 0); -- sinal de saida da leitura da instrucao
 	 
+	 f0 : buffer std_logic_vector(wordSize-1 downto 0);
+	 f1 : buffer std_logic_vector(wordSize-1 downto 0);	 
+	 
 	 notEmpty : out std_logic; -- fila esta vazia, nao consegue ler
 	 full  : out std_logic -- fila esta cheia, nao consegue escrever
 	) ;	  
@@ -30,7 +33,10 @@ architecture tb of FIFO_tb is
 	 signal read_inst : std_logic_vector(wordSize-1 downto 0); -- sinal de saida da leitura da instrucao
 	 
 	 signal notEmpty : std_logic; -- fila esta vazia, nao consegue ler
-	 signal full  : std_logic -- fila esta cheia, nao consegue escrever
+	 signal full  : std_logic; -- fila esta cheia, nao consegue escrever
+	 
+	signal f0 : std_logic_vector(wordSize-1 downto 0);
+	signal f1 : std_logic_vector(wordSize-1 downto 0);
 	
 	signal reset : std_logic;
 	signal clock : std_logic;
@@ -45,6 +51,10 @@ begin
 		wr=>wr,
 		write_inst=>write_inst,
 		rd=>rd,
+		
+		f0=>f0,
+		f1=>f1,
+		
 		read_inst=>read_inst,
 		notEmpty=>notEmpty,
 		full=>full

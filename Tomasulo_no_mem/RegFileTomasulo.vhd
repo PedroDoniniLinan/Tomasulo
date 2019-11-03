@@ -34,6 +34,9 @@ begin
 			for i in 0 to 31 loop
 				lista_reg(i) <= (wordSize-1 downto 0 => '0');
 			end loop;
+			
+			lista_reg(2) <= x"0000000000000002";
+			lista_reg(3) <= x"0000000000000003";
 
 		elsif clock='1' and clock'event then
 		
