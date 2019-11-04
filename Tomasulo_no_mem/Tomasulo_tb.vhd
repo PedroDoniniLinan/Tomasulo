@@ -11,9 +11,9 @@ architecture tb of Tomasulo_tb is
 	component Tomasulo
 	PORT
 	(
-		rd_fifo: buffer std_logic;
-		inst_fifo: buffer std_logic_vector(31 downto 0);
-		fifo_has : buffer std_logic;
+--		rd_fifo: buffer std_logic;
+--		inst_fifo: buffer std_logic_vector(31 downto 0);
+--		fifo_has : buffer std_logic;
 
 		opCopeDec : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);
 		rjDec : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -74,9 +74,9 @@ architecture tb of Tomasulo_tb is
 	);
 	end component;
 
-	signal rd_fifo: std_logic;
-	signal inst_fifo: std_logic_vector(31 downto 0);
-	signal fifo_has : std_logic;	
+--	signal rd_fifo: std_logic;
+--	signal inst_fifo: std_logic_vector(31 downto 0);
+--	signal fifo_has : std_logic;	
 	
 	signal opCopeDec : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	signal rjDec : STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -140,9 +140,9 @@ architecture tb of Tomasulo_tb is
 begin
 	
 	u1: Tomasulo port map (
-		rd_fifo=>rd_fifo,
-		inst_fifo=>inst_fifo,
-		fifo_has=>fifo_has,
+--		rd_fifo=>rd_fifo,
+--		inst_fifo=>inst_fifo,
+--		fifo_has=>fifo_has,
 		
 		opCopeDec=>opCopeDec,
 		rjDec=>rjDec,
@@ -505,7 +505,31 @@ begin
 		clock <= '1';
 		wait for clk_per/2;
 		clock <= '0';
-		wait for clk_per/2;		
+		wait for clk_per/2;	
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;			
 		
 		
 	end process;
