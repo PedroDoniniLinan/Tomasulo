@@ -60,6 +60,10 @@ architecture tb of rs_tb is
 		-- inicia execução na alu (to alu)
 		ready:			out	 std_logic;
 		
+		a0: buffer std_logic;
+		b0: buffer std_logic;
+		c0: buffer std_logic;
+		
 		-- buffer para o testbench (retirar depois)
 		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0)
@@ -79,6 +83,11 @@ architecture tb of rs_tb is
 	signal q_k_i:  	std_logic_vector(tagSize-1 downto 0) := (others => '0');
 	
 	signal cdb:			std_logic_vector(wordSize+tagSize-1 downto 0) := (others => '0');
+		
+		
+	signal a0:		std_logic;
+	signal b0:		std_logic;
+	signal c0:		std_logic;		
 		
 	signal r0 :  std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 	signal r1 :  std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
@@ -113,6 +122,10 @@ begin
 		q_k_i=>q_k_i,
 		
 		cdb=>cdb,
+		
+		a0=>a0,
+		b0=>b0,
+		c0=>c0,
 		
 		r0=>r0,
 		r1=>r1,
@@ -161,7 +174,7 @@ begin
 		alu_op_i <= x"C";
 		v_j_i <= x"00000000";
 		v_k_i <= x"AAAAAAAA";
-		q_j_i <= "001";
+		q_j_i <= "011";
 		q_k_i <= "000";
 		
 		clock <= '1';
@@ -182,7 +195,7 @@ begin
 		alu_op_i <= x"D";
 		v_j_i <= x"00000000";
 		v_k_i <= x"22222222";
-		q_j_i <= "001";
+		q_j_i <= "101";
 		q_k_i <= "000";
 		alu_done <= '0';
 		
@@ -218,6 +231,9 @@ begin
 		
 		clock <= '1';
 		wait for clk_per/2;
+		
+		cdb <= (others => '0');
+		
 		clock <= '0';
 		wait for clk_per/2;
 		

@@ -18,6 +18,13 @@ entity RegFileTomasulo is
  write_reg : in std_logic_vector (regNumBits-1 downto 0) ; -- sinal do endereco de escrita
  write_data : in std_logic_vector (wordSize-1 downto 0) ; -- registra o que deve ser escrito
  
+ r0 : buffer std_logic_vector (wordSize-1 downto 0);  
+ r1 : buffer std_logic_vector (wordSize-1 downto 0); 
+ r2 : buffer std_logic_vector (wordSize-1 downto 0); 
+ r3 : buffer std_logic_vector (wordSize-1 downto 0); 
+ r4 : buffer std_logic_vector (wordSize-1 downto 0); 
+ r5 : buffer std_logic_vector (wordSize-1 downto 0);  
+ 
  reg_write : in std_logic 
  ) ;	  -- controle de escrita/leitura
 end RegFileTomasulo; 
@@ -28,6 +35,14 @@ type registradores is array (0 to regNum-1) of std_logic_vector(wordSize-1 downt
 signal lista_reg : registradores; -- declarando a variavel do tipo registradores
 
 begin	
+	
+	r0 <= lista_reg(0);
+	r1 <= lista_reg(1);
+	r2 <= lista_reg(2);
+	r3 <= lista_reg(3);
+	r4 <= lista_reg(4);
+	r5 <= lista_reg(5);
+	
 	process	 (reset, clock,  read_reg_1, read_reg_2, lista_reg) -- caso qualquer entrada sofra alguma alteracao, inicia process
 	begin
 		if reset = '1' then		 

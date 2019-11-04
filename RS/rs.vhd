@@ -56,6 +56,10 @@ entity rs is
 		-- inicia execução na alu (to alu)
 		ready:			out	 std_logic;
 		
+		a0: buffer std_logic;
+		b0: buffer std_logic;
+		c0: buffer std_logic;
+		
 		-- buffer para o testbench (retirar depois)
 		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
 		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0)
@@ -74,6 +78,8 @@ begin
 	process (reset, clock, list_rs, load) -- caso qualquer entrada sofra alguma alteracao, inicia process
 	variable temp : std_logic_vector(nbOfLines-1 downto 0);
 	variable ex_comp: std_logic := '1';
+	variable index : integer := 1;
+	variable start_alu: std_logic := '0';
 	begin
 	
 		-- para testbench
@@ -85,6 +91,7 @@ begin
 			for i in 0 to nbOfLines-1 loop
 				list_rs(i)(2*wordSize+2*tagSize+opBits downto 2*tagSize) <= (others =>'0');
 				list_rs(i)(2*tagSize-1 downto 0) <= (others => '0');
+--				list_rs(i)(2*tagSize-1 downto 0) <= "001001";
 			end loop;
 			
 			busy <= (others => '0');
@@ -92,6 +99,9 @@ begin
 			v_j_o <= (others => '0');
 			v_k_o <= (others => '0');
 			tag <= (others => '0');
+			ex_comp := '1';
+			start_alu := '0';
+			index := -1;
 			
 		elsif clock='1' and clock'event then
 			
@@ -99,10 +109,20 @@ begin
 				load_cdb <= '1';
 			end if;
 			
+			if start_alu = '1' then
+				start_alu := '0';
+			end if;
+			
+			if not(index = -1) then
+				index := -1;
+			end if;
+			
 			-- apaga instrucao executada que se encontra no cdb ja
 			if cdb(wordSize+tagSize-1 downto wordSize+tagSize-FUTagSize) = FU_Tag then
 				list_rs(to_integer(unsigned(cdb(wordSize+tagSize-FUTagSize-1 downto wordSize)))) <= (others => '0');
+--				list_rs(to_integer(unsigned(cdb(wordSize+tagSize-FUTagSize-1 downto wordSize))))(2*tagSize-1 downto 0) <= "001001";
 				ex_comp := '1';
+				index := to_integer(unsigned(cdb(wordSize+tagSize-FUTagSize-1 downto wordSize)));
 				load_cdb <= '0';
 			end if;
 			
@@ -117,12 +137,14 @@ begin
 			
 			-- checa se alguma reservation station esta esperando o valor atual no cdb
 			for i in 0 to nbOfLines-1 loop
-				if list_rs(i)(2*tagSize-1 downto tagSize) = cdb(wordSize+tagSize-1 downto wordSize) then
+				if not(list_rs(i)(2*tagSize-1 downto tagSize) = "000") 
+				and list_rs(i)(2*tagSize-1 downto tagSize) = cdb(wordSize+tagSize-1 downto wordSize) then
 					list_rs(i)(2*wordSize+2*tagSize-1 downto wordSize+2*tagSize) <= cdb(wordSize-1 downto 0);
 					list_rs(i)(2*tagSize-1 downto tagSize) <= (others => '0');
 				end if;
-				if list_rs(i)(tagSize-1 downto 0) = cdb(wordSize+tagSize-1 downto wordSize) then
-					list_rs(i)(2*wordSize+2*tagSize-1 downto wordSize+2*tagSize) <= cdb(wordSize-1 downto 0);
+				if not(list_rs(i)(tagSize-1 downto 0) = "000") 
+				and list_rs(i)(tagSize-1 downto 0) = cdb(wordSize+tagSize-1 downto wordSize) then
+					list_rs(i)(wordSize+2*tagSize-1 downto 2*tagSize) <= cdb(wordSize-1 downto 0);
 					list_rs(i)(tagSize-1 downto 0) <= (others => '0');
 				end if;
 			
@@ -131,18 +153,39 @@ begin
 		end if;
 		
 		
+			if (list_rs(0)(2*tagSize-1 downto 0) = zeros) then
+				a0 <= '1';
+			else
+				a0 <= '0';
+			end if;
+			
+			if (list_rs(0)(2*wordSize+2*tagSize+opBits) = '1')  then
+				b0 <= '1';
+			else
+				b0 <= '0';
+			end if;
+			
+			if ex_comp = '1' then
+				c0 <= '1';
+			else
+				c0 <= '0';				
+			end if;		
+		
 		-- coloca em execucao instrucao com operandos prontos
-		for i in 0 to nbOfLines-1 loop
-			if (list_rs(i)(2*tagSize-1 downto 0) = zeros) 
-			and (list_rs(i)(2*wordSize+2*tagSize+opBits) = '1') 
-			and ex_comp = '1'
-			then
-				alu_op_o <= list_rs(i)(2*wordSize+2*tagSize+opBits-1 downto 2*wordSize+2*tagSize);
-				v_j_o <= list_rs(i)(2*wordSize+2*tagSize-1 downto wordSize+2*tagSize);	
-				v_k_o <= list_rs(i)(wordSize+2*tagSize-1 downto 2*tagSize);
-				tag <= FU_Tag & std_logic_vector(TO_SIGNED(i, tagSize-FUtagSize));
-				ex_comp := '0';
-				exit;
+		for i in 0 to nbOfLines-1 loop		
+			if not(i = index) then
+				if (list_rs(i)(2*tagSize-1 downto 0) = zeros) 
+				and (list_rs(i)(2*wordSize+2*tagSize+opBits) = '1') 
+				and ex_comp = '1'
+				then
+					alu_op_o <= list_rs(i)(2*wordSize+2*tagSize+opBits-1 downto 2*wordSize+2*tagSize);
+					v_j_o <= list_rs(i)(2*wordSize+2*tagSize-1 downto wordSize+2*tagSize);	
+					v_k_o <= list_rs(i)(wordSize+2*tagSize-1 downto 2*tagSize);
+					tag <= FU_Tag & std_logic_vector(TO_SIGNED(i, tagSize-FUtagSize));
+					ex_comp := '0';
+					start_alu := '1';
+					exit;
+				end if;
 			end if;
 		end loop;
 
@@ -154,7 +197,7 @@ begin
 			
 		end loop;
 		busy <= temp;
-		ready <= not(ex_comp);
+		ready <= start_alu;
 		
 		
 	end process;

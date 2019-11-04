@@ -38,15 +38,36 @@ architecture tb of Tomasulo_tb is
 		B10 : 		buffer std_logic_vector(63 downto 0);
 		F10 : 		buffer std_logic_vector(63 downto 0);		
 
---		A11 : 		buffer std_logic_vector(63 downto 0);
---		B11 : 		buffer std_logic_vector(63 downto 0);
---		F11 : 		buffer std_logic_vector(63 downto 0);	
+		A11 : 		buffer std_logic_vector(63 downto 0);
+		B11 : 		buffer std_logic_vector(63 downto 0);
+		F11 : 		buffer std_logic_vector(63 downto 0);	
 
 		cdb_b: buffer STD_LOGIC_VECTOR(66 DOWNTO 0);
 		
-		alu_done1 : buffer std_logic;
-		alu_done2 : buffer std_logic;
-		load_cdbs : buffer std_logic_vector(2 downto 0);		
+--		ex01 : buffer std_logic;		
+--		ex01 : buffer std_logic;
+		ex11 : buffer std_logic;
+--		alu_done1 : buffer std_logic;
+--		alu_done2 : buffer std_logic;
+		alu_done3 : buffer std_logic;
+		load_cdbs : buffer std_logic_vector(2 downto 0);
+		
+		write_regs: buffer std_logic_vector(4 downto 0);
+		reg_writes : buffer std_logic;		
+		
+		t0 : buffer std_logic_vector (2 downto 0);
+		t1 : buffer std_logic_vector (2 downto 0);
+		t2 : buffer std_logic_vector (2 downto 0);
+		t3 : buffer std_logic_vector (2 downto 0);
+		t4 : buffer std_logic_vector (2 downto 0);		
+		t5 : buffer std_logic_vector (2 downto 0);
+
+		r0 : buffer std_logic_vector (63 downto 0);
+		r1 : buffer std_logic_vector (63 downto 0);
+	   r2 : buffer std_logic_vector (63 downto 0); 
+	   r3 : buffer std_logic_vector (63 downto 0); 
+	   r4 : buffer std_logic_vector (63 downto 0); 
+	   r5 : buffer std_logic_vector (63 downto 0); 		
 		
 		reset :  IN  STD_LOGIC;
 		clock :  IN  STD_LOGIC
@@ -80,15 +101,36 @@ architecture tb of Tomasulo_tb is
 	signal B10: std_logic_vector(63 downto 0);
 	signal F10: std_logic_vector(63 downto 0);	
 
---	signal A11: std_logic_vector(63 downto 0);
---	signal B11: std_logic_vector(63 downto 0);
---	signal F11: std_logic_vector(63 downto 0);		
+	signal A11: std_logic_vector(63 downto 0);
+	signal B11: std_logic_vector(63 downto 0);
+	signal F11: std_logic_vector(63 downto 0);		
 
 	signal cdb_b: std_logic_vector(66 downto 0);
 
-	signal alu_done1: std_logic;
-	signal alu_done2: std_logic;
+--	signal ex01: std_logic;	
+--	signal ex01: std_logic;	
+	signal ex11: std_logic;	
+--	signal alu_done1: std_logic;
+--	signal alu_done2: std_logic;
+	signal alu_done3: std_logic;
 	signal load_cdbs: std_logic_vector(2 downto 0);	
+
+	signal write_regs: std_logic_vector(4 downto 0);	
+	signal reg_writes : std_logic;	
+
+	signal t0: std_logic_vector(2 downto 0);
+	signal t1: std_logic_vector(2 downto 0);
+	signal t2: std_logic_vector(2 downto 0);
+	signal t3: std_logic_vector(2 downto 0);
+	signal t4: std_logic_vector(2 downto 0);
+	signal t5: std_logic_vector(2 downto 0);
+
+	signal r0: std_logic_vector(63 downto 0);	
+	signal r1: std_logic_vector(63 downto 0);
+	signal r2: std_logic_vector(63 downto 0);
+	signal r3: std_logic_vector(63 downto 0);
+	signal r4: std_logic_vector(63 downto 0);
+	signal r5: std_logic_vector(63 downto 0);
 	
 	signal reset : std_logic;
 	signal clock : std_logic;
@@ -123,16 +165,37 @@ begin
 		B10=>B10,
 		F10=>F10,
 
---		A11=>A11,
---		B11=>B11,
---		F11=>F11,		
+		A11=>A11,
+		B11=>B11,
+		F11=>F11,		
 
 		cdb_b=>cdb_b,
-		
-		alu_done1=>alu_done1,
-		alu_done2=>alu_done2,
+--		
+--		ex01=>ex01,
+--		ex01=>ex01,
+		ex11=>ex11,
+--		alu_done1=>alu_done1,
+--		alu_done2=>alu_done2,
+		alu_done3=>alu_done3,
 		load_cdbs=>load_cdbs,
 
+		reg_writes=>reg_writes,
+		write_regs=>write_regs,
+		
+		 t0=>t0,
+		 t1=>t1,
+		 t2=>t2,
+		 t3=>t3,
+		 t4=>t4,
+		 t5=>t5,
+
+		 r0=>r0,
+		 r1=>r1,
+		 r2=>r2,
+		 r3=>r3,
+		 r4=>r4,
+		 r5=>r5,		
+		
 		reset=>reset,
 		clock=>clock
 		
@@ -248,6 +311,197 @@ begin
 		wait for clk_per/2;
 		
 		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;	
+	
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;	
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+
 		clock <= '1';
 		wait for clk_per/2;
 		clock <= '0';

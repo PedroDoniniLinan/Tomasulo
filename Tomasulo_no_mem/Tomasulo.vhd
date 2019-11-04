@@ -59,9 +59,30 @@ ENTITY Tomasulo IS
 
 		cdb_b: buffer STD_LOGIC_VECTOR(66 DOWNTO 0);
 		
-		alu_done1 : buffer std_logic;
-		alu_done2 : buffer std_logic;
+--		ex01 : buffer std_logic;
+--		ex01 : buffer std_logic;
+		ex11 : buffer std_logic;
+--		alu_done1 : buffer std_logic;
+--		alu_done2 : buffer std_logic;
+		alu_done3 : buffer std_logic;
 		load_cdbs : buffer std_logic_vector(2 downto 0);
+		
+		write_regs: buffer std_logic_vector(4 downto 0);
+		reg_writes : buffer std_logic;
+
+		t0 : buffer std_logic_vector (2 downto 0);
+		t1 : buffer std_logic_vector (2 downto 0);
+		t2 : buffer std_logic_vector (2 downto 0);
+		t3 : buffer std_logic_vector (2 downto 0);
+		t4 : buffer std_logic_vector (2 downto 0);
+		t5 : buffer std_logic_vector (2 downto 0);
+		
+		r0 : buffer std_logic_vector (63 downto 0);
+		r1 : buffer std_logic_vector (63 downto 0);
+	   r2 : buffer std_logic_vector (63 downto 0); 
+	   r3 : buffer std_logic_vector (63 downto 0); 
+	   r4 : buffer std_logic_vector (63 downto 0); 
+	   r5 : buffer std_logic_vector (63 downto 0); 	 		
 		
 		reset :  IN  STD_LOGIC;
 		clock :  IN  STD_LOGIC
@@ -133,17 +154,33 @@ GENERIC (regNum : INTEGER;
 			regNumBits : INTEGER;
 			tagSize : INTEGER
 			);
-	PORT(reset : IN STD_LOGIC;
-		 clock : IN STD_LOGIC;
-		 tag_write : IN STD_LOGIC;
-		 cdb_tag : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		 read_tag_1 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-		 read_tag_2 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-		 write_tag : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-		 write_tag_data : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		 tag_1 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-		 tag_2 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-		 write_reg : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
+	PORT(
+	 reset : in std_logic;
+	 clock : in std_logic;
+	 
+	 read_tag_1 : in std_logic_vector (regNumBits-1 downto 0);	-- sinal do endereco de leitura 1
+	 read_tag_2 : in std_logic_vector (regNumBits-1 downto 0) ; -- sinal do endereco de leitura 2
+	 
+	 tag_write : in std_logic; -- controle de escrita
+	 
+	 write_tag : in std_logic_vector (regNumBits-1 downto 0) ; -- sinal do endereco de escrita 
+	 write_tag_data : in std_logic_vector (tagSize-1 downto 0) ; -- sinal de escrita da tag
+	 
+	 cdb_tag : in std_logic_vector (tagSize-1 downto 0);
+	 cdb_busy: in std_logic;
+	 
+	 tag_1  : out std_logic_vector (tagSize-1 downto 0); -- sinal de saida do tag da leitura 1
+	 tag_2  : out std_logic_vector (tagSize-1 downto 0);   -- sinal de saida do tag da leitura 2
+	 
+	 t0 : buffer std_logic_vector (tagSize-1 downto 0);  
+	 t1 : buffer std_logic_vector (tagSize-1 downto 0); 
+	 t2 : buffer std_logic_vector (tagSize-1 downto 0); 
+	 t3 : buffer std_logic_vector (tagSize-1 downto 0); 
+	 t4 : buffer std_logic_vector (tagSize-1 downto 0); 
+	 t5 : buffer std_logic_vector (tagSize-1 downto 0); 
+	 
+	 reg_write : out std_logic;
+	 write_reg : buffer std_logic_vector (regNumBits-1 downto 0)
 	);
 END COMPONENT;
 
@@ -158,7 +195,15 @@ GENERIC (regNum : INTEGER;
 		 read_reg_1 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
 		 read_reg_2 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
 		 write_data : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
-		 write_reg : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		 write_reg : IN STD_LOGIC_VECTOR(4 DOWNTO 0); 
+		
+		r0 : buffer std_logic_vector (63 downto 0); 
+		r1 : buffer std_logic_vector (63 downto 0);
+	   r2 : buffer std_logic_vector (63 downto 0); 
+	   r3 : buffer std_logic_vector (63 downto 0); 
+	   r4 : buffer std_logic_vector (63 downto 0); 
+	   r5 : buffer std_logic_vector (63 downto 0); 	 		 
+		 
 		 read_data_1 : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 read_data_2 : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
 	);
@@ -263,8 +308,11 @@ SIGNAL	SYNTHESIZED_WIRE_21 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_28 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
+SIGNAL	reg_write :  STD_LOGIC;
+
 SIGNAL	alu_done01 :  STD_LOGIC;
 SIGNAL	alu_done10 :  STD_LOGIC;
+SIGNAL	alu_done11 :  STD_LOGIC;
 
 BEGIN 
 
@@ -295,9 +343,16 @@ F11 <= data_i(191 DOWNTO 128);
 
 cdb_b <= cdb_o;
 
-alu_done1 <= alu_done01;
-alu_done2 <= alu_done10;
+--ex01 <= SYNTHESIZED_WIRE_3;
+--ex10 <= SYNTHESIZED_WIRE_3;
+ex11 <= SYNTHESIZED_WIRE_19;
+--alu_done1 <= alu_done01;
+--alu_done2 <= alu_done10;
+alu_done3 <= alu_done11;
 load_cdbs <= load_cdb;
+
+reg_writes <= reg_write;
+write_regs <= write_reg;
 
 
 b2v_decoder : decoder
@@ -371,12 +426,22 @@ PORT MAP(reset => reset,
 		 clock => clock,
 		 tag_write => SYNTHESIZED_WIRE_11,
 		 cdb_tag => cdb_o(66 DOWNTO 64),
+		 cdb_busy=>SYNTHESIZED_WIRE_16,
 		 read_tag_1 => SYNTHESIZED_WIRE_26,
 		 read_tag_2 => SYNTHESIZED_WIRE_27,
 		 write_tag => SYNTHESIZED_WIRE_14,
 		 write_tag_data => SYNTHESIZED_WIRE_15,
 		 tag_1 => tag_1,
 		 tag_2 => tag_2,
+		 
+		 t0=>t0,
+		 t1=>t1,
+		 t2=>t2,
+		 t3=>t3,
+		 t4=>t4,
+		 t5=>t5,
+		 
+		 reg_write => reg_write,
 		 write_reg => write_reg);
 
 
@@ -387,16 +452,25 @@ GENERIC MAP(regNum => 32,
 			)
 PORT MAP(reset => reset,
 		 clock => clock,
-		 reg_write => SYNTHESIZED_WIRE_16,
+		 reg_write => reg_write,
 		 read_reg_1 => SYNTHESIZED_WIRE_26,
 		 read_reg_2 => SYNTHESIZED_WIRE_27,
 		 write_data => cdb_o(63 DOWNTO 0),
 		 write_reg => write_reg,
+		 
+		 r0=>r0,
+		 r1=>r1,
+		 r2=>r2,
+		 r3=>r3,
+		 r4=>r4,
+		 r5=>r5,
+		 
 		 read_data_1 => RegFile1,
 		 read_data_2 => RegFile2);
-
+ 		 
+		 
 b2v_inst4 : fp
-GENERIC MAP(delay => 5,
+GENERIC MAP(delay => 2,
 			wordSize => 64
 			)
 PORT MAP(reset => reset,
@@ -405,7 +479,7 @@ PORT MAP(reset => reset,
 		 A => SYNTHESIZED_WIRE_20,
 		 B => SYNTHESIZED_WIRE_21,
 		 S => SYNTHESIZED_WIRE_22,
-		 ready => load_cdb(2),
+		 ready => alu_done11,
 		 F => data_i(191 DOWNTO 128));		  
 
 b2v_inst5 : cdb
@@ -510,8 +584,8 @@ PORT MAP(clock => clock,
 		 alu_op_o => SYNTHESIZED_WIRE_22,
 		 busy => busyRS(5 DOWNTO 4),
 		 tag => tag_i(8 DOWNTO 6),
-		 alu_done=>'0',
---		 load_cdb=>load_cdb(2),
+		 alu_done=>alu_done11,
+		 load_cdb=>load_cdb(2),
 		 r0=>r110,
 		 r1=>r111,		 
 		 

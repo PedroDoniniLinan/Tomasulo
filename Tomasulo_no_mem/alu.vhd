@@ -64,7 +64,7 @@ begin
 			end if;
 			
 			-- if delay reached
-			if timer = delay - 1 then
+			if timer = delay - 1	 then
 				timer <= 0;
 				ready <= '1';
 				executing := '0';

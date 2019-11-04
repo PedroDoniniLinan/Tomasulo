@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all; -- necessario para converter em integer
+use ieee.std_logic_misc.all;
 
 entity cdb is
 	generic(
@@ -41,7 +42,8 @@ begin
 	variable ind: integer := 0;
 	
 	begin
-	if clock='0' and clock'event then
+	if clock='1' and clock'event then
+--		cdb_busy <= '0';
 		if cdb_busy = '0' then
 			for i in 0 to nFU-1 loop
 				ind := start + i;
@@ -59,9 +61,11 @@ begin
 					exit;
 				end if;
 			end loop;
+			
+			
 		elsif cdb_busy ='1'then
 			cdb_busy <= '0';
-			cdb_o <= (others => '0');
+			cdb_o(tagSize+wordSize-1 downto wordSize) <= (others => '0');
 		end if;
 	end if;
 
