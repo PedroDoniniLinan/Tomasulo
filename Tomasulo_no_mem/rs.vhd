@@ -137,12 +137,12 @@ begin
 			
 			-- checa se alguma reservation station esta esperando o valor atual no cdb
 			for i in 0 to nbOfLines-1 loop
-				if not(list_rs(i)(2*tagSize-1 downto tagSize) = "000") 
+				if not(list_rs(i)(2*tagSize-1 downto tagSize) = "0000") 
 				and list_rs(i)(2*tagSize-1 downto tagSize) = cdb(wordSize+tagSize-1 downto wordSize) then
 					list_rs(i)(2*wordSize+2*tagSize-1 downto wordSize+2*tagSize) <= cdb(wordSize-1 downto 0);
 					list_rs(i)(2*tagSize-1 downto tagSize) <= (others => '0');
 				end if;
-				if not(list_rs(i)(tagSize-1 downto 0) = "000") 
+				if not(list_rs(i)(tagSize-1 downto 0) = "0000") 
 				and list_rs(i)(tagSize-1 downto 0) = cdb(wordSize+tagSize-1 downto wordSize) then
 					list_rs(i)(wordSize+2*tagSize-1 downto 2*tagSize) <= cdb(wordSize-1 downto 0);
 					list_rs(i)(tagSize-1 downto 0) <= (others => '0');

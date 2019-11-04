@@ -20,7 +20,7 @@ architecture tb of Tomasulo_tb is
 		rkDec : buffer STD_LOGIC_VECTOR(4 DOWNTO 0); 		 
 		rs1hot : buffer STD_LOGIC_VECTOR(5 DOWNTO 0);
 		regTagAddr : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
-		regTag : buffer STD_LOGIC_VECTOR(2 DOWNTO 0);		
+		regTag : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);		
 
 		r010 : 		buffer std_logic_vector(138 downto 0);
 		r011 : 		buffer std_logic_vector(138 downto 0);
@@ -42,7 +42,7 @@ architecture tb of Tomasulo_tb is
 		B11 : 		buffer std_logic_vector(63 downto 0);
 		F11 : 		buffer std_logic_vector(63 downto 0);	
 
-		cdb_b: buffer STD_LOGIC_VECTOR(66 DOWNTO 0);
+		cdb_b: buffer STD_LOGIC_VECTOR(67 DOWNTO 0);
 		
 --		ex01 : buffer std_logic;		
 --		ex01 : buffer std_logic;
@@ -55,12 +55,12 @@ architecture tb of Tomasulo_tb is
 --		write_regs: buffer std_logic_vector(4 downto 0);
 --		reg_writes : buffer std_logic;		
 		
-		t0 : buffer std_logic_vector (2 downto 0);
-		t1 : buffer std_logic_vector (2 downto 0);
-		t2 : buffer std_logic_vector (2 downto 0);
-		t3 : buffer std_logic_vector (2 downto 0);
-		t4 : buffer std_logic_vector (2 downto 0);		
-		t5 : buffer std_logic_vector (2 downto 0);
+		t0 : buffer std_logic_vector (3 downto 0);
+		t1 : buffer std_logic_vector (3 downto 0);
+		t2 : buffer std_logic_vector (3 downto 0);
+		t3 : buffer std_logic_vector (3 downto 0);
+		t4 : buffer std_logic_vector (3 downto 0);		
+		t5 : buffer std_logic_vector (3 downto 0);
 
 		r0 : buffer std_logic_vector (63 downto 0);
 		r1 : buffer std_logic_vector (63 downto 0);
@@ -83,7 +83,7 @@ architecture tb of Tomasulo_tb is
 	signal rkDec : STD_LOGIC_VECTOR(4 DOWNTO 0); 		 
 	signal rs1hot : STD_LOGIC_VECTOR(5 DOWNTO 0);
 	signal regTagAddr : STD_LOGIC_VECTOR(4 DOWNTO 0);
-	signal regTag : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	signal regTag : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
 	signal r010: std_logic_vector(138 downto 0);	
@@ -105,7 +105,7 @@ architecture tb of Tomasulo_tb is
 	signal B11: std_logic_vector(63 downto 0);
 	signal F11: std_logic_vector(63 downto 0);		
 
-	signal cdb_b: std_logic_vector(66 downto 0);
+	signal cdb_b: std_logic_vector(67 downto 0);
 
 ----	signal ex01: std_logic;	
 ----	signal ex01: std_logic;	
@@ -118,12 +118,12 @@ architecture tb of Tomasulo_tb is
 --	signal write_regs: std_logic_vector(4 downto 0);	
 --	signal reg_writes : std_logic;	
 
-	signal t0: std_logic_vector(2 downto 0);
-	signal t1: std_logic_vector(2 downto 0);
-	signal t2: std_logic_vector(2 downto 0);
-	signal t3: std_logic_vector(2 downto 0);
-	signal t4: std_logic_vector(2 downto 0);
-	signal t5: std_logic_vector(2 downto 0);
+	signal t0: std_logic_vector(3 downto 0);
+	signal t1: std_logic_vector(3 downto 0);
+	signal t2: std_logic_vector(3 downto 0);
+	signal t3: std_logic_vector(3 downto 0);
+	signal t4: std_logic_vector(3 downto 0);
+	signal t5: std_logic_vector(3 downto 0);
 
 	signal r0: std_logic_vector(63 downto 0);	
 	signal r1: std_logic_vector(63 downto 0);

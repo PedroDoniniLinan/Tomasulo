@@ -81,7 +81,7 @@ begin
 		end if;
 		
 		for i in 0 to 31 loop
-			if lista_tag(i) = cdb_tag and cdb_busy = '1' and not(cdb_tag = "000") then
+			if lista_tag(i) = cdb_tag and cdb_busy = '1' and not(cdb_tag = "0000") then
 				write_reg <= std_logic_vector(TO_SIGNED(i, regNumBits));
 				reg_write <= '1';
 				write_b <= '1';

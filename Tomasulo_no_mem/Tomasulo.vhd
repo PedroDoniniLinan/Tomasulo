@@ -36,7 +36,7 @@ ENTITY Tomasulo IS
 		rkDec : buffer STD_LOGIC_VECTOR(4 DOWNTO 0); 		 
 		rs1hot : buffer STD_LOGIC_VECTOR(5 DOWNTO 0);
 		regTagAddr : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
-		regTag : buffer STD_LOGIC_VECTOR(2 DOWNTO 0);
+		regTag : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 		r010 : 		buffer std_logic_vector(138 downto 0);
 		r011 : 		buffer std_logic_vector(138 downto 0);
@@ -57,7 +57,7 @@ ENTITY Tomasulo IS
 		B11 : 		buffer std_logic_vector(63 downto 0);
 		F11 : 		buffer std_logic_vector(63 downto 0);
 
-		cdb_b: buffer STD_LOGIC_VECTOR(66 DOWNTO 0);
+		cdb_b: buffer STD_LOGIC_VECTOR(67 DOWNTO 0);
 		
 --		ex01 : buffer std_logic;
 --		ex01 : buffer std_logic;
@@ -65,17 +65,17 @@ ENTITY Tomasulo IS
 --		alu_done1 : buffer std_logic;
 --		alu_done2 : buffer std_logic;
 		alu_done3 : buffer std_logic;
-		load_cdbs : buffer std_logic_vector(2 downto 0);
+		load_cdbs : buffer std_logic_vector(3 downto 0);
 		
 		write_regs: buffer std_logic_vector(4 downto 0);
 		reg_writes : buffer std_logic;
 
-		t0 : buffer std_logic_vector (2 downto 0);
-		t1 : buffer std_logic_vector (2 downto 0);
-		t2 : buffer std_logic_vector (2 downto 0);
-		t3 : buffer std_logic_vector (2 downto 0);
-		t4 : buffer std_logic_vector (2 downto 0);
-		t5 : buffer std_logic_vector (2 downto 0);
+		t0 : buffer std_logic_vector (3 downto 0);
+		t1 : buffer std_logic_vector (3 downto 0);
+		t2 : buffer std_logic_vector (3 downto 0);
+		t3 : buffer std_logic_vector (3 downto 0);
+		t4 : buffer std_logic_vector (3 downto 0);
+		t5 : buffer std_logic_vector (3 downto 0);
 		
 		r0 : buffer std_logic_vector (63 downto 0);
 		r1 : buffer std_logic_vector (63 downto 0);
@@ -98,7 +98,10 @@ GENERIC (fuBits : INTEGER;
 			regBits : INTEGER;
 			rsBits : INTEGER;
 			tagSize : INTEGER;
-			wordSize : INTEGER
+			wordSize : INTEGER;
+			ldstrBits:INTEGER;
+			n_lines_ldstr: INTEGER;
+			dt_addressSize:INTEGER
 			);
 	PORT(
 --	clock : IN STD_LOGIC;
@@ -106,6 +109,7 @@ GENERIC (fuBits : INTEGER;
 		 busyRs : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
 		 instruction : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 		 busy : OUT STD_LOGIC;
+		 busyLDSTR:		in		 std_logic_vector(n_lines_ldstr-1 downto 0);		 
 		 writeMapRS : OUT STD_LOGIC;
 --		 fuCodeOneHot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 		 opCode : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -113,7 +117,10 @@ GENERIC (fuBits : INTEGER;
 		 rkFiles : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
 		 RSLineOneHot : OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
 		 writeMapAddr : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-		 writeMapData : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+		 writeMapData : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 ldstr:			out	 std_logic; -- 1 if load or store
+		 ldstr_write:	out	std_logic; -- in case it is an str or ld instruction
+		 dt_address:	out   std_logic_vector(dt_addressSize-1 downto 0) -- immediate for str and ld			 
 	);
 END COMPONENT;
 
@@ -232,11 +239,11 @@ GENERIC (FUTagSize : INTEGER;
 			wordSize : INTEGER
 			);
 	PORT(clock : IN STD_LOGIC;
-		 data_i : IN STD_LOGIC_VECTOR(191 DOWNTO 0);
-		 load : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		 tag_i : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+		 data_i : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+		 load : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 tag_i : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		 busy : OUT STD_LOGIC;
-		 cdb_o : OUT STD_LOGIC_VECTOR(66 DOWNTO 0)
+		 cdb_o : OUT STD_LOGIC_VECTOR(67 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -251,11 +258,11 @@ GENERIC (FUTagSize : INTEGER;
 		 reset : IN STD_LOGIC;
 --		 loadFU : IN STD_LOGIC;
 		 alu_op_i : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		 cdb : IN STD_LOGIC_VECTOR(66 DOWNTO 0);
-		 FU_tag : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+		 cdb : IN STD_LOGIC_VECTOR(67 DOWNTO 0);
+		 FU_tag : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		 load : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-		 q_j_i : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		 q_k_i : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 q_j_i : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 q_k_i : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 v_j_i : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 v_k_i : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 ready : OUT STD_LOGIC;
@@ -263,7 +270,7 @@ GENERIC (FUTagSize : INTEGER;
 		 load_cdb:				out std_logic;
 		 alu_op_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 busy : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-		 tag : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 tag : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 
 		 r0 : 		buffer std_logic_vector(138 downto 0);
 		 r1 : 		buffer std_logic_vector(138 downto 0);
@@ -274,16 +281,16 @@ GENERIC (FUTagSize : INTEGER;
 END COMPONENT;
 
 SIGNAL	busyRS :  STD_LOGIC_VECTOR(5 DOWNTO 0);
-SIGNAL	cdb_o :  STD_LOGIC_VECTOR(66 DOWNTO 0);
-SIGNAL	data_i :  STD_LOGIC_VECTOR(191 DOWNTO 0);
-SIGNAL	FU1H :  STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL	load_cdb :  STD_LOGIC_VECTOR(2 DOWNTO 0);
+SIGNAL	cdb_o :  STD_LOGIC_VECTOR(67 DOWNTO 0);
+SIGNAL	data_i :  STD_LOGIC_VECTOR(255 DOWNTO 0);
+--SIGNAL	FU1H :  STD_LOGIC_VECTOR(2 DOWNTO 0);
+SIGNAL	load_cdb :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	RegFile1 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
 SIGNAL	RegFile2 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
 SIGNAL	RS1H :  STD_LOGIC_VECTOR(5 DOWNTO 0);
-SIGNAL	tag_1 :  STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL	tag_2 :  STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL	tag_i :  STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL	tag_1 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	tag_2 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	tag_i :  STD_LOGIC_VECTOR(15 DOWNTO 0);
 SIGNAL	write_reg :  STD_LOGIC_VECTOR(4 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC := '0';
 SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
@@ -300,7 +307,7 @@ SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_26 :  STD_LOGIC_VECTOR(4 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_27 :  STD_LOGIC_VECTOR(4 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC_VECTOR(4 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC_VECTOR(2 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
@@ -313,6 +320,11 @@ SIGNAL	reg_write :  STD_LOGIC;
 SIGNAL	alu_done01 :  STD_LOGIC;
 SIGNAL	alu_done10 :  STD_LOGIC;
 SIGNAL	alu_done11 :  STD_LOGIC;
+
+signal busyLDSTR:	std_logic_vector(1 downto 0);		 
+signal ldstr: std_logic; -- 1 if load or store
+signal ldstr_write: std_logic; -- in case it is an str or ld instruction
+signal dt_address: std_logic_vector(8 downto 0); -- immediate for str and ld	
 
 BEGIN 
 
@@ -356,18 +368,22 @@ write_regs <= write_reg;
 
 
 b2v_decoder : decoder
-GENERIC MAP(fuBits => 2,
+GENERIC MAP(fuBits => 3,
 			nb_lines => 6,
 			opBits => 4,
 			regBits => 5,
 			rsBits => 1,
-			tagSize => 3,
-			wordSize => 32
+			tagSize => 4,
+			wordSize => 32,
+			ldstrBits => 1,
+			n_lines_ldstr => 2, -- number of lines of queue for effective addres calculation
+			dt_addressSize => 9			
 			)
 PORT MAP(
 --clock => clock,
 		 load => SYNTHESIZED_WIRE_0,
 		 busyRs => busyRS,
+		 busyLDSTR=>busyLDSTR,
 		 instruction => SYNTHESIZED_WIRE_1,
 		 busy => SYNTHESIZED_WIRE_2,
 		 writeMapRS => SYNTHESIZED_WIRE_11,
@@ -377,8 +393,12 @@ PORT MAP(
 		 rkFiles => SYNTHESIZED_WIRE_27,
 		 RSLineOneHot => RS1H,
 		 writeMapAddr => SYNTHESIZED_WIRE_14,
-		 writeMapData => SYNTHESIZED_WIRE_15);
-
+		 writeMapData => SYNTHESIZED_WIRE_15,
+		 ldstr=>ldstr,
+		 ldstr_write=>ldstr_write,
+		 dt_address=>dt_address
+		 );		 
+		 
 b2v_fifo : fifo
 GENERIC MAP(regNum => 32,
 			wordSize => 32
@@ -420,12 +440,12 @@ PORT MAP(reset => reset,
 b2v_inst2 : maptable
 GENERIC MAP(regNum => 32,
 			regNumBits => 5,
-			tagSize => 3
+			tagSize => 4
 			)
 PORT MAP(reset => reset,
 		 clock => clock,
 		 tag_write => SYNTHESIZED_WIRE_11,
-		 cdb_tag => cdb_o(66 DOWNTO 64),
+		 cdb_tag => cdb_o(67 DOWNTO 64),
 		 cdb_busy=>SYNTHESIZED_WIRE_16,
 		 read_tag_1 => SYNTHESIZED_WIRE_26,
 		 read_tag_2 => SYNTHESIZED_WIRE_27,
@@ -483,10 +503,10 @@ PORT MAP(reset => reset,
 		 F => data_i(191 DOWNTO 128));		  
 
 b2v_inst5 : cdb
-GENERIC MAP(FUTagSize => 2,
+GENERIC MAP(FUTagSize => 3,
 			nbOfLines => 2,
-			nFU => 3,
-			tagSize => 3,
+			nFU => 4,
+			tagSize => 4,
 			wordSize => 64
 			)
 PORT MAP(clock => clock,
@@ -498,15 +518,15 @@ PORT MAP(clock => clock,
 
 
 b2v_RS_Add1 : rs
-GENERIC MAP(FUTagSize => 2,
+GENERIC MAP(FUTagSize => 3,
 			nbOfLines => 2,
 			opBits => 4,
-			tagSize => 3,
+			tagSize => 4,
 			wordSize => 64
 			)
 PORT MAP(clock => clock,
 		 reset => reset,
-		 FU_Tag => "01",		 
+		 FU_Tag => "001",		 
 --		 loadFU => FU1H(0),
 		 alu_op_i => SYNTHESIZED_WIRE_28,
 		 cdb => cdb_o,
@@ -520,7 +540,7 @@ PORT MAP(clock => clock,
 		 ready => SYNTHESIZED_WIRE_3,
 		 alu_op_o => SYNTHESIZED_WIRE_6,
 		 busy => busyRS(1 DOWNTO 0),
-		 tag => tag_i(2 DOWNTO 0),
+		 tag => tag_i(3 DOWNTO 0),
 		 
 		 r0=>r010,
 		 r1=>r011,
@@ -531,15 +551,15 @@ PORT MAP(clock => clock,
 		 
 
 b2v_RS_Add2 : rs
-GENERIC MAP(FUTagSize => 2,
+GENERIC MAP(FUTagSize => 3,
 			nbOfLines => 2,
 			opBits => 4,
-			tagSize => 3,
+			tagSize => 4,
 			wordSize => 64
 			)
 PORT MAP(clock => clock,
 		 reset => reset,
-		 FU_Tag => "10",
+		 FU_Tag => "010",
 --		 loadFU => FU1H(1),
 		 alu_op_i => SYNTHESIZED_WIRE_28,
 		 cdb => cdb_o,
@@ -553,7 +573,7 @@ PORT MAP(clock => clock,
 		 ready => SYNTHESIZED_WIRE_7,
 		 alu_op_o => SYNTHESIZED_WIRE_10,
 		 busy => busyRS(3 DOWNTO 2),
-		 tag => tag_i(5 DOWNTO 3),
+		 tag => tag_i(7 DOWNTO 4),
 		 		 
 		 r0=>r100,
 		 r1=>r101,		 
@@ -563,15 +583,15 @@ PORT MAP(clock => clock,
 
 
 b2v_RS_Mult : rs
-GENERIC MAP(FUTagSize => 2,
+GENERIC MAP(FUTagSize => 3,
 			nbOfLines => 2,
 			opBits => 4,
-			tagSize => 3,
+			tagSize => 4,
 			wordSize => 64
 			)
 PORT MAP(clock => clock,
 		 reset => reset,
-		 FU_Tag => "11",
+		 FU_Tag => "011",
 --		 loadFU => FU1H(2),
 		 alu_op_i => SYNTHESIZED_WIRE_28,
 		 cdb => cdb_o,
@@ -583,7 +603,7 @@ PORT MAP(clock => clock,
 		 ready => SYNTHESIZED_WIRE_19,
 		 alu_op_o => SYNTHESIZED_WIRE_22,
 		 busy => busyRS(5 DOWNTO 4),
-		 tag => tag_i(8 DOWNTO 6),
+		 tag => tag_i(11 DOWNTO 8),
 		 alu_done=>alu_done11,
 		 load_cdb=>load_cdb(2),
 		 r0=>r110,
