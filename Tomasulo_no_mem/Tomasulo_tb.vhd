@@ -46,14 +46,14 @@ architecture tb of Tomasulo_tb is
 		
 --		ex01 : buffer std_logic;		
 --		ex01 : buffer std_logic;
-		ex11 : buffer std_logic;
+--		ex11 : buffer std_logic;
 --		alu_done1 : buffer std_logic;
 --		alu_done2 : buffer std_logic;
-		alu_done3 : buffer std_logic;
-		load_cdbs : buffer std_logic_vector(2 downto 0);
+--		alu_done3 : buffer std_logic;
+--		load_cdbs : buffer std_logic_vector(2 downto 0);
 		
-		write_regs: buffer std_logic_vector(4 downto 0);
-		reg_writes : buffer std_logic;		
+--		write_regs: buffer std_logic_vector(4 downto 0);
+--		reg_writes : buffer std_logic;		
 		
 		t0 : buffer std_logic_vector (2 downto 0);
 		t1 : buffer std_logic_vector (2 downto 0);
@@ -107,16 +107,16 @@ architecture tb of Tomasulo_tb is
 
 	signal cdb_b: std_logic_vector(66 downto 0);
 
---	signal ex01: std_logic;	
---	signal ex01: std_logic;	
-	signal ex11: std_logic;	
---	signal alu_done1: std_logic;
---	signal alu_done2: std_logic;
-	signal alu_done3: std_logic;
-	signal load_cdbs: std_logic_vector(2 downto 0);	
+----	signal ex01: std_logic;	
+----	signal ex01: std_logic;	
+--	signal ex11: std_logic;	
+----	signal alu_done1: std_logic;
+----	signal alu_done2: std_logic;
+--	signal alu_done3: std_logic;
+--	signal load_cdbs: std_logic_vector(2 downto 0);	
 
-	signal write_regs: std_logic_vector(4 downto 0);	
-	signal reg_writes : std_logic;	
+--	signal write_regs: std_logic_vector(4 downto 0);	
+--	signal reg_writes : std_logic;	
 
 	signal t0: std_logic_vector(2 downto 0);
 	signal t1: std_logic_vector(2 downto 0);
@@ -172,15 +172,15 @@ begin
 		cdb_b=>cdb_b,
 --		
 --		ex01=>ex01,
---		ex01=>ex01,
-		ex11=>ex11,
---		alu_done1=>alu_done1,
---		alu_done2=>alu_done2,
-		alu_done3=>alu_done3,
-		load_cdbs=>load_cdbs,
-
-		reg_writes=>reg_writes,
-		write_regs=>write_regs,
+----		ex01=>ex01,
+--		ex11=>ex11,
+----		alu_done1=>alu_done1,
+----		alu_done2=>alu_done2,
+--		alu_done3=>alu_done3,
+--		load_cdbs=>load_cdbs,
+--
+--		reg_writes=>reg_writes,
+--		write_regs=>write_regs,
 		
 		 t0=>t0,
 		 t1=>t1,
