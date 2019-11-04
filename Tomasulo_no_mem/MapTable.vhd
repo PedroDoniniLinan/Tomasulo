@@ -71,9 +71,8 @@ begin
 			if write_b = '1' then
 				write_b <= '0';
 				reg_write <= '0';
+				lista_tag(TO_INTEGER(signed(write_reg))) <= (others => '0');				
 			end if;
-		
-			lista_tag(TO_INTEGER(signed(write_reg))) <= (others => '0');
 		
 			if tag_write ='1' then	 -- operacao de escrita 
 					lista_tag(TO_INTEGER(signed(write_tag))) <= write_tag_data ; -- escreve a tag
