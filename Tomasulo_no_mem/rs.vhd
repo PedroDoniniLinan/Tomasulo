@@ -4,7 +4,7 @@ use ieee.numeric_std.all; -- necessario para converter em integer
 
 entity rs is
 	generic(
-		wordSize: natural :=64;
+		wordSize: natural :=32;
 		tagSize:  natural :=3; -- tamanho da tag inteira 
 		FUTagSize:natural :=2; -- tamanho do pedaço da tag que indica a qual FU pertence
 		nbOfLines:natural :=2; -- numero de linhas da RS 
@@ -30,6 +30,9 @@ entity rs is
 		q_j_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);		-- Tags de operandos sendo esperados (map file)
 		q_k_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);
 		
+		
+		alu_done: in std_logic;
+		
 		-- entrada vinda do cdb para pegar operandos sendo esperados (from cdb)
 		cdb:				in		 std_logic_vector(wordSize+tagSize-1 downto 0); 
 		
@@ -48,7 +51,7 @@ entity rs is
 		-- tag da instrucao que esta sendo alimentada para a ALU e que vai para o cdb (to cdb)
 		tag:  		 	out	 std_logic_vector(tagSize-1 downto 0);
 		
-		done:				out std_logic;
+		load_cdb:				out std_logic;
 		
 		-- inicia execução na alu (to alu)
 		ready:			out	 std_logic;
@@ -92,14 +95,17 @@ begin
 			
 		elsif clock='1' and clock'event then
 			
-			done <= '0';
+			if alu_done = '1' then
+				load_cdb <= '1';
+			end if;
 			
 			-- apaga instrucao executada que se encontra no cdb ja
 			if cdb(wordSize+tagSize-1 downto wordSize+tagSize-FUTagSize) = FU_Tag then
 				list_rs(to_integer(unsigned(cdb(wordSize+tagSize-FUTagSize-1 downto wordSize)))) <= (others => '0');
 				ex_comp := '1';
-				done <= '1';
+				load_cdb <= '0';
 			end if;
+			
 			
 			-- carrega instrucao emitida			
 			for i in 0 to nbOfLines-1 loop
@@ -139,8 +145,7 @@ begin
 				exit;
 			end if;
 		end loop;
-		
-		
+
 		
 		-- checa se existe uma linha livre na reservation station
 		-- atualiza sinal de busy da rs

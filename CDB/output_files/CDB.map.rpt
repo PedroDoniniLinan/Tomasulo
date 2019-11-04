@@ -1,5 +1,5 @@
 Analysis & Elaboration report for CDB
-Sun Oct 13 13:56:23 2019
+Sun Nov 03 21:41:41 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Sun Oct 13 13:56:23 2019       ;
+; Analysis & Elaboration Status ; Successful - Sun Nov 03 21:41:41 2019       ;
 ; Quartus Prime Version         ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                 ; CDB                                         ;
 ; Top-level Entity Name         ; cdb                                         ;
@@ -176,28 +176,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sun Oct 13 13:56:08 2019
+    Info: Processing started: Sun Nov 03 21:41:26 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CDB -c CDB --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /0# poli_endgame-algm me tira daqui/org arq ii/projeto/tomasulo/rs/rs_tb.vhd
-    Info (12022): Found design unit 1: rs_tb-tb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd Line: 14
-    Info (12023): Found entity 1: rs_tb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /0# poli_endgame-algm me tira daqui/org arq ii/projeto/tomasulo/rs/rs.vhd
-    Info (12022): Found design unit 1: rs-rs File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd Line: 51
-    Info (12023): Found entity 1: rs File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file cdb.vhd
-    Info (12022): Found design unit 1: cdb-cdb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd Line: 25
+    Info (12022): Found design unit 1: cdb-cdb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd Line: 31
     Info (12023): Found entity 1: cdb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file cdb_tb.vhd
     Info (12022): Found design unit 1: cdb_tb-tb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB_tb.vhd Line: 14
     Info (12023): Found entity 1: cdb_tb File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB_tb.vhd Line: 4
 Info (12127): Elaborating entity "CDB" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at CDB.vhd(58): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at CDB.vhd(68): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd Line: 68
 Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4827 megabytes
-    Info: Processing ended: Sun Oct 13 13:56:23 2019
+    Info: Peak virtual memory: 4826 megabytes
+    Info: Processing ended: Sun Nov 03 21:41:41 2019
     Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Total CPU time (on all processors): 00:00:36
 
 

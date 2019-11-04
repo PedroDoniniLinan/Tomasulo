@@ -12,7 +12,7 @@
 # 
 # vcom -93 -work work {D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:48:00 on Nov 03,2019
+# Start time: 22:57:34 on Nov 03,2019
 # vcom -reportprogress 300 -93 -work work D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -20,25 +20,25 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity rs
 # -- Compiling architecture rs of rs
-# End time: 16:48:01 on Nov 03,2019, Elapsed time: 0:00:01
+# End time: 22:57:34 on Nov 03,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:48:01 on Nov 03,2019
+# Start time: 22:57:35 on Nov 03,2019
 # vcom -reportprogress 300 -93 -work work D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity rs_tb
 # -- Compiling architecture tb of rs_tb
-# ** Warning: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd(82): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 16:48:01 on Nov 03,2019, Elapsed time: 0:00:00
+# ** Warning: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/RS/rs_tb.vhd(97): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 22:57:35 on Nov 03,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  rs_tb
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" rs_tb 
-# Start time: 16:48:01 on Nov 03,2019
+# Start time: 22:57:35 on Nov 03,2019
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -54,7 +54,13 @@
 # run 20 us
 # ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
 #    Time: 7500 ns  Iteration: 1  Instance: /rs_tb/u1
-# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
-#    Time: 19 us  Iteration: 1  Instance: /rs_tb/u1
-# End time: 16:49:25 on Nov 03,2019, Elapsed time: 0:01:24
-# Errors: 0, Warnings: 2
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# End time: 23:09:07 on Nov 03,2019, Elapsed time: 0:11:32
+# Errors: 7, Warnings: 2

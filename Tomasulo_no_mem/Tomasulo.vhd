@@ -39,7 +39,7 @@ ENTITY Tomasulo IS
 		regTag : buffer STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 		r010 : 		buffer std_logic_vector(138 downto 0);
-		r011 : 		buffer std_logic_vector(138 downto 0);	
+		r011 : 		buffer std_logic_vector(138 downto 0);
 		r100 : 		buffer std_logic_vector(138 downto 0);
 		r101 : 		buffer std_logic_vector(138 downto 0);		
 		r110 : 		buffer std_logic_vector(138 downto 0);
@@ -48,20 +48,20 @@ ENTITY Tomasulo IS
 		A01 : 		buffer std_logic_vector(63 downto 0);
 		B01 : 		buffer std_logic_vector(63 downto 0);
 		F01 : 		buffer std_logic_vector(63 downto 0);
-		
-		ex01: 		buffer std_logic;
-		S01 : 		buffer std_logic_vector(3 downto 0);
-		ready01: 		buffer std_logic;	
-		timer_o : 		buffer std_logic_vector(3 downto 0);
 
 		A10 : 		buffer std_logic_vector(63 downto 0);
 		B10 : 		buffer std_logic_vector(63 downto 0);
-		F10 : 		buffer std_logic_vector(63 downto 0);
-		timer_o2 : 		buffer std_logic_vector(3 downto 0);		
+		F10 : 		buffer std_logic_vector(63 downto 0);		
 
 		A11 : 		buffer std_logic_vector(63 downto 0);
 		B11 : 		buffer std_logic_vector(63 downto 0);
-		F11 : 		buffer std_logic_vector(63 downto 0);		 		
+		F11 : 		buffer std_logic_vector(63 downto 0);
+
+		cdb_b: buffer STD_LOGIC_VECTOR(66 DOWNTO 0);
+		
+		alu_done1 : buffer std_logic;
+		alu_done2 : buffer std_logic;
+		load_cdbs : buffer std_logic_vector(2 downto 0);
 		
 		reset :  IN  STD_LOGIC;
 		clock :  IN  STD_LOGIC
@@ -119,13 +119,11 @@ GENERIC (delay : INTEGER;
 	PORT(reset : IN STD_LOGIC;
 	 clock : in std_logic;
 	 execute : in std_logic;
-	 done : in std_logic;
     A  : in  std_logic_vector(wordSize-1 downto 0); -- inputs
 	 B : in  std_logic_vector(wordSize-1 downto 0); -- inputs
     F    : out std_logic_vector(wordSize-1 downto 0); -- output
     S    : in  std_logic_vector (3 downto 0); -- ALUop selection
     --Z    : out STD_LOGIC -- zero flag
-	 timer: buffer std_logic_vector(3 downto 0);
 	 ready : out std_logic
 	);
 END COMPONENT;
@@ -216,7 +214,8 @@ GENERIC (FUTagSize : INTEGER;
 		 v_j_i : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 v_k_i : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 ready : OUT STD_LOGIC;
-		 done:				out std_logic;
+		 alu_done:				in std_logic;
+		 load_cdb:				out std_logic;
 		 alu_op_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 busy : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 		 tag : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -264,9 +263,8 @@ SIGNAL	SYNTHESIZED_WIRE_21 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_28 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 
-
-signal done1 : std_logic;
-signal done2 : std_logic;
+SIGNAL	alu_done01 :  STD_LOGIC;
+SIGNAL	alu_done10 :  STD_LOGIC;
 
 BEGIN 
 
@@ -287,10 +285,6 @@ A01 <= SYNTHESIZED_WIRE_4;
 B01 <= SYNTHESIZED_WIRE_5;
 F01 <= data_i(63 DOWNTO 0);		 
 
-ex01 <= SYNTHESIZED_WIRE_3;
-S01 <= SYNTHESIZED_WIRE_6;
-ready01 <= load_cdb(0);	
-
 A10 <= SYNTHESIZED_WIRE_8;
 B10 <= SYNTHESIZED_WIRE_9;
 F10 <= data_i(127 DOWNTO 64);		 
@@ -298,6 +292,12 @@ F10 <= data_i(127 DOWNTO 64);
 A11 <= SYNTHESIZED_WIRE_20;
 B11 <= SYNTHESIZED_WIRE_21;
 F11 <= data_i(191 DOWNTO 128);		 
+
+cdb_b <= cdb_o;
+
+alu_done1 <= alu_done01;
+alu_done2 <= alu_done10;
+load_cdbs <= load_cdb;
 
 
 b2v_decoder : decoder
@@ -340,68 +340,27 @@ b2v_inst : alu
 GENERIC MAP(delay => 2,
 			wordSize => 64
 			)
-PORT MAP(reset => clock,
-		 clock => reset,
-		 done=>done1,
+PORT MAP(reset => reset,
+		 clock => clock,
 		 execute => SYNTHESIZED_WIRE_3,
 		 A => SYNTHESIZED_WIRE_4,
 		 B => SYNTHESIZED_WIRE_5,
 		 S => SYNTHESIZED_WIRE_6,
-		 ready => load_cdb(0),
-		 timer=>timer_o,
+		 ready => alu_done01,
 		 F => data_i(63 DOWNTO 0));	 
 		 
 b2v_inst1 : alu
-GENERIC MAP(delay => 4,
+GENERIC MAP(delay => 2,
 			wordSize => 64
 			)
-PORT MAP(reset => clock,
-		 clock => reset,
-		 done=>done2,
+PORT MAP(reset => reset,
+		 clock => clock,
 		 execute => SYNTHESIZED_WIRE_7,
 		 A => SYNTHESIZED_WIRE_8,
 		 B => SYNTHESIZED_WIRE_9,
 		 S => SYNTHESIZED_WIRE_10,
-		 ready => load_cdb(1),
-		 timer=>timer_o2,
-		 F => data_i(127 DOWNTO 64));		 
-		 
---a1 <= signed(SYNTHESIZED_WIRE_4);
---b1 <= signed(SYNTHESIZED_WIRE_5);		 
-
---b2v_inst : alu
---GENERIC MAP(delay => 4,
---			wordSize => 64
---			)
---PORT MAP(reset => clock,
---		 clock => reset,
---		 execute => SYNTHESIZED_WIRE_3,
---		 A => a1,
---		 B => b1,
---		 S => SYNTHESIZED_WIRE_6,
---		 ready => load_cdb(0),
---		 F => f1);
-
---data_i(63 DOWNTO 0) <= std_logic_vector(f1);
-
-
---a2 <= signed(SYNTHESIZED_WIRE_8);
---b2 <= signed(SYNTHESIZED_WIRE_9);	
---
---b2v_inst1 : alu
---GENERIC MAP(delay => 4,
---			wordSize => 64
---			)
---PORT MAP(reset => clock,
---		 clock => reset,
---		 execute => SYNTHESIZED_WIRE_7,
---		 A => a2,
---		 B => b2,
---		 S => SYNTHESIZED_WIRE_10,
---		 ready => load_cdb(1),
---		 F => f2);
---
---data_i(127 DOWNTO 64) <= std_logic_vector(f2);		 
+		 ready => alu_done10,
+		 F => data_i(127 DOWNTO 64));		 	 
 
 b2v_inst2 : maptable
 GENERIC MAP(regNum => 32,
@@ -440,33 +399,14 @@ b2v_inst4 : fp
 GENERIC MAP(delay => 5,
 			wordSize => 64
 			)
-PORT MAP(reset => clock,
-		 clock => reset,
+PORT MAP(reset => reset,
+		 clock => clock,
 		 execute => SYNTHESIZED_WIRE_19,
 		 A => SYNTHESIZED_WIRE_20,
 		 B => SYNTHESIZED_WIRE_21,
 		 S => SYNTHESIZED_WIRE_22,
 		 ready => load_cdb(2),
-		 F => data_i(191 DOWNTO 128));		 
-		 
-		 
---a3 <= signed(SYNTHESIZED_WIRE_20);
---b3 <= signed(SYNTHESIZED_WIRE_21);		 
---		 
---b2v_inst4 : fp
---GENERIC MAP(delay => 5,
---			wordSize => 64
---			)
---PORT MAP(reset => clock,
---		 clock => reset,
---		 execute => SYNTHESIZED_WIRE_19,
---		 A => a3,
---		 B => b3,
---		 S => SYNTHESIZED_WIRE_22,
---		 ready => load_cdb(2),
---		 F => f3);
---
---data_i(191 DOWNTO 128) <= std_logic_vector(f3);			 
+		 F => data_i(191 DOWNTO 128));		  
 
 b2v_inst5 : cdb
 GENERIC MAP(FUTagSize => 2,
@@ -475,7 +415,7 @@ GENERIC MAP(FUTagSize => 2,
 			tagSize => 3,
 			wordSize => 64
 			)
-PORT MAP(clock => reset,
+PORT MAP(clock => clock,
 		 data_i => data_i,
 		 load => load_cdb,
 		 tag_i => tag_i,
@@ -501,7 +441,8 @@ PORT MAP(clock => clock,
 		 q_k_i => tag_2,
 		 v_j_i => RegFile1,
 		 v_k_i => RegFile2,
-		 done=>done1,
+		 alu_done=>alu_done01,
+		 load_cdb=>load_cdb(0),
 		 ready => SYNTHESIZED_WIRE_3,
 		 alu_op_o => SYNTHESIZED_WIRE_6,
 		 busy => busyRS(1 DOWNTO 0),
@@ -533,7 +474,8 @@ PORT MAP(clock => clock,
 		 q_k_i => tag_2,
 		 v_j_i => RegFile1,
 		 v_k_i => RegFile2,
-		 done=>done2,
+		 alu_done=>alu_done10,
+		 load_cdb=>load_cdb(1),
 		 ready => SYNTHESIZED_WIRE_7,
 		 alu_op_o => SYNTHESIZED_WIRE_10,
 		 busy => busyRS(3 DOWNTO 2),
@@ -568,7 +510,8 @@ PORT MAP(clock => clock,
 		 alu_op_o => SYNTHESIZED_WIRE_22,
 		 busy => busyRS(5 DOWNTO 4),
 		 tag => tag_i(8 DOWNTO 6),
-		 
+		 alu_done=>'0',
+--		 load_cdb=>load_cdb(2),
 		 r0=>r110,
 		 r1=>r111,		 
 		 

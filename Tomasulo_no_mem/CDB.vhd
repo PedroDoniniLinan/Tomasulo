@@ -47,7 +47,7 @@ begin
 				ind := start + i;
 				if ind >= nFU then
 					ind := ind - nFU;
-					start := -1;
+--					start := -1;
 				end if;
 				if load(ind) = '1' then
 					cdb_o <= tag_i((ind+1)*(tagSize)-1 downto ind*(tagSize)) & data_i((ind+1)*(wordSize)-1 downto ind*(wordSize));
@@ -61,6 +61,7 @@ begin
 			end loop;
 		elsif cdb_busy ='1'then
 			cdb_busy <= '0';
+			cdb_o <= (others => '0');
 		end if;
 	end if;
 

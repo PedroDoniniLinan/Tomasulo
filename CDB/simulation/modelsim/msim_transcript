@@ -12,7 +12,7 @@
 # 
 # vcom -93 -work work {D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:58:04 on Oct 13,2019
+# Start time: 21:42:05 on Nov 03,2019
 # vcom -reportprogress 300 -93 -work work D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -20,25 +20,25 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity cdb
 # -- Compiling architecture cdb of cdb
-# End time: 13:58:04 on Oct 13,2019, Elapsed time: 0:00:00
+# End time: 21:42:05 on Nov 03,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:58:04 on Oct 13,2019
+# Start time: 21:42:05 on Nov 03,2019
 # vcom -reportprogress 300 -93 -work work D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity cdb_tb
 # -- Compiling architecture tb of cdb_tb
-# ** Warning: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB_tb.vhd(38): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 13:58:04 on Oct 13,2019, Elapsed time: 0:00:00
+# ** Warning: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB_tb.vhd(42): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 21:42:05 on Nov 03,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  CDB_tb
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" CDB_tb 
-# Start time: 13:58:05 on Oct 13,2019
+# Start time: 21:42:06 on Nov 03,2019
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -52,5 +52,12 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run 100 us
-# End time: 13:59:15 on Oct 13,2019, Elapsed time: 0:01:10
-# Errors: 0, Warnings: 0
+# ** Fatal: (vsim-3734) Index value -1 is out of range 2 downto 0.
+#    Time: 12 us  Iteration: 1  Process: /cdb_tb/u1/line__38 File: D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd
+# Fatal error in ForLoop loop at D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd line 52
+# 
+# HDL call sequence:
+# Stopped at D:/0# POLI_Endgame-Algm me tira daqui/Org Arq II/Projeto/Tomasulo/CDB/CDB.vhd 52 ForLoop loop
+# 
+# End time: 21:42:51 on Nov 03,2019, Elapsed time: 0:00:45
+# Errors: 2, Warnings: 0

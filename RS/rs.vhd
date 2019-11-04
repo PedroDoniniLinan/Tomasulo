@@ -14,7 +14,7 @@ entity rs is
 		clock:    		in 	 std_logic; --! entrada de clock
 		reset:	 		in 	 std_logic; --! clear assíncrono
 		load:      		in 	 std_logic_vector(nbOfLines-1 downto 0); -- carrega valor em linha da rs (from decoder)
-		loadFU:			in 	 std_logic;	-- indica se a FU dessa RS pode receber a instrução (from decoder)
+--		loadFU:			in 	 std_logic;	-- indica se a FU dessa RS pode receber a instrução (from decoder)
 
 		-- indica numero da FU a qual rs esta ligada (ex.: FUTagSize = 2 => FU_Tag = 01, 10 ou 11)
 		-- Add1 = 01; Add2 = 10; Mult = 11; neither = 00
@@ -29,6 +29,9 @@ entity rs is
 		v_k_i:  		 	in		 std_logic_vector(wordSize-1 downto 0);
 		q_j_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);		-- Tags de operandos sendo esperados (map file)
 		q_k_i:  		 	in		 std_logic_vector(tagSize-1 downto 0);
+		
+		
+		alu_done: in std_logic;
 		
 		-- entrada vinda do cdb para pegar operandos sendo esperados (from cdb)
 		cdb:				in		 std_logic_vector(wordSize+tagSize-1 downto 0); 
@@ -48,12 +51,14 @@ entity rs is
 		-- tag da instrucao que esta sendo alimentada para a ALU e que vai para o cdb (to cdb)
 		tag:  		 	out	 std_logic_vector(tagSize-1 downto 0);
 		
+		load_cdb:				out std_logic;
+		
 		-- inicia execução na alu (to alu)
-		ready:			out	 std_logic
+		ready:			out	 std_logic;
 		
 		-- buffer para o testbench (retirar depois)
-		--r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
-		--r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0)
+		r0 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0);
+		r1 : 		buffer std_logic_vector(2*wordSize+2*tagSize+opBits downto 0)
 	);
 end rs;
 
@@ -66,20 +71,20 @@ constant zeros : std_logic_vector(2*tagSize-1 downto 0) := (others => '0'); -- u
 
 begin
 
-	process (reset, clock, list_rs) -- caso qualquer entrada sofra alguma alteracao, inicia process
+	process (reset, clock, list_rs, load) -- caso qualquer entrada sofra alguma alteracao, inicia process
 	variable temp : std_logic_vector(nbOfLines-1 downto 0);
 	variable ex_comp: std_logic := '1';
 	begin
 	
 		-- para testbench
-		--r0 <= list_rs(0);
-		--r1 <= list_rs(1);
+		r0 <= list_rs(0);
+		r1 <= list_rs(1);
 	
 		if reset = '1' then		 
 			
 			for i in 0 to nbOfLines-1 loop
 				list_rs(i)(2*wordSize+2*tagSize+opBits downto 2*tagSize) <= (others =>'0');
-				list_rs(i)(2*tagSize-1 downto 0) <= (others => '1');
+				list_rs(i)(2*tagSize-1 downto 0) <= (others => '0');
 			end loop;
 			
 			busy <= (others => '0');
@@ -90,15 +95,21 @@ begin
 			
 		elsif clock='1' and clock'event then
 			
+			if alu_done = '1' then
+				load_cdb <= '1';
+			end if;
+			
 			-- apaga instrucao executada que se encontra no cdb ja
 			if cdb(wordSize+tagSize-1 downto wordSize+tagSize-FUTagSize) = FU_Tag then
 				list_rs(to_integer(unsigned(cdb(wordSize+tagSize-FUTagSize-1 downto wordSize)))) <= (others => '0');
 				ex_comp := '1';
+				load_cdb <= '0';
 			end if;
+			
 			
 			-- carrega instrucao emitida			
 			for i in 0 to nbOfLines-1 loop
-				if load(i) = '1' and loadFU = '1'  and list_rs(i)(2*wordSize+2*tagSize+opBits) = '0' then
+				if load(i) = '1' and list_rs(i)(2*wordSize+2*tagSize+opBits) = '0' then
 					list_rs(i) <= "1" & alu_op_i & v_j_i & v_k_i & q_j_i & q_k_i;
 					exit;
 				end if;
@@ -134,8 +145,7 @@ begin
 				exit;
 			end if;
 		end loop;
-		
-		
+
 		
 		-- checa se existe uma linha livre na reservation station
 		-- atualiza sinal de busy da rs

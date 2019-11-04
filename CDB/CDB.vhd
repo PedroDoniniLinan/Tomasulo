@@ -39,10 +39,16 @@ begin
 	
 	variable start: integer := 0;
 	variable ind: integer := 0;
+	variable check: std_logic := '0';
 	
 	begin
 	if clock='0' and clock'event then
-		if cdb_busy = '0' then
+	
+	if check = '1' then
+		check := '0'
+	end if;
+	
+--		if cdb_busy = '0' then
 			for i in 0 to nFU-1 loop
 				ind := start + i;
 				if ind >= nFU then
@@ -56,12 +62,16 @@ begin
 					--tag_o <= tag_i((ind+1)*(tagSize)-1 downto ind*(tagSize));
 					cdb_busy <= '1';
 					start := ind + 1;
+					check := '1';
 					exit;
+				else 
+					cdb_busy <= '0';
 				end if;
 			end loop;
-		elsif cdb_busy ='1'then
-			cdb_busy <= '0';
-		end if;
+--		elsif cdb_busy ='1'then
+--			cdb_busy <= '0';
+--			cdb_o <= (others => '0');
+--		end if;
 	end if;
 
 	busy <= cdb_busy;	

@@ -23,7 +23,7 @@ architecture tb of Tomasulo_tb is
 		regTag : buffer STD_LOGIC_VECTOR(2 DOWNTO 0);		
 
 		r010 : 		buffer std_logic_vector(138 downto 0);
-		r011 : 		buffer std_logic_vector(138 downto 0);	
+		r011 : 		buffer std_logic_vector(138 downto 0);
 		r100 : 		buffer std_logic_vector(138 downto 0);
 		r101 : 		buffer std_logic_vector(138 downto 0);		
 		r110 : 		buffer std_logic_vector(138 downto 0);
@@ -33,21 +33,20 @@ architecture tb of Tomasulo_tb is
 		A01 : 		buffer std_logic_vector(63 downto 0);
 		B01 : 		buffer std_logic_vector(63 downto 0);
 		F01 : 		buffer std_logic_vector(63 downto 0);		 
-		
-		ex01: 		buffer std_logic;
-		S01 : 		buffer std_logic_vector(3 downto 0);
-		ready01: 		buffer std_logic;			
-		timer_o : 		buffer std_logic_vector(3 downto 0);
 
---		A10 : 		buffer std_logic_vector(63 downto 0);
---		B10 : 		buffer std_logic_vector(63 downto 0);
---		F10 : 		buffer std_logic_vector(63 downto 0);	
---
---		timer_o2 : 		buffer std_logic_vector(3 downto 0);		
---
+		A10 : 		buffer std_logic_vector(63 downto 0);
+		B10 : 		buffer std_logic_vector(63 downto 0);
+		F10 : 		buffer std_logic_vector(63 downto 0);		
+
 --		A11 : 		buffer std_logic_vector(63 downto 0);
 --		B11 : 		buffer std_logic_vector(63 downto 0);
 --		F11 : 		buffer std_logic_vector(63 downto 0);	
+
+		cdb_b: buffer STD_LOGIC_VECTOR(66 DOWNTO 0);
+		
+		alu_done1 : buffer std_logic;
+		alu_done2 : buffer std_logic;
+		load_cdbs : buffer std_logic_vector(2 downto 0);		
 		
 		reset :  IN  STD_LOGIC;
 		clock :  IN  STD_LOGIC
@@ -77,20 +76,20 @@ architecture tb of Tomasulo_tb is
 	signal B01: std_logic_vector(63 downto 0);
 	signal F01: std_logic_vector(63 downto 0);
 	
-	signal ex01: std_logic;	
-	signal S01: std_logic_vector(3 downto 0);	
-	signal ready01: std_logic;		
-	signal timer_o: std_logic_vector(3 downto 0);
---	signal timer_o2: std_logic_vector(3 downto 0);	
---	
---	signal A10: std_logic_vector(63 downto 0);
---	signal B10: std_logic_vector(63 downto 0);
---	signal F10: std_logic_vector(63 downto 0);	
---
+	signal A10: std_logic_vector(63 downto 0);
+	signal B10: std_logic_vector(63 downto 0);
+	signal F10: std_logic_vector(63 downto 0);	
+
 --	signal A11: std_logic_vector(63 downto 0);
 --	signal B11: std_logic_vector(63 downto 0);
 --	signal F11: std_logic_vector(63 downto 0);		
-		
+
+	signal cdb_b: std_logic_vector(66 downto 0);
+
+	signal alu_done1: std_logic;
+	signal alu_done2: std_logic;
+	signal load_cdbs: std_logic_vector(2 downto 0);	
+	
 	signal reset : std_logic;
 	signal clock : std_logic;
 		
@@ -116,24 +115,23 @@ begin
 		r101=>r101,
 		r110=>r110,
 		r111=>r111,
-	
-		S01=>S01,
-		ex01=>ex01,
-	
 		A01=>A01,
 		B01=>B01,
 		F01=>F01,
-		ready01=>ready01,
-		timer_o=>timer_o,
---		timer_o2=>timer_o2,
 --		
---		A10=>A10,
---		B10=>B10,
---		F10=>F10,
---
+		A10=>A10,
+		B10=>B10,
+		F10=>F10,
+
 --		A11=>A11,
 --		B11=>B11,
 --		F11=>F11,		
+
+		cdb_b=>cdb_b,
+		
+		alu_done1=>alu_done1,
+		alu_done2=>alu_done2,
+		load_cdbs=>load_cdbs,
 
 		reset=>reset,
 		clock=>clock
@@ -151,7 +149,7 @@ begin
 		wait for clk_per/8;
 		reset <= '1';
 		wait for clk_per/8;
---		reset <= '0';
+		reset <= '0';
 		wait for clk_per/4;
 
 		clock <= '1';
@@ -199,6 +197,34 @@ begin
 		clock <= '0';
 		wait for clk_per/2;	
 	
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;
+		
+		
+		clock <= '1';
+		wait for clk_per/2;
+		clock <= '0';
+		wait for clk_per/2;	
+
 		clock <= '1';
 		wait for clk_per/2;
 		clock <= '0';
