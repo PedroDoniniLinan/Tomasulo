@@ -20,17 +20,13 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
 use IEEE.STD_LOGIC_SIGNED.all; 
---use ieee.numeric_std.all; -- necessario para converter em integer
 
---LIBRARY work;
-
+-- ************************** READ ***************************************
+-- All buffers were used to verify the that the circuit functions properly
 ENTITY Tomasulo IS 
 	PORT
 	(
-		rd_fifo: buffer std_logic;
-		inst_fifo: buffer std_logic_vector(31 downto 0);
-		fifo_has : buffer std_logic;
-
+		-- DECODER OUTPUT
 		opCopeDec : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);
 		rjDec : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
 		rkDec : buffer STD_LOGIC_VECTOR(4 DOWNTO 0); 		 
@@ -38,13 +34,17 @@ ENTITY Tomasulo IS
 		regTagAddr : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
 		regTag : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);
 
+		-- RS
 		r010 : 		buffer std_logic_vector(140 downto 0);
 		r011 : 		buffer std_logic_vector(140 downto 0);
 		r100 : 		buffer std_logic_vector(140 downto 0);
 		r101 : 		buffer std_logic_vector(140 downto 0);		
 		r110 : 		buffer std_logic_vector(140 downto 0);
 		r111 : 		buffer std_logic_vector(140 downto 0);
+		rMem1s : buffer std_logic_vector(146 downto 0);
+		rMem2s : buffer std_logic_vector(146 downto 0);
 
+		-- FU'S 
 		A01 : 		buffer std_logic_vector(63 downto 0);
 		B01 : 		buffer std_logic_vector(63 downto 0);
 		F01 : 		buffer std_logic_vector(63 downto 0);
@@ -57,19 +57,10 @@ ENTITY Tomasulo IS
 		B11 : 		buffer std_logic_vector(63 downto 0);
 		F11 : 		buffer std_logic_vector(63 downto 0);
 
+		-- CDB
 		cdb_b: buffer STD_LOGIC_VECTOR(67 DOWNTO 0);
 		
---		ex01 : buffer std_logic;
---		ex01 : buffer std_logic;
-		ex11 : buffer std_logic;
---		alu_done1 : buffer std_logic;
---		alu_done2 : buffer std_logic;
-		alu_done3 : buffer std_logic;
-		load_cdbs : buffer std_logic_vector(3 downto 0);
-		
-		write_regs: buffer std_logic_vector(4 downto 0);
-		reg_writes : buffer std_logic;
-
+		-- MAP FILE WITH REGISTERS TAGS
 		t0 : buffer std_logic_vector (3 downto 0);
 		t1 : buffer std_logic_vector (3 downto 0);
 		t2 : buffer std_logic_vector (3 downto 0);
@@ -77,28 +68,14 @@ ENTITY Tomasulo IS
 		t4 : buffer std_logic_vector (3 downto 0);
 		t5 : buffer std_logic_vector (3 downto 0);
 		
+		-- REGISTERS 
 		r0 : buffer std_logic_vector (63 downto 0);
 		r1 : buffer std_logic_vector (63 downto 0);
 	   r2 : buffer std_logic_vector (63 downto 0); 
 	   r3 : buffer std_logic_vector (63 downto 0); 
 	   r4 : buffer std_logic_vector (63 downto 0); 
 	   r5 : buffer std_logic_vector (63 downto 0);
-		
-		rMem1s : buffer std_logic_vector(146 downto 0);
-		rMem2s : buffer std_logic_vector(146 downto 0);
-		result_adders : buffer std_logic_vector(63 downto 0);
-		ldstr_writes : buffer std_logic;
-		start_ldstrs : buffer std_logic;
-		point_reads : buffer integer; 
-	   point_writes : buffer integer;
-		busy_adders : buffer std_logic;
-		counter_outs : buffer integer;
-		mem_results : buffer std_logic_vector (63 downto 0);
-		busy_mems : buffer std_logic;
-		addr_outs : buffer integer;
-		counter_mems : buffer integer;
-		done_cdbss : buffer integer;
-		
+
 		reset :  IN  STD_LOGIC;
 		clock :  IN  STD_LOGIC
 	);
@@ -119,14 +96,12 @@ GENERIC (fuBits : INTEGER;
 			dt_addressSize:INTEGER
 			);
 	PORT(
---	clock : IN STD_LOGIC;
 		 load : IN STD_LOGIC;
 		 busyRs : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
 		 instruction : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 		 busy : OUT STD_LOGIC;
 		 busyLDSTR:		in		 std_logic_vector(n_lines_ldstr-1 downto 0);		 
 		 writeMapRS : OUT STD_LOGIC;
---		 fuCodeOneHot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 		 opCode : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 rjFiles : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
 		 rkFiles : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -166,7 +141,6 @@ GENERIC (delay : INTEGER;
 	 B : in  std_logic_vector(wordSize-1 downto 0); -- inputs
     F    : out std_logic_vector(wordSize-1 downto 0); -- output
     S    : in  std_logic_vector (3 downto 0); -- ALUop selection
-    --Z    : out STD_LOGIC -- zero flag
 	 ready : out std_logic
 	);
 END COMPONENT;
@@ -271,7 +245,6 @@ GENERIC (FUTagSize : INTEGER;
 			);
 	PORT(clock : IN STD_LOGIC;
 		 reset : IN STD_LOGIC;
---		 loadFU : IN STD_LOGIC;
 		 alu_op_i : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 cdb : IN STD_LOGIC_VECTOR(67 DOWNTO 0);
 		 FU_tag : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -373,7 +346,6 @@ end COMPONENT;
 SIGNAL	busyRS :  STD_LOGIC_VECTOR(5 DOWNTO 0);
 SIGNAL	cdb_o :  STD_LOGIC_VECTOR(67 DOWNTO 0);
 SIGNAL	data_i :  STD_LOGIC_VECTOR(255 DOWNTO 0);
---SIGNAL	FU1H :  STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL	load_cdb :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	RegFile1 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
 SIGNAL	RegFile2 :  STD_LOGIC_VECTOR(63 DOWNTO 0);
@@ -436,13 +408,9 @@ signal busy_mem : std_logic;
 signal addr_out : integer; 
 signal counter_mem : integer;
 signal done_cdbs : integer;
+
 BEGIN 
 
-
-
-rd_fifo <= SYNTHESIZED_WIRE_2;
-inst_fifo <= SYNTHESIZED_WIRE_1;
-fifo_has <= SYNTHESIZED_WIRE_0;
 
 opCopeDec <= SYNTHESIZED_WIRE_28;
 rjDec <= SYNTHESIZED_WIRE_26;
@@ -465,30 +433,9 @@ F11 <= data_i(191 DOWNTO 128);
 
 cdb_b <= cdb_o;
 
---ex01 <= SYNTHESIZED_WIRE_3;
---ex10 <= SYNTHESIZED_WIRE_3;
-ex11 <= SYNTHESIZED_WIRE_19;
---alu_done1 <= alu_done01;
---alu_done2 <= alu_done10;
-alu_done3 <= alu_done11;
-load_cdbs <= load_cdb;
-
-reg_writes <= reg_write;
-write_regs <= write_reg;
 rMem1s <= rMem1;
 rMem2s <= rMem2;
-result_adders <= result_adder;
-ldstr_writes <= ldstr_write;
-start_ldstrs <= start_ldstr;
-point_reads <= point_read;
-point_writes <= point_write;
-busy_adders <= busy_adder_in;
-counter_outs <= counter_out;
-mem_results <= mem_result;
-busy_mems <= busy_mem;
-addr_outs <= addr_out;
-counter_mems <= counter_mem;
-done_cdbss <= done_cdbs;
+
 
 b2v_decoder : decoder
 GENERIC MAP(fuBits => 3,
@@ -503,14 +450,12 @@ GENERIC MAP(fuBits => 3,
 			dt_addressSize => 9			
 			)
 PORT MAP(
---clock => clock,
 		 load => SYNTHESIZED_WIRE_0,
 		 busyRs => busyRS,
 		 busyLDSTR=>busyLDSTR,
 		 instruction => SYNTHESIZED_WIRE_1,
 		 busy => SYNTHESIZED_WIRE_2,
 		 writeMapRS => SYNTHESIZED_WIRE_11,
---		 fuCodeOneHot => FU1H,
 		 opCode => SYNTHESIZED_WIRE_28,
 		 rjFiles => SYNTHESIZED_WIRE_26,
 		 rkFiles => SYNTHESIZED_WIRE_27,
@@ -722,7 +667,6 @@ GENERIC MAP(FUTagSize => 3,
 PORT MAP(clock => clock,
 		 reset => reset,
 		 FU_Tag => "001",		 
---		 loadFU => FU1H(0),
 		 alu_op_i => SYNTHESIZED_WIRE_28,
 		 cdb => cdb_o,
 		 load => RS1H(1 DOWNTO 0),
@@ -755,7 +699,6 @@ GENERIC MAP(FUTagSize => 3,
 PORT MAP(clock => clock,
 		 reset => reset,
 		 FU_Tag => "010",
---		 loadFU => FU1H(1),
 		 alu_op_i => SYNTHESIZED_WIRE_28,
 		 cdb => cdb_o,
 		 load => RS1H(3 DOWNTO 2),
@@ -787,7 +730,6 @@ GENERIC MAP(FUTagSize => 3,
 PORT MAP(clock => clock,
 		 reset => reset,
 		 FU_Tag => "011",
---		 loadFU => FU1H(2),
 		 alu_op_i => SYNTHESIZED_WIRE_28,
 		 cdb => cdb_o,
 		 load => RS1H(5 DOWNTO 4),

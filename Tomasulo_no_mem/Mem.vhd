@@ -39,7 +39,11 @@ begin
 					counter <= 0;
 					done <= '1';
 					data_o <= (others => '0');
-					--mem(507) <= x"5555555555555555";
+					
+					
+					mem(507) <= x"0000000000000001";
+					
+					
 					busy <= '0';
 					load_cdb <= '0';
 			elsif clock='1' and clock'event then		
