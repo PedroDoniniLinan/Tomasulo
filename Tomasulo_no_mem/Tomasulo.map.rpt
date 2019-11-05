@@ -1,0 +1,803 @@
+Analysis & Elaboration report for Tomasulo
+Tue Nov 05 14:50:07 2019
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: Decoder:b2v_decoder
+  5. Parameter Settings for User Entity Instance: LdstrQueue:b2v_ldstrQueue
+  6. Parameter Settings for User Entity Instance: AdderMem:b2v_addermem
+  7. Parameter Settings for User Entity Instance: Mem:b2c_mem
+  8. Parameter Settings for User Entity Instance: FIFO:b2v_fifo
+  9. Parameter Settings for User Entity Instance: alu:b2v_inst
+ 10. Parameter Settings for User Entity Instance: alu:b2v_inst1
+ 11. Parameter Settings for User Entity Instance: MapTable:b2v_inst2
+ 12. Parameter Settings for User Entity Instance: RegFileTomasulo:b2v_inst3
+ 13. Parameter Settings for User Entity Instance: FP:b2v_inst4
+ 14. Parameter Settings for User Entity Instance: cdb:b2v_inst5
+ 15. Parameter Settings for User Entity Instance: rs:b2v_RS_Add1
+ 16. Parameter Settings for User Entity Instance: rs:b2v_RS_Add2
+ 17. Parameter Settings for User Entity Instance: rs:b2v_RS_Mult
+ 18. Analysis & Elaboration Settings
+ 19. Port Connectivity Checks: "rs:b2v_RS_Mult"
+ 20. Port Connectivity Checks: "rs:b2v_RS_Add2"
+ 21. Port Connectivity Checks: "rs:b2v_RS_Add1"
+ 22. Port Connectivity Checks: "FIFO:b2v_fifo"
+ 23. Analysis & Elaboration Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Tue Nov 05 14:50:07 2019       ;
+; Quartus Prime Version         ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                 ; Tomasulo                                    ;
+; Top-level Entity Name         ; Tomasulo                                    ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Decoder:b2v_decoder ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; wordsize       ; 32    ; Signed Integer                          ;
+; regbits        ; 5     ; Signed Integer                          ;
+; rsbits         ; 1     ; Signed Integer                          ;
+; fubits         ; 3     ; Signed Integer                          ;
+; tagsize        ; 4     ; Signed Integer                          ;
+; opbits         ; 4     ; Signed Integer                          ;
+; nb_lines       ; 6     ; Signed Integer                          ;
+; ldstrbits      ; 1     ; Signed Integer                          ;
+; n_lines_ldstr  ; 2     ; Signed Integer                          ;
+; dt_addresssize ; 9     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LdstrQueue:b2v_ldstrQueue ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; wordsize       ; 64    ; Signed Integer                                ;
+; tagsize        ; 4     ; Signed Integer                                ;
+; nboflines      ; 2     ; Signed Integer                                ;
+; opbits         ; 1     ; Signed Integer                                ;
+; futagsize      ; 3     ; Signed Integer                                ;
+; dt_addresssize ; 9     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AdderMem:b2v_addermem ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; wordsize       ; 64    ; Signed Integer                            ;
+; n_cycles       ; 5     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mem:b2c_mem ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; addresssize    ; 16    ; Signed Integer                  ;
+; wordsize       ; 64    ; Signed Integer                  ;
+; n_cycles       ; 7     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:b2v_fifo ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; wordsize       ; 32    ; Signed Integer                    ;
+; regnum         ; 32    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:b2v_inst ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; delay          ; 2     ; Signed Integer                   ;
+; wordsize       ; 64    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:b2v_inst1 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; delay          ; 2     ; Signed Integer                    ;
+; wordsize       ; 64    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MapTable:b2v_inst2 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; tagsize        ; 4     ; Signed Integer                         ;
+; regnum         ; 32    ; Signed Integer                         ;
+; regnumbits     ; 5     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RegFileTomasulo:b2v_inst3 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; wordsize       ; 64    ; Signed Integer                                ;
+; regnum         ; 32    ; Signed Integer                                ;
+; regnumbits     ; 5     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FP:b2v_inst4 ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; delay          ; 2     ; Signed Integer                   ;
+; wordsize       ; 64    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cdb:b2v_inst5 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; wordsize       ; 64    ; Signed Integer                    ;
+; tagsize        ; 4     ; Signed Integer                    ;
+; futagsize      ; 3     ; Signed Integer                    ;
+; nfu            ; 4     ; Signed Integer                    ;
+; nboflines      ; 2     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rs:b2v_RS_Add1 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; wordsize       ; 64    ; Signed Integer                     ;
+; tagsize        ; 4     ; Signed Integer                     ;
+; futagsize      ; 3     ; Signed Integer                     ;
+; nboflines      ; 2     ; Signed Integer                     ;
+; opbits         ; 4     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rs:b2v_RS_Add2 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; wordsize       ; 64    ; Signed Integer                     ;
+; tagsize        ; 4     ; Signed Integer                     ;
+; futagsize      ; 3     ; Signed Integer                     ;
+; nboflines      ; 2     ; Signed Integer                     ;
+; opbits         ; 4     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rs:b2v_RS_Mult ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; wordsize       ; 64    ; Signed Integer                     ;
+; tagsize        ; 4     ; Signed Integer                     ;
+; futagsize      ; 3     ; Signed Integer                     ;
+; nboflines      ; 2     ; Signed Integer                     ;
+; opbits         ; 4     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                           ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; Tomasulo           ; Tomasulo           ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rs:b2v_RS_Mult"                                                                                                  ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                  ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; fu_tag[1..0] ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; fu_tag[2]    ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; a0           ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; b0           ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; c0           ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rs:b2v_RS_Add2"                                                                                               ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                  ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; fu_tag[2] ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; fu_tag[1] ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; fu_tag[0] ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; a0        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; b0        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; c0        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rs:b2v_RS_Add1"                                                                                                  ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                  ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; fu_tag[2..1] ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; fu_tag[0]    ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; a0           ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; b0           ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; c0           ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIFO:b2v_fifo"                                                                            ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; wr         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; write_inst ; Input  ; Info     ; Stuck at GND                                                                        ;
+; full       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Elaboration
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Tue Nov 05 14:49:58 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Tomasulo -c Tomasulo --analysis_and_elaboration
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file tomasulo_tb.vhd
+    Info (12022): Found design unit 1: Tomasulo_tb-tb File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo_tb.vhd Line: 9
+    Info (12023): Found entity 1: Tomasulo_tb File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo_tb.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file tomasulo.vhd
+    Info (12022): Found design unit 1: Tomasulo-bdf_type File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 107
+    Info (12023): Found entity 1: Tomasulo File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file rs.vhd
+    Info (12022): Found design unit 1: rs-rs File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 69
+    Info (12023): Found entity 1: rs File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file regfiletomasulo.vhd
+    Info (12022): Found design unit 1: RegFileTomasulo-RegFileTomasuloArq File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/RegFileTomasulo.vhd Line: 32
+    Info (12023): Found entity 1: RegFileTomasulo File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/RegFileTomasulo.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file maptable.vhd
+    Info (12022): Found design unit 1: MapTable-MapTable File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 44
+    Info (12023): Found entity 1: MapTable File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file fp.vhd
+    Info (12022): Found design unit 1: FP-functional File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 93
+    Info (12023): Found entity 1: FP File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 76
+Info (12021): Found 2 design units, including 1 entities, in source file fifo.vhd
+    Info (12022): Found design unit 1: FIFO-FIFO File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FIFO.vhd Line: 23
+    Info (12023): Found entity 1: FIFO File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FIFO.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file decoder.vhd
+    Info (12022): Found design unit 1: Decoder-Decoder File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 52
+    Info (12023): Found entity 1: Decoder File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file cdb.vhd
+    Info (12022): Found design unit 1: cdb-cdb File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/CDB.vhd Line: 32
+    Info (12023): Found entity 1: cdb File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/CDB.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: alu-functional File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/alu.vhd Line: 24
+    Info (12023): Found entity 1: alu File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/alu.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file ldstrqueue.vhd
+    Info (12022): Found design unit 1: LdstrQueue-LdstrQueue File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 56
+    Info (12023): Found entity 1: LdstrQueue File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file addermem.vhd
+    Info (12022): Found design unit 1: AdderMem-AdderMem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/AdderMem.vhd Line: 23
+    Info (12023): Found entity 1: AdderMem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/AdderMem.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mem.vhd
+    Info (12022): Found design unit 1: Mem-Mem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Mem.vhd Line: 28
+    Info (12023): Found entity 1: Mem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Mem.vhd Line: 6
+Info (12127): Elaborating entity "Tomasulo" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at Tomasulo.vhd(430): used implicit default value for signal "mem_result" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 430
+Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:b2v_decoder" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 493
+Warning (10492): VHDL Process Statement warning at Decoder.vhd(87): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 87
+Warning (10492): VHDL Process Statement warning at Decoder.vhd(183): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 183
+Warning (10492): VHDL Process Statement warning at Decoder.vhd(200): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 200
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "opCode", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "rsBusy", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "ind", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "dt_address_temp", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "rjFiles", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "rkFiles", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "writeMapAddr", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "dt_address", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "writeMapRS", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "writeMapData", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "RSLineOneHot", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "ldstr", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "lineId", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at Decoder.vhd(56): inferring latch(es) for signal or variable "fuID", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "ldstr" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "RSLineOneHot[0]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "RSLineOneHot[1]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "RSLineOneHot[2]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "RSLineOneHot[3]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "RSLineOneHot[4]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "RSLineOneHot[5]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapData[0]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapData[1]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapData[2]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapData[3]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapRS" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[0]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[1]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[2]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[3]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[4]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[5]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[6]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[7]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "dt_address[8]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapAddr[0]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapAddr[1]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapAddr[2]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapAddr[3]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "writeMapAddr[4]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rkFiles[0]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rkFiles[1]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rkFiles[2]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rkFiles[3]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rkFiles[4]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rjFiles[0]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rjFiles[1]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rjFiles[2]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rjFiles[3]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "rjFiles[4]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "opCode[0]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "opCode[1]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "opCode[2]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "opCode[3]" at Decoder.vhd(56) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 56
+Info (10041): Inferred latch for "fuID[0]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "fuID[1]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "fuID[2]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "lineId[0]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[0]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[1]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[2]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[3]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[4]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[5]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[6]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[7]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "dt_address_temp[8]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[0]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[1]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[2]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[3]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[4]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[5]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[6]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[7]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[8]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[9]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[10]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[11]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[12]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[13]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[14]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[15]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[16]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[17]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[18]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[19]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[20]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[21]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[22]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[23]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[24]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[25]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[26]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[27]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[28]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[29]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[30]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "ind[31]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (10041): Inferred latch for "rsBusy" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
+Info (12128): Elaborating entity "LdstrQueue" for hierarchy "LdstrQueue:b2v_ldstrQueue" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 525
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(93): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 93
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(94): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(163): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 163
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(167): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 167
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(168): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 168
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(169): signal "done_cdb" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 169
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(170): signal "point_read" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 170
+Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(171): signal "point_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 171
+Info (12128): Elaborating entity "AdderMem" for hierarchy "AdderMem:b2v_addermem" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 560
+Info (12128): Elaborating entity "Mem" for hierarchy "Mem:b2c_mem" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 577
+Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:b2v_fifo" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 597
+Info (12128): Elaborating entity "alu" for hierarchy "alu:b2v_inst" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 609
+Info (12128): Elaborating entity "MapTable" for hierarchy "MapTable:b2v_inst2" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 635
+Warning (10492): VHDL Process Statement warning at MapTable.vhd(84): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 84
+Warning (10631): VHDL Process Statement warning at MapTable.vhd(60): inferring latch(es) for signal or variable "write_reg", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
+Info (10041): Inferred latch for "write_reg[0]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
+Info (10041): Inferred latch for "write_reg[1]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
+Info (10041): Inferred latch for "write_reg[2]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
+Info (10041): Inferred latch for "write_reg[3]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
+Info (10041): Inferred latch for "write_reg[4]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
+Info (12128): Elaborating entity "RegFileTomasulo" for hierarchy "RegFileTomasulo:b2v_inst3" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 663
+Info (12128): Elaborating entity "FP" for hierarchy "FP:b2v_inst4" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 687
+Warning (10492): VHDL Process Statement warning at FP.vhd(111): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 111
+Warning (10631): VHDL Process Statement warning at FP.vhd(101): inferring latch(es) for signal or variable "aux", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[0]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[1]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[2]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[3]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[4]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[5]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[6]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[7]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[8]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[9]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[10]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[11]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[12]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[13]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[14]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[15]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[16]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[17]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[18]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[19]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[20]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[21]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[22]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[23]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[24]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[25]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[26]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[27]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[28]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[29]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[30]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[31]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[32]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[33]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[34]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[35]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[36]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[37]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[38]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[39]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[40]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[41]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[42]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[43]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[44]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[45]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[46]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[47]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[48]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[49]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[50]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[51]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[52]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[53]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[54]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[55]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[56]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[57]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[58]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[59]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[60]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[61]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[62]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (10041): Inferred latch for "aux[63]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
+Info (12128): Elaborating entity "cdb" for hierarchy "cdb:b2v_inst5" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 700
+Warning (10492): VHDL Process Statement warning at CDB.vhd(72): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/CDB.vhd Line: 72
+Info (12128): Elaborating entity "rs" for hierarchy "rs:b2v_RS_Add1" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 715
+Warning (10492): VHDL Process Statement warning at rs.vhd(184): signal "FU_tag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 184
+Warning (10631): VHDL Process Statement warning at rs.vhd(78): inferring latch(es) for signal or variable "alu_op_o", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Warning (10631): VHDL Process Statement warning at rs.vhd(78): inferring latch(es) for signal or variable "v_j_o", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Warning (10631): VHDL Process Statement warning at rs.vhd(78): inferring latch(es) for signal or variable "v_k_o", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Warning (10631): VHDL Process Statement warning at rs.vhd(78): inferring latch(es) for signal or variable "tag", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "tag[0]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "tag[1]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "tag[2]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "tag[3]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[0]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[1]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[2]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[3]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[4]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[5]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[6]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[7]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[8]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[9]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[10]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[11]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[12]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[13]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[14]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[15]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[16]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[17]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[18]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[19]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[20]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[21]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[22]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[23]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[24]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[25]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[26]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[27]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[28]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[29]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[30]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[31]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[32]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[33]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[34]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[35]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[36]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[37]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[38]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[39]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[40]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[41]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[42]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[43]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[44]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[45]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[46]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[47]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[48]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[49]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[50]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[51]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[52]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[53]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[54]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[55]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[56]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[57]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[58]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[59]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[60]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[61]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[62]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_k_o[63]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[0]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[1]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[2]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[3]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[4]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[5]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[6]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[7]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[8]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[9]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[10]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[11]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[12]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[13]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[14]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[15]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[16]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[17]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[18]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[19]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[20]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[21]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[22]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[23]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[24]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[25]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[26]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[27]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[28]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[29]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[30]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[31]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[32]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[33]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[34]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[35]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[36]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[37]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[38]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[39]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[40]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[41]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[42]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[43]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[44]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[45]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[46]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[47]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[48]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[49]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[50]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[51]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[52]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[53]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[54]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[55]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[56]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[57]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[58]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[59]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[60]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[61]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[62]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "v_j_o[63]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "alu_op_o[0]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "alu_op_o[1]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "alu_op_o[2]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Info (10041): Inferred latch for "alu_op_o[3]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 4897 megabytes
+    Info: Processing ended: Tue Nov 05 14:50:07 2019
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:21
+
+
