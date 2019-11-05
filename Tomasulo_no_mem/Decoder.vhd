@@ -68,7 +68,7 @@ begin
 	variable n : integer;
 		
 --	variable tempFuID : std_logic_vector(2**fuBits-2 downto 0); -- 0 is used for no mapping
-	variable tempRSID : std_logic_vector(((2**fuBits-1)*2**rsBits)-1 downto 0); -- 0 is used for no mapping
+	variable tempRSID : std_logic_vector(nb_lines-1 downto 0); -- 0 is used for no mapping
 
 	variable rj : std_logic_vector(regBits-1 downto 0);
 	variable rk : std_logic_vector(regBits-1 downto 0);
@@ -97,6 +97,8 @@ begin
 				rsBusy := rsBusyAdd;
 				ind := indAdd;
 				n := nAdd;
+				str := '0';
+				ld := '0';
 				
 				rj := instruction(9 downto 5); -- Rn in Green Card
 				rk := instruction (20 downto 16); -- Rm in GreenCode
@@ -107,6 +109,8 @@ begin
 				rsBusy := rsBusyMult;
 				ind := indMult;
 				n := nMult;
+				str := '0';
+				ld := '0';
 				
 				rj := instruction(9 downto 5); -- Rn in Green Card
 				rk := instruction (20 downto 16); -- Rm in GreenCode
@@ -241,8 +245,8 @@ begin
 		writeMapData <= fuID & lineId;		
 		
 		end if;
-
-
+		else
+			ldstr_write <= '0';
 		end if;
 
 		busy <= rsBusy;

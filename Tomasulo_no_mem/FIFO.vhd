@@ -38,7 +38,9 @@ begin
 				fila_reg(i) <= (wordSize-1 downto 0 => '0');
 			end loop;
 			--TESTE
-			fila_reg(0) <= "11111000010" & "111111000" & "00" & "00011" & "00001"; -- LD  R1 = M(R3+baguio)			
+			fila_reg(0) <= "11111000010" & "111111000" & "00" & "00011" & "00001"; -- LD  R1 = M(R3+baguio)
+			fila_reg(1) <= "10001011000" & "00010" & "000000" & "00011" & "00001"; -- ADD R2 + R3 = R1
+			fila_reg(2) <= "11111000010" & "000000111" & "00" & "00010" & "00011"; -- LD  R3 = M(R2+baguio)				
 --			fila_reg(0) <= "10001011000" & "00010" & "000000" & "00011" & "00001"; -- ADD R2 + R3 = R1
 --			fila_reg(1) <= "10001011000" & "00011" & "000000" & "00011" & "00000"; -- ADD R3 + R3 = R4
 --			fila_reg(2) <= "10001011000" & "00001" & "000000" & "00001" & "00001"; -- ADD R1 + R1 = R1 
@@ -51,10 +53,10 @@ begin
 --			fila_reg(9) <= "11001011000" & "00001" & "000000" & "00010" & "00001"; -- MULT R1 * R2 = R1  						
 			
 			point_read <= 0;
-			point_write <= 10;
+			point_write <= 3;
 			notEmpty <= '1';
 			full <= '0';
-			inst_count <= 10;
+			inst_count <= 3;
 			----- FIM TESTE
 			
 			--point_read <= 0;
@@ -93,11 +95,7 @@ begin
 					 end if;
 				end if;
 			end if;
-
-		end if;
-		
-		
-		
+			
 		if (inst_count  = regNum) then -- caso esteja cheio
 			full <= '1';
 			notEmpty <= '1';
@@ -108,5 +106,8 @@ begin
 			full <= '0';
 			notEmpty <= '1';
 		end if;
+
+		end if;
+
 	end process ;
 end FIFO;

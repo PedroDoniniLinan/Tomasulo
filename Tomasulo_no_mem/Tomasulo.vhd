@@ -38,12 +38,12 @@ ENTITY Tomasulo IS
 		regTagAddr : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
 		regTag : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);
 
-		r010 : 		buffer std_logic_vector(138 downto 0);
-		r011 : 		buffer std_logic_vector(138 downto 0);
-		r100 : 		buffer std_logic_vector(138 downto 0);
-		r101 : 		buffer std_logic_vector(138 downto 0);		
-		r110 : 		buffer std_logic_vector(138 downto 0);
-		r111 : 		buffer std_logic_vector(138 downto 0);
+		r010 : 		buffer std_logic_vector(140 downto 0);
+		r011 : 		buffer std_logic_vector(140 downto 0);
+		r100 : 		buffer std_logic_vector(140 downto 0);
+		r101 : 		buffer std_logic_vector(140 downto 0);		
+		r110 : 		buffer std_logic_vector(140 downto 0);
+		r111 : 		buffer std_logic_vector(140 downto 0);
 
 		A01 : 		buffer std_logic_vector(63 downto 0);
 		B01 : 		buffer std_logic_vector(63 downto 0);
@@ -82,7 +82,22 @@ ENTITY Tomasulo IS
 	   r2 : buffer std_logic_vector (63 downto 0); 
 	   r3 : buffer std_logic_vector (63 downto 0); 
 	   r4 : buffer std_logic_vector (63 downto 0); 
-	   r5 : buffer std_logic_vector (63 downto 0); 	 		
+	   r5 : buffer std_logic_vector (63 downto 0);
+		
+		rMem1s : buffer std_logic_vector(146 downto 0);
+		rMem2s : buffer std_logic_vector(146 downto 0);
+		result_adders : buffer std_logic_vector(63 downto 0);
+		ldstr_writes : buffer std_logic;
+		start_ldstrs : buffer std_logic;
+		point_reads : buffer integer; 
+	   point_writes : buffer integer;
+		busy_adders : buffer std_logic;
+		counter_outs : buffer integer;
+		mem_results : buffer std_logic_vector (63 downto 0);
+		busy_mems : buffer std_logic;
+		addr_outs : buffer integer;
+		counter_mems : buffer integer;
+		done_cdbss : buffer integer;
 		
 		reset :  IN  STD_LOGIC;
 		clock :  IN  STD_LOGIC
@@ -272,13 +287,88 @@ GENERIC (FUTagSize : INTEGER;
 		 busy : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 		 tag : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 
-		 r0 : 		buffer std_logic_vector(138 downto 0);
-		 r1 : 		buffer std_logic_vector(138 downto 0);
+		 r0 : 		buffer std_logic_vector(140 downto 0);
+		 r1 : 		buffer std_logic_vector(140 downto 0);
 		 
 		 v_j_o : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
 		 v_k_o : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
 	);
 END COMPONENT;
+
+COMPONENT LdstrQueue 
+GENERIC (wordSize:INTEGER;
+			tagSize:INTEGER;  
+			nbOfLines:INTEGER;  
+			opBits:INTEGER; 
+			FUTagSize: INTEGER;	
+			dt_addressSize:INTEGER  
+			);
+	PORT (clock:    		in 	 std_logic; 
+			reset:	 		in 	 std_logic; 
+			load:			   in 	 std_logic;	
+			alu_op_i:   	in		 std_logic; 		
+			v_n_in:  		in		 std_logic_vector(63 downto 0);
+			v_t_in:  		in		 std_logic_vector(63 downto 0);
+			q_n:  		 	in		 std_logic_vector(3 downto 0);
+			q_t:  		 	in		 std_logic_vector(3 downto 0);
+			done:				in		 std_logic;
+			cdb:				in		 std_logic_vector(67 downto 0);
+			dt_address_in:	in		 std_logic_vector(8 downto 0);
+			busy_adder_in: in		 std_logic;
+			busy:				out	 std_logic_vector(1 downto 0);
+			alu_op_o:   	out	 std_logic; 
+			v_n_out:  		out	 std_logic_vector(63 downto 0);
+			v_t_out:			out	 std_logic_vector(63 downto 0);
+			dt_address_out:out	 std_logic_vector(63 downto 0);
+			start:			out 	 std_logic; 
+			tag:  		 	out	 std_logic_vector(3 downto 0);
+			point_reads: 	out   integer; 
+			point_writes: 	out   integer;
+			done_cdbs:		out  	integer;
+			read_instr_0: 	out	std_logic_vector(146 downto 0);
+			read_instr_1: 	out	std_logic_vector(146 downto 0)
+	);
+end COMPONENT;
+
+COMPONENT AdderMem
+  	GENERIC(
+		wordSize: INTEGER;
+		n_cycles: INTEGER
+	);
+  PORT (
+	 clock:    		in 	 std_logic;
+	 reset:	 		in 	 std_logic; 
+    r_n: 			in  std_logic_vector(63 downto 0); 
+	 data_address: in std_logic_vector(63 downto 0);
+	 start: 			in std_logic; 
+    s    : 			out  std_logic_vector(63 downto 0);
+	 start_mem : 	out std_logic;
+	 counter_out : 	out integer;
+	 busy_out : 	out std_logic
+    );
+end COMPONENT;
+
+COMPONENT Mem
+  GENERIC (
+    addressSize : INTEGER;
+    wordSize    : INTEGER;
+	 n_cycles: INTEGER
+  );
+  PORT (
+    clock: in  std_logic;
+	 reset: in std_logic;
+	 start_mem : in std_logic; 
+	 wr: in std_logic;
+    addr   : in  std_logic_vector(63 downto 0); 
+    data_i : in  std_logic_vector(63 downto 0); 
+    data_o : out std_logic_vector(63 downto 0);
+	 busy_mem : out std_logic;
+	 addr_out : out integer; 
+	 counter_mem : out integer;
+	 load_cdb: out std_logic;
+	 done : out std_logic 
+  );
+end COMPONENT;
 
 SIGNAL	busyRS :  STD_LOGIC_VECTOR(5 DOWNTO 0);
 SIGNAL	cdb_o :  STD_LOGIC_VECTOR(67 DOWNTO 0);
@@ -322,10 +412,30 @@ SIGNAL	alu_done10 :  STD_LOGIC;
 SIGNAL	alu_done11 :  STD_LOGIC;
 
 signal busyLDSTR:	std_logic_vector(1 downto 0);		 
-signal ldstr: std_logic; -- 1 if load or store
-signal ldstr_write: std_logic; -- in case it is an str or ld instruction
-signal dt_address: std_logic_vector(8 downto 0); -- immediate for str and ld	
-
+signal ldstr: std_logic; 
+signal ldstr_write: std_logic; 
+signal dt_address: std_logic_vector(8 downto 0);
+signal done_ldstr: std_logic; 
+signal busy_adder_in: std_logic;
+signal ldstr_op: std_logic; 
+signal v_n_out: std_logic_vector(63 downto 0);
+signal v_t_out: std_logic_vector(63 downto 0);
+signal dt_address_out: std_logic_vector(63 downto 0);
+signal start_ldstr: std_logic; 
+signal tag_ldstr: std_logic_vector(3 downto 0);
+signal rMem1: std_logic_vector(146 downto 0);
+signal rMem2: std_logic_vector(146 downto 0);
+signal result_adder: std_logic_vector(63 downto 0);	
+signal start_mem: std_logic;
+signal mem_result: std_logic_vector(63 downto 0);
+signal point_read:integer;	
+signal point_write:integer;
+signal busy_adder:std_logic;	
+signal counter_out:integer;
+signal busy_mem : std_logic;	
+signal addr_out : integer; 
+signal counter_mem : integer;
+signal done_cdbs : integer;
 BEGIN 
 
 
@@ -365,7 +475,20 @@ load_cdbs <= load_cdb;
 
 reg_writes <= reg_write;
 write_regs <= write_reg;
-
+rMem1s <= rMem1;
+rMem2s <= rMem2;
+result_adders <= result_adder;
+ldstr_writes <= ldstr_write;
+start_ldstrs <= start_ldstr;
+point_reads <= point_read;
+point_writes <= point_write;
+busy_adders <= busy_adder_in;
+counter_outs <= counter_out;
+mem_results <= mem_result;
+busy_mems <= busy_mem;
+addr_outs <= addr_out;
+counter_mems <= counter_mem;
+done_cdbss <= done_cdbs;
 
 b2v_decoder : decoder
 GENERIC MAP(fuBits => 3,
@@ -376,7 +499,7 @@ GENERIC MAP(fuBits => 3,
 			tagSize => 4,
 			wordSize => 32,
 			ldstrBits => 1,
-			n_lines_ldstr => 2, -- number of lines of queue for effective addres calculation
+			n_lines_ldstr => 2, 
 			dt_addressSize => 9			
 			)
 PORT MAP(
@@ -397,8 +520,80 @@ PORT MAP(
 		 ldstr=>ldstr,
 		 ldstr_write=>ldstr_write,
 		 dt_address=>dt_address
-		 );		 
+		 );
 		 
+b2v_ldstrQueue : LdstrQueue
+GENERIC MAP(wordSize => 64,
+			tagSize => 4,  
+			nbOfLines => 2,  
+			opBits => 1,
+			FUTagSize => 3,		
+			dt_addressSize => 9  		
+			)
+PORT MAP(
+			clock => clock, 
+			reset => reset, 
+			load => ldstr_write,	
+			alu_op_i => ldstr, 		
+			v_n_in => RegFile1,
+			v_t_in => RegFile2,
+			q_n => tag_1,
+			q_t => tag_2,
+			done => done_ldstr,
+			cdb => cdb_o,
+			dt_address_in => dt_address,
+			busy_adder_in => busy_adder_in,
+			busy => busyLDSTR,
+			alu_op_o => ldstr_op,
+			v_n_out => v_n_out,
+			v_t_out => v_t_out,
+			dt_address_out => dt_address_out,
+			start => start_ldstr,
+			tag => tag_i(15 DOWNTO 12),
+			point_reads => point_read,
+			point_writes => point_write,
+			done_cdbs => done_cdbs,
+			read_instr_0 => rMem1,
+			read_instr_1 => rMem2
+		 );
+
+b2v_addermem : AdderMem
+  GENERIC MAP(
+		wordSize => 64,
+		n_cycles => 5
+	)
+  PORT MAP(
+	 clock => clock,
+	 reset => reset,
+    r_n => v_n_out,
+	 data_address => dt_address_out,
+	 start => start_ldstr,
+    s => result_adder,
+	 start_mem => start_mem,
+	 counter_out => counter_out,
+	 busy_out => busy_adder_in
+    );
+
+b2c_mem : Mem
+  GENERIC MAP (
+    addressSize => 16,
+    wordSize    => 64,
+	 n_cycles => 7
+  )
+  PORT MAP(
+    clock => clock,
+	 reset => reset,
+	 start_mem => start_mem, 
+	 wr => ldstr_op,
+    addr => result_adder,
+    data_i => v_t_out, 
+    data_o => data_i(255 DOWNTO 192),
+	 busy_mem => busy_mem,
+	 addr_out => addr_out,
+	 counter_mem => counter_mem,
+	 load_cdb => load_cdb(3),
+	 done => done_ldstr);
+
 b2v_fifo : fifo
 GENERIC MAP(regNum => 32,
 			wordSize => 32

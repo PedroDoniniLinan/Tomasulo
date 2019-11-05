@@ -11,9 +11,9 @@ architecture tb of Tomasulo_tb is
 	component Tomasulo
 	PORT
 	(
---		rd_fifo: buffer std_logic;
---		inst_fifo: buffer std_logic_vector(31 downto 0);
---		fifo_has : buffer std_logic;
+		rd_fifo: buffer std_logic;
+		inst_fifo: buffer std_logic_vector(31 downto 0);
+		fifo_has : buffer std_logic;
 
 		opCopeDec : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);
 		rjDec : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -22,12 +22,12 @@ architecture tb of Tomasulo_tb is
 		regTagAddr : buffer STD_LOGIC_VECTOR(4 DOWNTO 0);
 		regTag : buffer STD_LOGIC_VECTOR(3 DOWNTO 0);		
 
-		r010 : 		buffer std_logic_vector(138 downto 0);
-		r011 : 		buffer std_logic_vector(138 downto 0);
-		r100 : 		buffer std_logic_vector(138 downto 0);
-		r101 : 		buffer std_logic_vector(138 downto 0);		
-		r110 : 		buffer std_logic_vector(138 downto 0);
-		r111 : 		buffer std_logic_vector(138 downto 0);	
+		r010 : 		buffer std_logic_vector(140 downto 0);
+		r011 : 		buffer std_logic_vector(140 downto 0);
+		r100 : 		buffer std_logic_vector(140 downto 0);
+		r101 : 		buffer std_logic_vector(140 downto 0);		
+		r110 : 		buffer std_logic_vector(140 downto 0);
+		r111 : 		buffer std_logic_vector(140 downto 0);	
 	
 
 		A01 : 		buffer std_logic_vector(63 downto 0);
@@ -50,7 +50,7 @@ architecture tb of Tomasulo_tb is
 --		alu_done1 : buffer std_logic;
 --		alu_done2 : buffer std_logic;
 --		alu_done3 : buffer std_logic;
---		load_cdbs : buffer std_logic_vector(2 downto 0);
+		load_cdbs : buffer std_logic_vector(3 downto 0);
 		
 --		write_regs: buffer std_logic_vector(4 downto 0);
 --		reg_writes : buffer std_logic;		
@@ -67,16 +67,31 @@ architecture tb of Tomasulo_tb is
 	   r2 : buffer std_logic_vector (63 downto 0); 
 	   r3 : buffer std_logic_vector (63 downto 0); 
 	   r4 : buffer std_logic_vector (63 downto 0); 
-	   r5 : buffer std_logic_vector (63 downto 0); 		
+	   r5 : buffer std_logic_vector (63 downto 0);
+
+		rMem1s : buffer std_logic_vector(146 downto 0);
+		rMem2s : buffer std_logic_vector(146 downto 0);
+		result_adders : buffer std_logic_vector (63 downto 0);
+		ldstr_writes : buffer std_logic;
+		start_ldstrs : buffer std_logic;
+		point_reads : buffer integer; 
+	   point_writes : buffer integer;
+		busy_adders : buffer std_logic;
+		counter_outs : buffer integer;
+		mem_results : buffer std_logic_vector (63 downto 0);
+		busy_mems : buffer std_logic;
+		addr_outs : buffer integer; 
+		counter_mems : buffer integer;
+		done_cdbss : buffer integer;
 		
 		reset :  IN  STD_LOGIC;
 		clock :  IN  STD_LOGIC
 	);
 	end component;
 
---	signal rd_fifo: std_logic;
---	signal inst_fifo: std_logic_vector(31 downto 0);
---	signal fifo_has : std_logic;	
+	signal rd_fifo: std_logic;
+	signal inst_fifo: std_logic_vector(31 downto 0);
+	signal fifo_has : std_logic;	
 	
 	signal opCopeDec : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	signal rjDec : STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -86,12 +101,12 @@ architecture tb of Tomasulo_tb is
 	signal regTag : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 
-	signal r010: std_logic_vector(138 downto 0);	
-	signal r011: std_logic_vector(138 downto 0);	
-	signal r100: std_logic_vector(138 downto 0);	
-	signal r101: std_logic_vector(138 downto 0);		
-	signal r110: std_logic_vector(138 downto 0);	
-	signal r111: std_logic_vector(138 downto 0);	
+	signal r010: std_logic_vector(140 downto 0);	
+	signal r011: std_logic_vector(140 downto 0);	
+	signal r100: std_logic_vector(140 downto 0);	
+	signal r101: std_logic_vector(140 downto 0);		
+	signal r110: std_logic_vector(140 downto 0);	
+	signal r111: std_logic_vector(140 downto 0);	
 	
 	signal A01: std_logic_vector(63 downto 0);
 	signal B01: std_logic_vector(63 downto 0);
@@ -113,7 +128,7 @@ architecture tb of Tomasulo_tb is
 ----	signal alu_done1: std_logic;
 ----	signal alu_done2: std_logic;
 --	signal alu_done3: std_logic;
---	signal load_cdbs: std_logic_vector(2 downto 0);	
+	signal load_cdbs: std_logic_vector(3 downto 0);	
 
 --	signal write_regs: std_logic_vector(4 downto 0);	
 --	signal reg_writes : std_logic;	
@@ -132,6 +147,21 @@ architecture tb of Tomasulo_tb is
 	signal r4: std_logic_vector(63 downto 0);
 	signal r5: std_logic_vector(63 downto 0);
 	
+	signal rMem1s: std_logic_vector(146 downto 0);
+	signal rMem2s: std_logic_vector(146 downto 0);
+	signal result_adders: std_logic_vector(63 downto 0);
+	signal ldstr_writes : std_logic;
+	signal start_ldstrs : std_logic;
+	signal point_read : integer; 
+	signal point_write : integer;
+	signal busy_adder:std_logic;	
+	signal counter_out:integer;
+	signal mem_result : std_logic_vector (63 downto 0);
+	signal busy_mem : std_logic;
+	signal addr_out : integer; 
+	signal counter_mem : integer;
+	signal done_cdbss : integer;
+	
 	signal reset : std_logic;
 	signal clock : std_logic;
 		
@@ -140,9 +170,9 @@ architecture tb of Tomasulo_tb is
 begin
 	
 	u1: Tomasulo port map (
---		rd_fifo=>rd_fifo,
---		inst_fifo=>inst_fifo,
---		fifo_has=>fifo_has,
+		rd_fifo=>rd_fifo,
+		inst_fifo=>inst_fifo,
+		fifo_has=>fifo_has,
 		
 		opCopeDec=>opCopeDec,
 		rjDec=>rjDec,
@@ -170,18 +200,8 @@ begin
 		F11=>F11,		
 
 		cdb_b=>cdb_b,
---		
---		ex01=>ex01,
-----		ex01=>ex01,
---		ex11=>ex11,
-----		alu_done1=>alu_done1,
-----		alu_done2=>alu_done2,
---		alu_done3=>alu_done3,
---		load_cdbs=>load_cdbs,
---
---		reg_writes=>reg_writes,
---		write_regs=>write_regs,
 		
+		load_cdbs => load_cdbs,
 		 t0=>t0,
 		 t1=>t1,
 		 t2=>t2,
@@ -194,7 +214,22 @@ begin
 		 r2=>r2,
 		 r3=>r3,
 		 r4=>r4,
-		 r5=>r5,		
+		 r5=>r5,
+
+		rMem1s => rMem1s,
+		rMem2s => rMem2s,
+		result_adders => result_adders,
+		ldstr_writes => ldstr_writes,
+		start_ldstrs => start_ldstrs,
+		point_reads => point_read,
+		point_writes => point_write,
+		busy_adders => busy_adder,
+		counter_outs => counter_out,
+		mem_results => mem_result,
+		busy_mems => busy_mem,
+		addr_outs => addr_out,
+		counter_mems	=> counter_mem,
+		done_cdbss => done_cdbss,
 		
 		reset=>reset,
 		clock=>clock

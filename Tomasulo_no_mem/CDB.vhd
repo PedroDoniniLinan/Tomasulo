@@ -8,7 +8,7 @@ entity cdb is
 		wordSize: natural :=32;
 		tagSize:  natural :=3; -- size of the whole tag 
 		FUTagSize:natural :=2; -- part of the tag that indicates the FU
-		nFU: natural := 3;	  -- number of FU
+		nFU: natural := 4;	  -- number of FU
 		nbOfLines:natural :=2  -- number of lines of each RS
 	);
 	port(
