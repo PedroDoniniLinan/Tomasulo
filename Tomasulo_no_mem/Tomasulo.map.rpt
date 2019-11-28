@@ -1,5 +1,5 @@
 Analysis & Elaboration report for Tomasulo
-Tue Nov 05 14:50:07 2019
+Wed Nov 06 14:53:09 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -28,7 +28,10 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
  20. Port Connectivity Checks: "rs:b2v_RS_Add2"
  21. Port Connectivity Checks: "rs:b2v_RS_Add1"
  22. Port Connectivity Checks: "FIFO:b2v_fifo"
- 23. Analysis & Elaboration Messages
+ 23. Port Connectivity Checks: "Mem:b2c_mem"
+ 24. Port Connectivity Checks: "AdderMem:b2v_addermem"
+ 25. Port Connectivity Checks: "LdstrQueue:b2v_ldstrQueue"
+ 26. Analysis & Elaboration Messages
 
 
 
@@ -55,7 +58,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Tue Nov 05 14:50:07 2019       ;
+; Analysis & Elaboration Status ; Successful - Wed Nov 06 14:53:09 2019       ;
 ; Quartus Prime Version         ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                 ; Tomasulo                                    ;
 ; Top-level Entity Name         ; Tomasulo                                    ;
@@ -405,13 +408,44 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Mem:b2c_mem"                                                                               ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; busy_mem    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; addr_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; counter_mem ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AdderMem:b2v_addermem"                                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; counter_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LdstrQueue:b2v_ldstrQueue"                                                                  ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; point_reads  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; point_writes ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; done_cdbs    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +---------------------------------+
 ; Analysis & Elaboration Messages ;
 +---------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Tue Nov 05 14:49:58 2019
+    Info: Processing started: Wed Nov 06 14:52:57 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Tomasulo -c Tomasulo --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -419,8 +453,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file tomasul
     Info (12022): Found design unit 1: Tomasulo_tb-tb File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo_tb.vhd Line: 9
     Info (12023): Found entity 1: Tomasulo_tb File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo_tb.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file tomasulo.vhd
-    Info (12022): Found design unit 1: Tomasulo-bdf_type File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 107
-    Info (12023): Found entity 1: Tomasulo File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 27
+    Info (12022): Found design unit 1: Tomasulo-bdf_type File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 84
+    Info (12023): Found entity 1: Tomasulo File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file rs.vhd
     Info (12022): Found design unit 1: rs-rs File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 69
     Info (12023): Found entity 1: rs File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 5
@@ -455,8 +489,14 @@ Info (12021): Found 2 design units, including 1 entities, in source file mem.vhd
     Info (12022): Found design unit 1: Mem-Mem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Mem.vhd Line: 28
     Info (12023): Found entity 1: Mem File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Mem.vhd Line: 6
 Info (12127): Elaborating entity "Tomasulo" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at Tomasulo.vhd(430): used implicit default value for signal "mem_result" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 430
-Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:b2v_decoder" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 493
+Warning (10036): Verilog HDL or VHDL warning at Tomasulo.vhd(403): object "point_read" assigned a value but never read File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 403
+Warning (10036): Verilog HDL or VHDL warning at Tomasulo.vhd(404): object "point_write" assigned a value but never read File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 404
+Warning (10036): Verilog HDL or VHDL warning at Tomasulo.vhd(406): object "counter_out" assigned a value but never read File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 406
+Warning (10036): Verilog HDL or VHDL warning at Tomasulo.vhd(407): object "busy_mem" assigned a value but never read File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 407
+Warning (10036): Verilog HDL or VHDL warning at Tomasulo.vhd(408): object "addr_out" assigned a value but never read File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 408
+Warning (10036): Verilog HDL or VHDL warning at Tomasulo.vhd(409): object "counter_mem" assigned a value but never read File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 409
+Warning (10036): Verilog HDL or VHDL warning at Tomasulo.vhd(410): object "done_cdbs" assigned a value but never read File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 410
+Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:b2v_decoder" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 440
 Warning (10492): VHDL Process Statement warning at Decoder.vhd(87): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 87
 Warning (10492): VHDL Process Statement warning at Decoder.vhd(183): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 183
 Warning (10492): VHDL Process Statement warning at Decoder.vhd(200): signal "busyLDSTR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 200
@@ -560,7 +600,7 @@ Info (10041): Inferred latch for "ind[29]" at Decoder.vhd(91) File: C:/Users/aas
 Info (10041): Inferred latch for "ind[30]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
 Info (10041): Inferred latch for "ind[31]" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
 Info (10041): Inferred latch for "rsBusy" at Decoder.vhd(91) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Decoder.vhd Line: 91
-Info (12128): Elaborating entity "LdstrQueue" for hierarchy "LdstrQueue:b2v_ldstrQueue" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 525
+Info (12128): Elaborating entity "LdstrQueue" for hierarchy "LdstrQueue:b2v_ldstrQueue" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 470
 Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(93): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 93
 Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(94): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 94
 Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(163): signal "list_rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 163
@@ -569,11 +609,11 @@ Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(168): signal "
 Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(169): signal "done_cdb" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 169
 Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(170): signal "point_read" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 170
 Warning (10492): VHDL Process Statement warning at LdstrQueue.vhd(171): signal "point_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/LdstrQueue.vhd Line: 171
-Info (12128): Elaborating entity "AdderMem" for hierarchy "AdderMem:b2v_addermem" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 560
-Info (12128): Elaborating entity "Mem" for hierarchy "Mem:b2c_mem" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 577
-Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:b2v_fifo" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 597
-Info (12128): Elaborating entity "alu" for hierarchy "alu:b2v_inst" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 609
-Info (12128): Elaborating entity "MapTable" for hierarchy "MapTable:b2v_inst2" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 635
+Info (12128): Elaborating entity "AdderMem" for hierarchy "AdderMem:b2v_addermem" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 505
+Info (12128): Elaborating entity "Mem" for hierarchy "Mem:b2c_mem" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 522
+Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:b2v_fifo" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 542
+Info (12128): Elaborating entity "alu" for hierarchy "alu:b2v_inst" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 554
+Info (12128): Elaborating entity "MapTable" for hierarchy "MapTable:b2v_inst2" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 580
 Warning (10492): VHDL Process Statement warning at MapTable.vhd(84): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 84
 Warning (10631): VHDL Process Statement warning at MapTable.vhd(60): inferring latch(es) for signal or variable "write_reg", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
 Info (10041): Inferred latch for "write_reg[0]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
@@ -581,8 +621,8 @@ Info (10041): Inferred latch for "write_reg[1]" at MapTable.vhd(60) File: C:/Use
 Info (10041): Inferred latch for "write_reg[2]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
 Info (10041): Inferred latch for "write_reg[3]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
 Info (10041): Inferred latch for "write_reg[4]" at MapTable.vhd(60) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/MapTable.vhd Line: 60
-Info (12128): Elaborating entity "RegFileTomasulo" for hierarchy "RegFileTomasulo:b2v_inst3" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 663
-Info (12128): Elaborating entity "FP" for hierarchy "FP:b2v_inst4" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 687
+Info (12128): Elaborating entity "RegFileTomasulo" for hierarchy "RegFileTomasulo:b2v_inst3" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 608
+Info (12128): Elaborating entity "FP" for hierarchy "FP:b2v_inst4" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 632
 Warning (10492): VHDL Process Statement warning at FP.vhd(111): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 111
 Warning (10631): VHDL Process Statement warning at FP.vhd(101): inferring latch(es) for signal or variable "aux", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
 Info (10041): Inferred latch for "aux[0]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
@@ -649,9 +689,9 @@ Info (10041): Inferred latch for "aux[60]" at FP.vhd(101) File: C:/Users/aasan/O
 Info (10041): Inferred latch for "aux[61]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
 Info (10041): Inferred latch for "aux[62]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
 Info (10041): Inferred latch for "aux[63]" at FP.vhd(101) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/FP.vhd Line: 101
-Info (12128): Elaborating entity "cdb" for hierarchy "cdb:b2v_inst5" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 700
+Info (12128): Elaborating entity "cdb" for hierarchy "cdb:b2v_inst5" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 645
 Warning (10492): VHDL Process Statement warning at CDB.vhd(72): signal "cdb_busy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/CDB.vhd Line: 72
-Info (12128): Elaborating entity "rs" for hierarchy "rs:b2v_RS_Add1" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 715
+Info (12128): Elaborating entity "rs" for hierarchy "rs:b2v_RS_Add1" File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/Tomasulo.vhd Line: 660
 Warning (10492): VHDL Process Statement warning at rs.vhd(184): signal "FU_tag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 184
 Warning (10631): VHDL Process Statement warning at rs.vhd(78): inferring latch(es) for signal or variable "alu_op_o", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
 Warning (10631): VHDL Process Statement warning at rs.vhd(78): inferring latch(es) for signal or variable "v_j_o", which holds its previous value in one or more paths through the process File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
@@ -794,10 +834,10 @@ Info (10041): Inferred latch for "alu_op_o[1]" at rs.vhd(78) File: C:/Users/aasa
 Info (10041): Inferred latch for "alu_op_o[2]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
 Info (10041): Inferred latch for "alu_op_o[3]" at rs.vhd(78) File: C:/Users/aasan/OneDrive/Documentos/Poli/10_Semester/OrgArcComp/projectTomasulo/Tomasulo/Tomasulo_no_mem/rs.vhd Line: 78
 Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 38 warnings
-    Info: Peak virtual memory: 4897 megabytes
-    Info: Processing ended: Tue Nov 05 14:50:07 2019
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 44 warnings
+    Info: Peak virtual memory: 4899 megabytes
+    Info: Processing ended: Wed Nov 06 14:53:09 2019
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:20
 
 
